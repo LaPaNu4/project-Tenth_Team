@@ -1,0 +1,117 @@
+.dropdown-library {
+  margin: 40px 0 16px;
+  display: inline-block;
+  position: relative;
+}
+
+.dropdown-toggle-library {
+  padding: 10px 56px 10px 16px;
+  width: 173px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  line-height: 16px;
+  background-color: var(--black);
+  border: 1px solid var(--white);
+}
+
+
+.dropdown-menu-library {
+  width: 172px;
+  background-color: var(--black);
+  border: 1px solid var(--white);
+  z-index: 5000;
+  border-radius: 8px;
+  display: none;
+  position: absolute;
+}
+
+.dropdown-item-library {
+  cursor: pointer;
+  border-bottom: 1px solid var(--white);
+  width: 100%;
+  padding: 14px 66px 10px 20px;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.dropdown-item-library:hover {
+  color: var(--orange);
+}
+
+.dropdown-item-library:active {
+  color: var(--orange);
+}
+
+.dropdown-item-library:last-child {
+  border: none;
+}
+
+.dropdown-toggle-library::before {
+  content: '';
+  position: absolute;
+  background-image: url(../images/chevron-down.svg);
+  bottom: 13px;
+  right: 14px;
+  display: block;
+  width: 16px;
+  height: 16px;
+  opacity: 10;
+  fill: var(--white);
+  transition: transform 0.3s;
+}
+
+.dropdown-toggle-library.rotated::before{
+  transform: rotate(180deg);
+}
+
+.dropdown-item-library.\.dropdown-item-library-color {
+  color: var(--orange);
+}
+
+@media screen and (min-width: 768px) {
+  .container {
+    width: 768px;
+    padding: 0 32px;
+  }
+
+  .dropdown-toggle-library {
+    padding: 12px 60px 12px 20px;
+    width: 144px;
+  }
+
+  .dropdown-item-library {
+    padding: 14px 66px 14px 20px;
+  }
+
+  .dropdown-menu-library {
+    width: 144px;
+  }
+
+  .dropdown-library {
+    margin: 60px 0 36px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .dropdown-library {
+    margin: 128px 0 48px 0;
+  }
+
+  .dropdown-toggle-library {
+    padding: 12px 188px 12px 20px;
+    width: 260px;
+    font-size: 16px;
+    line-height: 19px;
+  }
+
+  .dropdown-item-library {
+    padding: 14px 66px 14px 20px;
+    font-size: 16px;
+    line-height: 19px;
+  }
+
+  .dropdown-menu-library {
+    width: 260px;
+  }
+}
