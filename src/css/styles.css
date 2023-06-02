@@ -10,14 +10,39 @@
   font-family: Roboto-400;
   src: url(../font/Roboto-Regular.ttf);
 }
+:root {
+  --black: #111111;
+  --gray-dark: #282828;
+  --gray: #595959;
+  --gray-light: #B7B7B7;
+  --white: #FFFFFF;
+  --silver: #F8F8F8;
+  --orange: #F87719;
+  --gradient-1: linear-gradient(141.22deg, #FFC226 9.4%, #F84119 91.91%);
+  --gradient-2: linear-gradient(141.22deg, #F84119 9.4%, rgba(248, 159, 25, 0.68) 91.91%);
+}
 
 body {
   font-family: 'Roboto-400', sans-serif;
-  background: #111111;
+  background: var(--black);
+  color: var(--white);
 }
 .container {
   width: 100%;
   padding-left: 32px;
   padding-right: 32px;
   margin: 0 auto;
+}
+li{
+  list-style: none;
+}
+html {
+  scroll-behavior: smooth;
+}
+ul {
+  list-style: none;
+  padding: 0;
+}
+button {
+  cursor: pointer;
 }
