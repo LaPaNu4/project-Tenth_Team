@@ -1,5 +1,7 @@
 @import url(./hero.css);
 
+@import url(./catalog.css);
+
 @font-face {
   font-family: Roboto-700;
   src: url(../font/Roboto-Bold.ttf);
