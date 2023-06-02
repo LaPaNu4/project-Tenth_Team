@@ -5,5 +5,5 @@
 
 import "./js/catalog.js"
 
-import "./js/library-filter"
+import "./js/library-filter.js"
 
