@@ -4,3 +4,6 @@
 // import axios from 'axios'; | const axios = require('axios').default; https://axios-http.com/uk/docs/example
 
 import "./js/catalog.js"
+
+import "./js/library-filter"
+
