@@ -1,0 +1,135 @@
+h1,
+p {
+    margin: 0;
+}
+
+.hero-section {
+    min-width: 320px;
+    height: 380px;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    overflow: hidden;
+    background-image: linear-gradient(86.77deg, #111111 30.38%, rgba(17, 17, 17, 0) 65.61%),
+    url(../images/hero-img/hero-lib-mob-min.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    margin: 0 auto;
+  }
+
+  .hero-container {
+    width: 100%;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin: 0 auto;
+  }
+
+  .hero-title {
+    display: flex;    
+    width: 235px;
+    font-family: 'Roboto';
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 1.19;
+    align-items: center;
+    margin-bottom: 8px;    
+  }
+
+  .hero-text {
+    display: flex;
+    width: 249px;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.14;
+    align-items: center;
+    color: var(--silver);
+  }
+
+  @media (min-device-pixel-ratio: 2),
+  (min-resolution: 192dpi),
+  (min-resolution: 2dppx) {
+  .hero-section {
+    background-image: linear-gradient(86.77deg, #111111 30.38%, rgba(17, 17, 17, 0) 65.61%),
+    url(../images/hero-img/hero-lib-mob-2x-min.jpg);
+  }
+}
+  
+
+/*----MOBILE----*/
+
+/*----TABLET----*/
+@media screen and (min-width: 768px) {
+.hero-section {
+  width: 768px;
+  height: 432px;
+  padding-top: 62px;
+  padding-bottom: 62px;
+  background-image: linear-gradient(86.77deg, #111111 30.38%, rgba(17, 17, 17, 0) 65.61%),
+    url(../images/hero-img/hero-lib-tab-min.jpg);
+}
+
+.hero-container {
+  padding-left: 32px;
+  padding-right: 32px;
+}
+
+.hero-title {
+  width: 332px;
+  font-size: 44px;
+  line-height: 1.18;
+}
+
+.hero-text {
+  width: 357px;
+}
+
+@media (min-device-pixel-ratio: 2),
+(min-resolution: 192dpi),
+(min-resolution: 2dppx) {
+.hero-section {
+  background-image: linear-gradient(86.77deg, #111111 30.38%, rgba(17, 17, 17, 0) 65.61%),
+  url(../images/hero-img/hero-lib-tab-2x-min.jpg);
+}
+}
+}
+
+/*----DESKTOP----*/
+@media screen and (min-width: 1280px) {
+  .hero-section {
+    width: 1280px;
+    height: 720px;
+    padding-top: 169px;
+    padding-bottom: 169px;
+    background-image: linear-gradient(86.77deg, #111111 30.38%, rgba(17, 17, 17, 0) 65.61%),
+      url(../images/hero-img/hero-lib-desk-min.jpg);
+  }
+  
+  .hero-container {
+    padding-left: 117px;
+    padding-right: 117px;
+  }
+  
+  .hero-title {
+    width: 464px;
+    font-size: 64px;
+    line-height: 1.17;
+    margin-bottom: 16px;
+  }
+  
+  .hero-text {
+    width: 464px;
+    font-size: 16px;
+    line-height: 1.19;
+  }
+  
+  @media (min-device-pixel-ratio: 2),
+  (min-resolution: 192dpi),
+  (min-resolution: 2dppx) {
+  .hero-section {
+    background-image: linear-gradient(86.77deg, #111111 30.38%, rgba(17, 17, 17, 0) 65.61%),
+    url(../images/hero-img/hero-lib-desk-2x-min.jpg);
+  }
+  }
+  }
