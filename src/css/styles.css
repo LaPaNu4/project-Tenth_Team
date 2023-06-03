@@ -1,7 +1,6 @@
 @import url(./hero.css);
 @import url(./library.css);
 @import url(./catalog.css);
-@import url(./library-II.css);
 @import url(./rating.css);
 @import url(./footer.css);
 /* @import url() */
@@ -68,3 +67,24 @@ a {
   color: currentColor;
   text-decoration: none;
 }
+
+/*
+.container {
+  width: 100%;
+  padding: 0 20px;
+  margin: auto;
+}
+
+
+@media screen and (min-width: 768px) {
+  .container {
+    width: 768px;
+    padding: 0 32px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .container {
+    width: 1280px;
+  }
+}
+*/

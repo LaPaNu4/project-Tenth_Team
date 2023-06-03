@@ -6,36 +6,36 @@ const emptyGallery = document.querySelector('.empty-gallery');
 
 
 //adding dropdown functionality
-const dropContent = document.querySelector('.drop-content');
-const genresBtn = document.querySelector('.drop');
-const pickedGenre = document.querySelector('.drop-item');
+// const dropContent = document.querySelector('.drop-content');
+// const genresBtn = document.querySelector('.drop');
+// const pickedGenre = document.querySelector('.drop-item');
 
-const dropShow = () => {
-    if(dropContent.classList.contains('show')) {
-        dropContent.classList.remove('show');
-        dropContent.classList.add('hide');
-    } else {
-        dropContent.classList.add('show');
-        dropContent.classList.remove('hide');
-    }
-}
+// const dropShow = () => {
+//     if(dropContent.classList.contains('show')) {
+//         dropContent.classList.remove('show');
+//         dropContent.classList.add('hide');
+//     } else {
+//         dropContent.classList.add('show');
+//         dropContent.classList.remove('hide');
+//     }
+// }
 
-const chosenGenre = (e) => {
-    e.preventDefault();
-    let chosen = e.target;
-    console.log(chosen);
-    
-    chosen.classList.toggle('orange');
-    genresBtn.classList.remove('orange');
-
-    genresBtn.textContent = chosen.textContent;
-
-    dropContent.classList.remove('show');  
-    chosen.classList.remove('orange'); 
-}
-
-genresBtn.addEventListener('click', dropShow);
-dropContent.addEventListener('click', chosenGenre);
+// const chosenGenre = (e) => {
+//     e.preventDefault();
+//     let chosen = e.target;
+//     console.log(chosen);
+//
+//     chosen.classList.toggle('orange');
+//     genresBtn.classList.remove('orange');
+//
+//     genresBtn.textContent = chosen.textContent;
+//
+//     dropContent.classList.remove('show');
+//     chosen.classList.remove('orange');
+// }
+//
+// genresBtn.addEventListener('click', dropShow);
+// dropContent.addEventListener('click', chosenGenre);
 
 
 
@@ -60,7 +60,7 @@ const getStoredMovies = (e) => {
         year: year,
         rating: rating,
     };
-    
+
 
     const movies = localStorage.parse(localStorage.getItem(STORAGE));
 
@@ -78,7 +78,7 @@ const getStoredMovies = (e) => {
 }
 
 const movieMarkUp = (dataComing) => {
-    
+
     return dataComing.map(item => {
         const {img, title, genre, year, rating} = item;
         `
@@ -97,6 +97,6 @@ const movieMarkUp = (dataComing) => {
 //     searchMore.classList.add('show');
 //     searchMore.classList.remove('hide');
 //     selectGenre.classList.add('show');
-    
+
 // }
 
