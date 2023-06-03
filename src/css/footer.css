@@ -1,0 +1,11 @@
+.footer {
+font-family: 'Roboto';
+font-weight: 400;
+font-size: 14px;
+line-height: 1.14;
+display: flex;
+align-items: center;
+text-align: center;
+color: #B7B7B7;
+  background-color: inherit;
+}
