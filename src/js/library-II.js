@@ -4,6 +4,40 @@ const searchMore = document.querySelector('.search-more');
 const loadMore = document.querySelector('.load');
 const emptyGallery = document.querySelector('.empty-gallery');
 
+const dropContent = document.querySelector('.drop-content');
+const genresBtn = document.querySelector('.drop');
+const pickedGenre = document.querySelector('.drop-item');
+
+//adding dropdown functionality
+const dropShow = () => {
+    if(dropContent.classList.contains('show')) {
+        dropContent.classList.remove('show');
+        dropContent.classList.add('hide');
+    } else {
+        dropContent.classList.add('show');
+        dropContent.classList.remove('hide');
+    }
+}
+
+const chosenGenre = (e) => {
+    e.preventDefault();
+    let chosen = e.target;
+    console.log(chosen);
+    
+    chosen.classList.toggle('orange');
+
+    genresBtn.textContent = chosen.textContent;
+
+    dropContent.classList.remove('show');  
+    chosen.classList.remove('orange'); 
+}
+
+genresBtn.addEventListener('click', dropShow);
+dropContent.addEventListener('click', chosenGenre);
+
+
+
+
 
 
 const movies = [];

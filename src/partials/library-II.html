@@ -13,22 +13,27 @@
             </div>
         </div>
     </section>
-    
+ 
     <section>
         <div class="gallery container">
             
-            <select name="select" id="" class="genres">
-                <option value="romance">Romance</option>
-                <option value="detective">Detective</option>
-                <option value="thriller">Thriller</option>
-                <option value="action">Action</option>
-                <option value="documentary">Documentary</option>
-                <option value="horror">Horror</option>
-            </select>
-            <h1 class="movies"></h1>
-            <gallery class="movies-gallery list"></gallery>
-            <button type="submit" class="load">Load more</button>
-    
+            <div class="genres">
+                <button class="drop" data-value="any">Genres</button>
+                <div class="drop-content">
+                    <a href="#" class="drop-item" data-value="romance">Romance</a>
+                    <a href="#" class="drop-item" data-value="detective">Detective</a>
+                    <a href="#" class="drop-item" data-value="thriller">Thriller</a>
+                    <a href="#" class="drop-item" data-value="action">Action</a>
+                    <a href="#" class="drop-item" data-value="documentary">Documentary</a>
+                    <a href="#" class="drop-item" data-value="horror">Horror</a>
+                </div>
+            </div>
+
+            <div>
+                <gallery class="movies-gallery list"></gallery>
+                <button type="submit" class="load">Load more</button>
+            </div>
+
             <div class="empty-gallery">
                 <div class="notify">
                     <p class="notify-message">Ooops...<br/> We are very sorry! <br/> You don't have any movies at your library.
