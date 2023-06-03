@@ -16,422 +16,403 @@ body {
     padding-right: 20px;
 }
 
-/*-----------Mobile-------------*/
-
-.back {
-    padding-top: 40px;    
-    height: 380px;
-    background: linear-gradient(79.49deg, #111111 34.1%, rgba(17, 17, 17, 0) 64.67%), url('./images/seats.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-
-.choices, 
-.gallery,
-.choose {
-    background-color: #1C1C1C;
-}
-
 section {
     margin-top: 0;
     padding: 0;
 }
 
-.library-title {
-    padding-top: 0;
-    margin-top: 0;
-    margin-right: 0;
-    margin-bottom: 8px;
-    width: 235px;
-    font-family: 'Roboto';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 32px;
-    line-height: 38px;
-    color: white;
-    text-transform: capitalize;
-}
-
-.library-description {
-    width: 249px;
-    margin: 0;
-    margin-right: 0;
-    font-family: 'Roboto';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 16px;
-    color: white;
-}
-
-
-/*==========*/
-.genres {
-    width: 172px;
-    background-color: #1C1C1C;
-    border-color: white;
-    border-radius: 8px 8px 0px 0px;
-    padding-top: 14px;
-    padding-bottom: 10px;
-    padding-left: 20px;
-    color: white;
-}
-
-.genres option {
-    background-color: #1C1C1C;
-    border-color: white;
-    border-radius: 8px 8px 0px 0px;
-    padding-top: 14px;
-    padding-bottom: 10px;
-    padding-left: 20px;
-    color: white;
-}
-
-
-.gallery {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-}
-
-.load,
-.search-more {
-    margin-top: 24px;
-    margin-bottom: 40px;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 12px 24px 12px 24px;
-    width: 106px;
-    height: 38px;
-    background: linear-gradient(141.22deg, #FFC226 9.4%, #F84119 91.91%);
-    border-radius: 74px;
-    border: none;
-    font-family: 'Roboto';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 12px;
-    line-height: 14px;
-}
-
-.search-more {    
-    display: block;
-    width: 121px;
-    margin-top: 24px;
-    margin-bottom: 40px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.hide {
-    display: none;
-}
-
-.show {
-    display: block;
-}
-
-.movie {}
-.movie-img {}
-.movie-title {}
-.movie-genre {}
-.movie-year {}
-.movie-rating {}
-
-/* .empty-gallery {
-    display: none;
-} */
-
-
-.notify { 
-    margin-top: 44px;
-    margin: 0;
-}
-
-.notify-message{
+/*-----------Mobile-------------*/
+@media screen and (min-width: 320px) {
+    .back {
+        padding-top: 40px;    
+        height: 380px;
+        background: linear-gradient(79.49deg, #111111 34.1%, rgba(17, 17, 17, 0) 64.67%), url('./images/seats.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
     
-    margin-top: 0;
-    margin-bottom: 0;
-    margin-right: 0;
-    text-align: center;
-    color: white;   
-    font-family: 'Roboto';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 20px;
-    line-height: 28px;
-    /* or 140% */
+    .choices, 
+    .gallery,
+    .choose {
+        background-color: #1C1C1C;
+    }
+    
+    .library-title {
+        padding-top: 0;
+        margin-top: 0;
+        margin-right: 0;
+        margin-bottom: 8px;
+        width: 235px;
+        font-family: 'Roboto';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 32px;
+        line-height: 38px;
+        color: white;
+        text-transform: capitalize;
+    }
+    
+    .library-description {
+        width: 249px;
+        margin: 0;
+        margin-right: 0;
+        font-family: 'Roboto';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 16px;
+        color: white;
+    }
+    
 
+    .genres {
+        width: 172px;
+        background-color: #1C1C1C;
+        border-color: white;
+        border-radius: 8px 8px 0px 0px;
+        padding-top: 14px;
+        padding-bottom: 10px;
+        padding-left: 20px;
+        color: white;
+    }
+    
+    .genres option {
+        background-color: #1C1C1C;
+        border-color: white;
+        border-radius: 8px 8px 0px 0px;
+        padding-top: 14px;
+        padding-bottom: 10px;
+        padding-left: 20px;
+        color: white;
+    }
+    
+    
+    .gallery {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+    }
+    
+    .load,
+    .search-more {
+        margin-top: 24px;
+        margin-bottom: 40px;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 12px 24px 12px 24px;
+        width: 106px;
+        height: 38px;
+        background: linear-gradient(141.22deg, #FFC226 9.4%, #F84119 91.91%);
+        border-radius: 74px;
+        border: none;
+        font-family: 'Roboto';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 12px;
+        line-height: 14px;
+    }
+    
+    .search-more {    
+        display: block;
+        width: 121px;
+        margin-top: 24px;
+        margin-bottom: 40px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    .hide {
+        display: none;
+    }
+    
+    .show {
+        display: block;
+    }
+    
+    .movie {}
+    .movie-img {}
+    .movie-title {}
+    .movie-genre {}
+    .movie-year {}
+    .movie-rating {}
+    
+    /* .empty-gallery {
+        display: none;
+    } */
+    
+    
+    .notify { 
+        margin-top: 44px;
+        margin: 0;
+    }
+    
+    .notify-message{        
+        margin-top: 0;
+        margin-bottom: 0;
+        margin-right: 0;
+        text-align: center;
+        color: white;   
+        font-family: 'Roboto';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 20px;
+        line-height: 28px;
+    }
+    
 }
-
 /*-------------------Tablet--------------*/
-.container {
-    width: 768px;
-    margin-right: auto;
-    margin-left: auto;
-    padding-left: 32px;
-    padding-right: 32px;
-}
+@media screen and (min-width: 768px) {
+    .container {
+        width: 768px;
+        padding-left: 32px;
+        padding-right: 32px;
+    }
+    
+    .back {
+        padding-top: 62px;   
+        padding-bottom: 118px; 
+        height: 432px;
+        background: linear-gradient(79.49deg, #111111 34.1%, rgba(17, 17, 17, 0) 64.67%), url('./images/seats_tablet.jpg');
+    }
+        
+    .library-title {
+        width: 332px;
+        font-weight: 700;
+        font-size: 44px;
+        line-height: 52px;
+    }
+    
+    .library-description {
+        width: 357px;
+        margin: 0;
+        margin-right: 0;
+        color: #f8f8f8;
+    }
+    
+    
+    .genres {
+        width: 144px;
+        background-color: #282828;
+        border: 0.5px solid #B7B7B7;
+        border-radius: 8px 8px 0px 0px;
+        padding-top: 14px;
+        padding-bottom: 10px;
+        padding-left: 20px;
+        color: white;
+    }
+    
+    .genres option {
+        background-color: #1C1C1C;
+        border-color: white;
+        border-radius: 8px 8px 0px 0px;
+        padding-top: 14px;
+        padding-bottom: 10px;
+        padding-left: 20px;
+        color: white;
+    }
+    
+    
+    .gallery {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+    }
+    
+    .load,
+    .search-more {
+        margin-top: 24px;
+        margin-bottom: 40px;
+        
+        width: 106px;
+        height: 38px;
+        font-weight: 500;
+        font-size: 12px;
+        line-height: 14px;
+    }
+    
+    .search-more {    
+        display: block;
+        width: 121px;
+        margin-top: 24px;
+        margin-bottom: 40px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    .movie {
+        width: 224px;
+        height: 325px;
+    }
+    /* .movie-img {} */
+    
+    .movie-title {
+        font-family: 'Roboto';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 12px;
+        line-height: 18px;    
+        text-transform: uppercase;
+    }
 
-.back {
-    padding-top: 62px;   
-    padding-bottom: 118px; 
-    height: 432px;
-    background: linear-gradient(79.49deg, #111111 34.1%, rgba(17, 17, 17, 0) 64.67%), url('./images/seats_tablet.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-
-
-.library-title {
-    width: 332px;
-    font-family: 'Roboto';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 44px;
-    line-height: 52px;
-
-}
-
-.library-description {
-    width: 357px;
-    margin: 0;
-    margin-right: 0;
-    color: #f8f8f8;
-}
-
-
-/*==========*/
-.genres {
-    width: 144px;
-    background-color: #282828;
-    border: 0.5px solid #B7B7B7;
-    border-radius: 8px 8px 0px 0px;
-    padding-top: 14px;
-    padding-bottom: 10px;
-    padding-left: 20px;
-    color: white;
-}
-
-.genres option {
-    background-color: #1C1C1C;
-    border-color: white;
-    border-radius: 8px 8px 0px 0px;
-    padding-top: 14px;
-    padding-bottom: 10px;
-    padding-left: 20px;
-    color: white;
-}
-
-
-.gallery {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-}
-
-.load,
-.search-more {
-    margin-top: 24px;
-    margin-bottom: 40px;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 12px 24px 12px 24px;
-    width: 106px;
-    height: 38px;
-    background: linear-gradient(141.22deg, #FFC226 9.4%, #F84119 91.91%);
-    border-radius: 74px;
-    border: none;
-    font-family: 'Roboto';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 12px;
-    line-height: 14px;
-}
-
-.search-more {    
-    display: block;
-    width: 121px;
-    margin-top: 24px;
-    margin-bottom: 40px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.movie {
-    width: 224px;
-    height: 325px;
-}
-.movie-img {}
-
-.movie-title {
-    font-family: 'Roboto';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 12px;
-    line-height: 18px;
-    /* or 150% */
-
-    text-transform: uppercase;
-}
-.movie-genre,
-.movie-year {
-    font-family: 'Roboto';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 12px;
-    line-height: 18px;  
-}
-
-.movie-rating {}
-
-/* .empty-gallery {
-    display: none;
-} */
-
-
-.notify { 
-    margin-top: 44px;
-    margin: 0;
-}
-
-.notify-message{    
-    margin-top: 0;
-    margin-bottom: 0;
-    margin-right: 0;
-    text-align: center;
-    color: white;   
-    font-family: 'Roboto';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 20px;
-    line-height: 28px;
-    /* or 140% */
-
+    .movie-genre,
+    .movie-year {
+        font-family: 'Roboto';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 12px;
+        line-height: 18px;  
+    }
+    
+    /* .movie-rating {} */
+    
+    /* .empty-gallery {
+        display: none;
+    } */
+        
+    .notify { 
+        margin-top: 44px;
+        margin: 0;
+    }
+    
+    .notify-message{    
+        margin-top: 0;
+        margin-bottom: 0;
+        margin-right: 0;
+        text-align: center;
+        color: white;   
+        font-family: 'Roboto';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 20px;
+        line-height: 28px;    
+    }
 }
 
 /*------------Desktop--------------*/
-.container {
-    width: 1280px;
-    padding-left: 117px;
-    padding-right: 117px;
-}
-
-.back {
-    padding-top: 169px;   
-    padding-bottom: 249px; 
-    height: 720px;
-    background: linear-gradient(79.49deg, #111111 34.1%, rgba(17, 17, 17, 0) 64.67%), url('./images/seats_tablet.jpg');
-}
-
-.library-title {
-    width: 464px;
-    font-size: 64px;
-    line-height: 75px;
-}
-
-.library-description {
-    width: 464px;
-    font-size: 16px;
-    line-height: 19px;
-}
-
-
-/*==========*/
-.genres {
-    width: 260px;
-}
-
-.genres option {
-    background-color: #1C1C1C;
-    border-color: white;
-    border-radius: 8px 8px 0px 0px;
-    padding-top: 14px;
-    padding-bottom: 10px;
-    padding-left: 20px;
-    color: white;
-}
-
-.gallery {
-    display: flex;
-    flex-direction: column;
-}
-
-.load,
-.search-more {
-    margin-top: 24px;
-    margin-bottom: 40px;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 12px 24px 12px 24px;
-    width: 134px;
-    height: 52px;
-    border: none;
-
-    font-size: 18px;
-    line-height: 28px;
-}
-
-.search-more {    
-    display: block;
-    width: 158px;
-    margin-top: 24px;
-    margin-bottom: 40px;
-}
-
-
-.movie {
-    width: 394px;
-    height: 574px;
-}
-.movie-img {}
-
-.movie-title {
-    font-family: 'Roboto';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 12px;
-    line-height: 18px;
-    /* or 150% */
-
-    text-transform: uppercase;
-}
-.movie-genre,
-.movie-year {
-    font-family: 'Roboto';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 12px;
-    line-height: 18px;  
-}
-
-.movie-rating {}
-
-/* .empty-gallery {
-    display: none;
-} */
-
-
-.notify { 
-    margin-top: 44px;
-    margin: 0;
-}
-
-.notify-message{
+@media screen and (min-width: 1280px) {
+    .container {
+        width: 1280px;
+        padding-left: 117px;
+        padding-right: 117px;
+    }
     
-    margin-top: 0;
-    margin-bottom: 0;
-    margin-right: 0;
-    text-align: center;
-    color: white;   
-    font-family: 'Roboto';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 20px;
-    line-height: 28px;
-    /* or 140% */
-
+    .back {
+        padding-top: 169px;   
+        padding-bottom: 249px; 
+        height: 720px;
+        background: linear-gradient(79.49deg, #111111 34.1%, rgba(17, 17, 17, 0) 64.67%), url('./images/seats_tablet.jpg');
+    }
+    
+    .library-title {
+        width: 464px;
+        font-size: 64px;
+        line-height: 75px;
+    }
+    
+    .library-description {
+        width: 464px;
+        font-size: 16px;
+        line-height: 19px;
+    }
+    
+    
+    /*==========*/
+    .genres {
+        width: 260px;
+    }
+    
+    .genres option {
+        background-color: #1C1C1C;
+        border-color: white;
+        border-radius: 8px 8px 0px 0px;
+        padding-top: 14px;
+        padding-bottom: 10px;
+        padding-left: 20px;
+        color: white;
+    }
+    
+    .gallery {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .load,
+    .search-more {
+        margin-top: 24px;
+        margin-bottom: 40px;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 12px 24px 12px 24px;
+        width: 134px;
+        height: 52px;
+        border: none;
+    
+        font-size: 18px;
+        line-height: 28px;
+    }
+    
+    .search-more {    
+        display: block;
+        width: 158px;
+        margin-top: 24px;
+        margin-bottom: 40px;
+    }
+    
+    
+    .movie {
+        width: 394px;
+        height: 574px;
+    }
+    .movie-img {}
+    
+    .movie-title {
+        font-family: 'Roboto';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 12px;
+        line-height: 18px;
+        /* or 150% */
+    
+        text-transform: uppercase;
+    }
+    .movie-genre,
+    .movie-year {
+        font-family: 'Roboto';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 12px;
+        line-height: 18px;  
+    }
+    
+    .movie-rating {}
+    
+    /* .empty-gallery {
+        display: none;
+    } */
+    
+    
+    .notify { 
+        margin-top: 44px;
+        margin: 0;
+    }
+    
+    .notify-message{
+        
+        margin-top: 0;
+        margin-bottom: 0;
+        margin-right: 0;
+        text-align: center;
+        color: white;   
+        font-family: 'Roboto';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 20px;
+        line-height: 28px;
+        /* or 140% */
+    
+    }
+    
+    
+    
 }
-
-
-
 
