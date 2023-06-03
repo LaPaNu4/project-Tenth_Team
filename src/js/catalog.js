@@ -1,20 +1,21 @@
 import axios from 'axios';
-// import Notiflix from 'notiflix';
-const URL =
-  'https://api.themoviedb.org/3/trending/all/week?api_key=d30846261444a5a49dd702fa51e06838';
+import Notiflix from 'notiflix';
+const URL = 'https://api.themoviedb.org/3/';
+// 'https://api.themoviedb.org/3/trending/all/week?api_key=d30846261444a5a49dd702fa51e06838';
+const KEY = 'api_key=d30846261444a5a49dd702fa51e06838';
 
 const catalogList = document.getElementById('catalog-list');
-console.log(catalogList);
+const searchForm = document.getElementById('search-form');
 
-async function getTopFilmsDData() {
-  const response = await axios.get(URL);
+async function getTopFilmsData() {
+  const response = await axios.get(`${URL}trending/all/week?${KEY}`);
   const results = response.data.results;
   console.log(results);
 
   return results;
 }
 
-getTopFilmsDData().then(createTopFilmsMarkup).then(renderTopFilmsMarkup);
+getTopFilmsData().then(createTopFilmsMarkup).then(renderTopFilmsMarkup);
 
 function createTopFilmsMarkup(results) {
   if (!results) {
@@ -32,6 +33,9 @@ function createTopFilmsMarkup(results) {
       if (!filmName) {
         filmName = 'Unknown';
       }
+
+      // const jenres = result.genre_ids.map(jenre => console.log(jenre));
+      // console.log(jenres);
 
       return `<li class="catalog-item">
             <div class="photo-card">
@@ -55,4 +59,30 @@ function createTopFilmsMarkup(results) {
 
 function renderTopFilmsMarkup(markup) {
   catalogList.innerHTML = markup;
+}
+
+async function getFilmsData(request) {
+  console.log(request);
+  const response = await axios.get(
+    `${URL}search/movie?${KEY}&query=${request}`
+  );
+  const results = response.data.results;
+  console.log(results);
+
+  return results;
+}
+
+searchForm.addEventListener('submit', handleSubmit);
+
+function handleSubmit(event) {
+  event.preventDefault();
+  const searchQuery = searchForm.searchQuery.value.trim();
+  getFilmsData(searchQuery)
+    .then(createTopFilmsMarkup)
+    .then(renderTopFilmsMarkup)
+    .then(clearSearchForm);
+}
+
+function clearSearchForm() {
+  searchForm.searchQuery.value = '';
 }
