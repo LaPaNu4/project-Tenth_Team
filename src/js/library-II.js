@@ -4,11 +4,12 @@ const searchMore = document.querySelector('.search-more');
 const loadMore = document.querySelector('.load');
 const emptyGallery = document.querySelector('.empty-gallery');
 
+
+//adding dropdown functionality
 const dropContent = document.querySelector('.drop-content');
 const genresBtn = document.querySelector('.drop');
 const pickedGenre = document.querySelector('.drop-item');
 
-//adding dropdown functionality
 const dropShow = () => {
     if(dropContent.classList.contains('show')) {
         dropContent.classList.remove('show');
