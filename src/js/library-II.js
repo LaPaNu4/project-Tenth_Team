@@ -4,11 +4,12 @@ const searchMore = document.querySelector('.search-more');
 const loadMore = document.querySelector('.load');
 const emptyGallery = document.querySelector('.empty-gallery');
 
+
+//adding dropdown functionality
 const dropContent = document.querySelector('.drop-content');
 const genresBtn = document.querySelector('.drop');
 const pickedGenre = document.querySelector('.drop-item');
 
-//adding dropdown functionality
 const dropShow = () => {
     if(dropContent.classList.contains('show')) {
         dropContent.classList.remove('show');
@@ -25,6 +26,7 @@ const chosenGenre = (e) => {
     console.log(chosen);
     
     chosen.classList.toggle('orange');
+    genresBtn.classList.remove('orange');
 
     genresBtn.textContent = chosen.textContent;
 
@@ -38,14 +40,14 @@ dropContent.addEventListener('click', chosenGenre);
 
 
 
-//localStorage
+
 
 const movies = [];
 const STORAGE = 'movies-from-storage';
 
-loadMore.classList.add('hide');
+//loadMore.classList.add('hide');
 // selectGenre.classList.add('hide');
-emptyGallery.classList.add('show');
+//emptyGallery.classList.add('hide');
 
 
 const getStoredMovies = (e) => {

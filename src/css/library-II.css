@@ -16,332 +16,346 @@ body {
     padding-right: 20px;
 }
 
-
-/*-----------Mobile-------------*/
-
-.back {
-    padding-top: 40px;    
-    height: 380px;
-    background: linear-gradient(79.49deg, #111111 34.1%, rgba(17, 17, 17, 0) 64.67%), url('./images/seats.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-
-.choices, 
-.gallery,
-.choose {
-    background-color: #1C1C1C;
-}
-
+ 
 section {
     margin-top: 0;
     padding: 0;
 }
 
-.library-title {
-    padding-top: 0;
-    margin-top: 0;
-    margin-right: 0;
-    margin-bottom: 8px;
-    width: 235px;
-    font-family: 'Roboto';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 32px;
-    line-height: 38px;
-    color: white;
-    text-transform: capitalize;
-}
-
-.library-description {
-    width: 249px;
-    margin: 0;
-    margin-right: 0;
-    font-family: 'Roboto';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 16px;
-    color: white;
-}
-
-
-/*==========*/
-
-.drop {
-    background-color: #1C1C1C;
-    width: 172px;
-    color: white;
-    padding: 14px;
-    font-size: 14px;
-    border: white;
-    cursor: pointer;
-}
-
-.drop:hover,
-.drop:focus {
-    color: orange;
-}
-
-.genres {
-    position: relative;
+/*-----------Mobile-------------*/
+@media screen and (min-width: 480px) {
+    .back {
+        padding-top: 40px;    
+        height: 380px;
+        background: linear-gradient(79.49deg, #111111 34.1%, rgba(17, 17, 17, 0) 64.67%), url('./images/seats.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
     
-    width: 172px;
-    background-color: #1C1C1C;
-    border-color: white;
-    border-radius: 8px 8px 0px 0px;
-    padding-top: 14px;
-    padding-bottom: 10px;
-    padding-left: 20px;
-    color: white;
-}
-
-.drop-content {
-    display: none;
-    position: absolute;
-    background-color: #1c1c1c;
-    min-width: 172px;
-    z-index: 1;
-}
-
-.drop-content a {
-    color: white;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-}
-
-.drop-content a:hover {
-    color: orange;
-}
-
-.drop-content a.orange {
-    color: orange;
-}
-/*---------------*/
-.gallery {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-}
-
-.load,
-.search-more {
-    margin-top: 24px;
-    margin-bottom: 40px;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 12px 24px 12px 24px;
-    width: 106px;
-    height: 38px;
-    background: linear-gradient(141.22deg, #FFC226 9.4%, #F84119 91.91%);
-    border-radius: 74px;
-    border: none;
-    font-family: 'Roboto';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 12px;
-    line-height: 14px;
-}
-
-.search-more {    
-    display: block;
-    width: 121px;
-    margin-top: 24px;
-    margin-bottom: 40px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.hide {
-    display: none;
-}
-
-.show {
-    display: block;
-}
-
-.movie {}
-.movie-img {}
-.movie-title {}
-.movie-genre {}
-.movie-year {}
-.movie-rating {}
-
-/* .empty-gallery {
-    display: none;
-} */
-
-
-.notify { 
-    margin-top: 44px;
-    margin: 0;
-}
-
-.notify-message{
+    .choices, 
+    .gallery,
+    .choose {
+        background-color: #1C1C1C;
+    }
+       
+    .library-title {
+        padding-top: 0;
+        margin-top: 0;
+        margin-right: 0;
+        margin-bottom: 8px;
+        width: 235px;
+        font-family: 'Roboto';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 32px;
+        line-height: 38px;
+        color: white;
+        text-transform: capitalize;
+    }
     
-    margin-top: 0;
-    margin-bottom: 0;
-    margin-right: 0;
-    text-align: center;
-    color: white;   
-    font-family: 'Roboto';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 20px;
-    line-height: 28px;
-    /* or 140% */
+    .library-description {
+        width: 249px;
+        margin: 0;
+        margin-right: 0;
+        font-family: 'Roboto';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 16px;
+        color: white;
+    }
+        
+    /*====DROP======*/
+    
+    .drop {
+        padding-top: 14px;
+        padding-bottom: 10px;
+        padding-left: 10px;
+        margin-bottom: 1px;
+        background-color: #1C1C1C;
+        width: 100%;
+        border-radius: 8px 8px 8px 8px;
+        text-align: left;
+        border: white;
+        cursor: pointer;
+        font-family: 'Roboto';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 20px;
+        color: #F8F8F8;
+    }
+    
+    .drop:hover,
+    .drop:focus {
+        color: #F87719;
+    }
+    
+    .genres {
+        position: relative;        
+        width: 172px;        
+        background-color: #1C1C1C;
+        border-color: white;
+        border-radius: 8px 8px 8px 8px;
+        border: 1px solid #FFFFFF;
+        color: white;    
+    }
+    
+    .drop-content {
+        display: none;
+        position: absolute;
+        background-color: #1c1c1c;
+        border: 1px solid #FFFFFF;
+        border-radius: 8px 8px 8px 8px;
+        width: 172px;
+        cursor: pointer;
+        font-family: 'Roboto';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 20px;
+        color: #F8F8F8;
+        z-index: 1;
+    }
+    
+    .drop-content a {
+        color: white;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+        border: 1px solid #FFFFFF;
+    }
 
+    .drop-content a:first-child {
+        border-radius: 8px 8px 0px 0px;
+    }
+
+    .drop-content a:last-child {
+        border-radius: 0px 0px 8px 8px;
+    }
+    
+    .drop-content a:hover {
+        color: #F87719;
+    }
+    
+    .drop-content a.orange {
+        color: #F87719;
+    }
+    /*---------------*/
+    .gallery {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+    }
+    
+    .load,
+    .search-more {
+        margin-top: 24px;
+        margin-bottom: 40px;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 12px 24px;
+        width: 106px;
+        height: 38px;
+        background: linear-gradient(141.22deg, #FFC226 9.4%, #F84119 91.91%);
+        border-radius: 74px;
+        border: none;
+        font-family: 'Roboto';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 12px;
+        line-height: 14px;
+    }
+    
+    .search-more {    
+        display: block;
+        width: 121px;
+        margin-top: 24px;
+        margin-bottom: 40px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    .hide {
+        display: none;
+    }
+    
+    .show {
+        display: block;
+    }
+    
+    .movie {}
+    .movie-img {}
+    .movie-title {}
+    .movie-genre {}
+    .movie-year {}
+    .movie-rating {}
+    
+    /* .empty-gallery {
+        display: none;
+    } */
+    
+    
+    .notify { 
+        margin-top: 44px;
+        margin: 0;
+    }
+    
+    .notify-message{
+        
+        margin-top: 0;
+        margin-bottom: 0;
+        margin-right: 0;
+        text-align: center;
+        color: white;   
+        font-family: 'Roboto';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 20px;
+        line-height: 28px;  
+    }
 }
 
 /*-------------------Tablet--------------*/
-.container {
-    width: 768px;
-    margin-right: auto;
-    margin-left: auto;
-    padding-left: 32px;
-    padding-right: 32px;
+@media screen and (min-width: 768px) {
+    .container {
+        width: 768px;
+        margin-right: auto;
+        margin-left: auto;
+        padding-left: 32px;
+        padding-right: 32px;
+    }
+    
+    .back {
+        padding-top: 62px;   
+        padding-bottom: 118px; 
+        height: 432px;
+        background: linear-gradient(79.49deg, #111111 34.1%, rgba(17, 17, 17, 0) 64.67%), url('./images/seats_tablet.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    
+    .library-title {
+        width: 332px;
+        font-family: 'Roboto';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 44px;
+        line-height: 52px;
+    }
+    
+    .library-description {
+        width: 357px;
+        margin: 0;
+        margin-right: 0;
+        color: #f8f8f8;
+    }
+    
+      /*====DROP======*/
+        
+       
+    .genres {
+        position: relative;        
+        width: 144px;         
+    }
+    
+    .drop-content {
+        width: 144px;
+    }
+    
+    .drop-content a {
+        color: #f8f8f8;
+        padding: 12px 16px;
+    }
+
+    /*------------Gallery---------*/
+        
+    .gallery {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+    }
+    
+    .load,
+    .search-more {
+        margin-top: 24px;
+        margin-bottom: 40px;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 12px 24px 12px 24px;
+        width: 106px;
+        height: 38px;
+        background: linear-gradient(141.22deg, #FFC226 9.4%, #F84119 91.91%);
+        border-radius: 74px;
+        border: none;
+        font-family: 'Roboto';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 12px;
+        line-height: 14px;
+    }
+    
+    .search-more {    
+        display: block;
+        width: 121px;
+        margin-top: 24px;
+        margin-bottom: 40px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    .movie {
+        width: 224px;
+        height: 325px;
+    }
+    .movie-img {}
+    
+    .movie-title {
+        font-family: 'Roboto';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 12px;
+        line-height: 18px;
+        text-transform: uppercase;
+    }
+    .movie-genre,
+    .movie-year {
+        font-family: 'Roboto';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 12px;
+        line-height: 18px;  
+    }
+    
+    .movie-rating {}*/
+    
+    /* .empty-gallery {
+        display: none;
+    } */
+    
+    
+    .notify { 
+        margin-top: 44px;
+        margin: 0;
+    }
+    
+    .notify-message{    
+        margin-top: 0;
+        margin-bottom: 0;
+        margin-right: 0;
+        text-align: center;
+        color: white;   
+        font-family: 'Roboto';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 24px;
+        line-height: 32px;   
+    }
+    
 }
-
-.back {
-    padding-top: 62px;   
-    padding-bottom: 118px; 
-    height: 432px;
-    background: linear-gradient(79.49deg, #111111 34.1%, rgba(17, 17, 17, 0) 64.67%), url('./images/seats_tablet.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-
-
-.library-title {
-    width: 332px;
-    font-family: 'Roboto';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 44px;
-    line-height: 52px;
-
-}
-
-.library-description {
-    width: 357px;
-    margin: 0;
-    margin-right: 0;
-    color: #f8f8f8;
-}
-
-
-/*==========*/
-.genres {
-    width: 144px;
-    background-color: #282828;
-    border: 0.5px solid #B7B7B7;
-    border-radius: 8px 8px 0px 0px;
-    padding-top: 14px;
-    padding-bottom: 10px;
-    padding-left: 20px;
-    color: white;
-}
-
-.genres option {
-    background-color: #1C1C1C;
-    border-color: white;
-    border-radius: 8px 8px 0px 0px;
-    padding-top: 14px;
-    padding-bottom: 10px;
-    padding-left: 20px;
-    color: white;
-}
-
-
-.gallery {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-}
-
-.load,
-.search-more {
-    margin-top: 24px;
-    margin-bottom: 40px;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 12px 24px 12px 24px;
-    width: 106px;
-    height: 38px;
-    background: linear-gradient(141.22deg, #FFC226 9.4%, #F84119 91.91%);
-    border-radius: 74px;
-    border: none;
-    font-family: 'Roboto';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 12px;
-    line-height: 14px;
-}
-
-.search-more {    
-    display: block;
-    width: 121px;
-    margin-top: 24px;
-    margin-bottom: 40px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.movie {
-    width: 224px;
-    height: 325px;
-}
-.movie-img {}
-
-.movie-title {
-    font-family: 'Roboto';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 12px;
-    line-height: 18px;
-    /* or 150% */
-
-    text-transform: uppercase;
-}
-.movie-genre,
-.movie-year {
-    font-family: 'Roboto';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 12px;
-    line-height: 18px;  
-}
-
-.movie-rating {}
-
-/* .empty-gallery {
-    display: none;
-} */
-
-
-.notify { 
-    margin-top: 44px;
-    margin: 0;
-}
-
-.notify-message{    
-    margin-top: 0;
-    margin-bottom: 0;
-    margin-right: 0;
-    text-align: center;
-    color: white;   
-    font-family: 'Roboto';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 20px;
-    line-height: 28px;
-    /* or 140% */
-
-}
-
 /*------------Desktop--------------*/
-.container {
+@media screen and (min-width: 1280px) {
+    .container {
     width: 1280px;
     padding-left: 117px;
     padding-right: 117px;
@@ -358,29 +372,26 @@ section {
     width: 464px;
     font-size: 64px;
     line-height: 75px;
+    margin-bottom: 16px;
 }
 
 .library-description {
     width: 464px;
     font-size: 16px;
     line-height: 19px;
+    color: #f8f8f8;
 }
 
 
 /*==========*/
-.genres {
+ .genres {
     width: 260px;
 }
 
-.genres option {
-    background-color: #1C1C1C;
-    border-color: white;
-    border-radius: 8px 8px 0px 0px;
-    padding-top: 14px;
-    padding-bottom: 10px;
-    padding-left: 20px;
-    color: white;
+.drop-content {
+    width: 260px;
 }
+
 
 .gallery {
     display: flex;
@@ -397,7 +408,6 @@ section {
     width: 134px;
     height: 52px;
     border: none;
-
     font-size: 18px;
     line-height: 28px;
 }
@@ -408,7 +418,6 @@ section {
     margin-top: 24px;
     margin-bottom: 40px;
 }
-
 
 .movie {
     width: 394px;
@@ -422,8 +431,6 @@ section {
     font-weight: 500;
     font-size: 12px;
     line-height: 18px;
-    /* or 150% */
-
     text-transform: uppercase;
 }
 .movie-genre,
@@ -444,22 +451,18 @@ section {
 
 .notify { 
     margin-top: 44px;
-    margin: 0;
+    margin-right: auto;
+    margin-left: auto;
 }
 
-.notify-message{
-    
+.notify-message{    
     margin-top: 0;
     margin-bottom: 0;
     margin-right: 0;
-    text-align: center;
-    color: white;   
-    font-family: 'Roboto';
-    font-style: normal;
     font-weight: 400;
-    font-size: 20px;
-    line-height: 28px;
-    /* or 140% */
+    font-size: 32px;
+    line-height: 36px;   
 
+}
 }
 
