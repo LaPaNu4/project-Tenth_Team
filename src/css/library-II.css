@@ -23,14 +23,23 @@ section {
 }
 
 /*-----------Mobile-------------*/
-@media screen and (min-width: 480px) {
+@media screen and (min-width: 320px) {
     .back {
         padding-top: 40px;    
         height: 380px;
-        background: linear-gradient(79.49deg, #111111 34.1%, rgba(17, 17, 17, 0) 64.67%), url('./images/seats.jpg');
+        background: linear-gradient(79.49deg, #111111 34.1%, rgba(17, 17, 17, 0) 64.67%), url('../images/hero-img/hero-lib-mob-min.jpg');
         background-repeat: no-repeat;
         background-size: cover;
     }
+
+    @media (min-device-pixel-ratio: 2),
+    (min-resolution: 192dpi),
+    (min-resolution: 2dppx) {
+    .back {
+        background-image: linear-gradient(79.49deg, #111111 34.1%, rgba(17, 17, 17, 0) 64.67%),
+        url('../images/hero-img/hero-lib-mob-2x-min.jpg');
+  }
+}
     
     .choices, 
     .gallery,
@@ -230,10 +239,19 @@ section {
         padding-top: 62px;   
         padding-bottom: 118px; 
         height: 432px;
-        background: linear-gradient(79.49deg, #111111 34.1%, rgba(17, 17, 17, 0) 64.67%), url('./images/seats_tablet.jpg');
+        background: linear-gradient(79.49deg, #111111 34.1%, rgba(17, 17, 17, 0) 64.67%), url('../images/hero-img/hero-lib-tab-min.jpg');
         background-repeat: no-repeat;
         background-size: cover;
     }
+
+    @media (min-device-pixel-ratio: 2),
+        (min-resolution: 192dpi),
+        (min-resolution: 2dppx) {
+        .back {
+        background-image: linear-gradient(79.49deg, #111111 34.1%, rgba(17, 17, 17, 0) 64.67%),
+        url('../images/hero-img/hero-lib-tab-2x-min.jpg');
+        }
+        }
     
     .library-title {
         width: 332px;
@@ -365,8 +383,17 @@ section {
     padding-top: 169px;   
     padding-bottom: 249px; 
     height: 720px;
-    background: linear-gradient(79.49deg, #111111 34.1%, rgba(17, 17, 17, 0) 64.67%), url('./images/seats_tablet.jpg');
+    background: linear-gradient(79.49deg, #111111 34.1%, rgba(17, 17, 17, 0) 64.67%), url('../images/hero-img/hero-lib-desk-min.jpg');
 }
+
+@media (min-device-pixel-ratio: 2),
+  (min-resolution: 192dpi),
+  (min-resolution: 2dppx) {
+  .back {
+    background-image: linear-gradient(79.49deg, #111111 34.1%, rgba(17, 17, 17, 0) 64.67%),
+    url('../images/hero-img/hero-lib-desk-2x-min.jpg');
+  }
+  }
 
 .library-title {
     width: 464px;
