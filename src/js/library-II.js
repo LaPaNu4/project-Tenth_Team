@@ -38,14 +38,14 @@ dropContent.addEventListener('click', chosenGenre);
 
 
 
-
+//localStorage
 
 const movies = [];
 const STORAGE = 'movies-from-storage';
 
 loadMore.classList.add('hide');
 // selectGenre.classList.add('hide');
-emptyGallery.classList.add('hide');
+emptyGallery.classList.add('show');
 
 
 const getStoredMovies = (e) => {
