@@ -7,3 +7,8 @@ import "./js/catalog.js"
 
 import "./js/library-filter.js"
 
+import './js/footer-modal.js'
+
+import './js/library-II.js'
+
+import './js/rating.js'
