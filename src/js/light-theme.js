@@ -15,7 +15,9 @@ document.querySelector('.themetoggle').addEventListener('click', (event) => {
               document.querySelector('body').classList.add('light');
               document.querySelector('.main-header').classList.add('light');
               document.querySelector('.mobile-menu').classList.add('light');
-              document.querySelector('.mobile-menu-link').classList.add('lightblack');
+              document.querySelectorAll('.mobile-menu-link').forEach(mobileItem=>{
+                mobileItem.classList.add('lightblack')
+              })
               document.querySelector('.text-logo').classList.add('lightblack');
               document.querySelector('.links').classList.add('lightcolor');
               document.querySelector('.menu-btn-mobile').classList.add('lightcolor');
@@ -27,7 +29,9 @@ document.querySelector('.themetoggle').addEventListener('click', (event) => {
             else {
                 document.querySelector('body').classList.remove('light');
                 document.querySelector('.mobile-menu').classList.remove('light');
-                document.querySelector('.mobile-menu-link').classList.remove('lightblack');
+                document.querySelectorAll('.mobile-menu-link').forEach(mobileItem=>{
+                  mobileItem.classList.remove('lightblack');
+                })
                 document.querySelector('.text-logo').classList.remove('lightblack');
                 document.querySelector('.links').classList.remove('lightcolor');
                 document.querySelector('.menu-btn-mobile').classList.remove('lightcolor');

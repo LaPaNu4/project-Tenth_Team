@@ -97,6 +97,7 @@
     opacity: 1;
     transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
     padding: 0 18px;
+    z-index: 950;
 }
 .backdrop.is-hidden {
     opacity: 0;
