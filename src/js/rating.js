@@ -1,10 +1,15 @@
 // основна функція
 
-console.log(111)
+const API_KEY = '1e886de40b098591f9b7dbcf56dc1fe5';
+const URL = 'https://api.themoviedb.org/3/movie/{movie_id}/rating';
+
+const ratings = document.querySelectorAll('.rating');
+if (ratings.length > 0) {
+    initRatings();
+}
 
 function initRatings() {
-    let ratingActive;
-    
+    let ratingActive, ratingValue;   
     for (let index = 0; index < ratings.length; index++){
         const rating = ratings[index];
         initRating(rating);
@@ -62,8 +67,7 @@ function setRating(rating) {
     }
 }
 
-const API_KEY = '1e886de40b098591f9b7dbcf56dc1fe5';
-const URL = 'https://api.themoviedb.org/3/movie/{movie_id}/rating';
+
 
 
 
