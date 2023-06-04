@@ -4,21 +4,25 @@ const menu = document.querySelector(".mobile-menu")
 const backdrop = document.querySelector(".backdrop")
 btn.addEventListener("click", onBtnClick)
 backdrop.addEventListener("click", onBackClick)
-const navLinks = document.querySelectorAll(".menu-link")
-const windwowPathname = window.location.pathname
+const navLinks = document.querySelectorAll('.menu-link')
 navLinks.forEach(link =>{
-    const navLinkPathname = new URL(link.href).pathname
-    if((windwowPathname === navLinkPathname) || (windwowPathname === '/index.html' && navLinkPathname === '/')){
-        link.classList.add('active')
+    if((link.href === window.location.href)){
+        link.classList.add("active")
+    }else if(window.location.pathname === '/'){
+        navLinks[0].classList.add("active")
+    }else{
+        link.classList.remove('active')
     }
 })
-
 // phone
 const mobNavLinks = document.querySelectorAll('.mobile-menu-link')
 mobNavLinks.forEach(link =>{
-    const navLinkPathname = new URL(link.href).pathname
-    if((windwowPathname === navLinkPathname) || (windwowPathname === '/index.html' && navLinkPathname === '/')){
-        link.classList.add('active')
+    if((link.href === window.location.href)){
+        link.classList.add("active")
+    }else if(window.location.pathname === '/'){
+        mobNavLinks[0].classList.add("active")
+    }else{
+        link.classList.remove('active')
     }
 })
 
