@@ -1,1 +1,66 @@
 /* weekly-trends */
+.weekly-trends-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+.weekly-trends__container {
+  width: 320px;
+  padding-top: 40px;
+  padding-bottom: 7px;
+}
+.head-weeklytrends {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+.weeklytrends-title {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.18;
+  margin-top: 0;
+}
+.weeklytrends-title-orange {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.18;
+  color: var(--orange);
+  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.weeklytrends-title-orange:hover {
+  color: var(--gradient-1);
+}
+
+/* ------TABLET------ */
+.weekly-trends-list {
+  gap: 16px;
+}
+.weekly-trends__container {
+  width: 768px;
+  padding-top: 52px;
+  padding-bottom: 44px;
+}
+.head-weeklytrends {
+  margin-bottom: 28px;
+}
+.weeklytrends-title {
+  font-size: 24px;
+  line-height: 1.16;
+}
+.weeklytrends-title-orange {
+  font-size: 24px;
+  line-height: 1.16;
+}
+/* -----DESCTOP----- */
+.weekly-trends__container {
+  width: 1280px;
+  padding-top: 80px;
+  padding-bottom: 60px;
+}
+.weeklytrends-title {
+  font-size: 28px;
+  line-height: 1.17;
+}
+.weeklytrends-title-orange {
+  font-size: 28px;
+  line-height: 1.17;
+}
