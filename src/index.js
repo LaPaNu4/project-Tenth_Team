@@ -5,6 +5,8 @@
 
 import './js/hero-random-film.js'
 
+import "./js/header.js";
+
 import "./js/catalog.js"
 
 import "./js/library-filter.js"
