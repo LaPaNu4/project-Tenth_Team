@@ -1,5 +1,7 @@
 // основна функція
 
+console.log(111)
+
 function initRatings() {
     let ratingActive;
     
@@ -59,6 +61,12 @@ function setRating(rating) {
 
     }
 }
+
+const API_KEY = '1e886de40b098591f9b7dbcf56dc1fe5';
+const URL = 'https://api.themoviedb.org/3/movie/{movie_id}/rating';
+
+
+
 
 
 
