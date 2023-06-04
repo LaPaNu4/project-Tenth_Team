@@ -3,41 +3,82 @@ p {
     margin: 0;
 }
 
+.hero-hidden {
+  display: none;
+}
+
 .hero-section {
-    min-width: 320px;
-    height: 380px;
-    padding-top: 40px;
-    padding-bottom: 40px;
-    overflow: hidden;
+  position: relative;
+  min-width: 320px;
+  min-height: 380px;
+  overflow: hidden;
+  background-image: linear-gradient(86.77deg, #111111 30.38%, rgba(17, 17, 17, 0) 65.61%);  
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  margin: 0 auto;
+}
+
+.hero-section-lib {
     background-image: linear-gradient(86.77deg, #111111 30.38%, rgba(17, 17, 17, 0) 65.61%),
     url(../images/hero-img/hero-lib-mob-min.jpg);
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    margin: 0 auto;
-  }
+}
+
+.hero-section-random {
+  position: relative;  
+  background-image: linear-gradient(86.77deg, #111111 30.38%, rgba(17, 17, 17, 0) 65.61%);
+}
 
   .hero-container {
     width: 100%;
-    padding-left: 20px;
-    padding-right: 20px;
+    padding: 0 20px;
     margin: 0 auto;
+  }
+
+  .hero-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -3;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  .hero-img-random {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -3;
+    position: absolute;
+    top: 0;
+    left: 0;
   }
 
   .hero-title {
     display: flex;    
-    width: 235px;
+    max-width: 199px;
     font-family: 'Roboto';
     font-weight: 700;
     font-size: 32px;
     line-height: 1.19;
     align-items: center;
-    margin-bottom: 8px;    
+    margin-bottom: 8px; 
+    padding-top: 40px;   
+  }
+
+  .hero-title-lib {
+    max-width: 235px;    
+  }
+
+  .hero-title-random {
+    margin-bottom: 12px;
   }
 
   .hero-text {
     display: flex;
-    width: 249px;
+    max-width: 177px;
+    margin-bottom: 20px;
     font-family: 'Roboto';
     font-style: normal;
     font-weight: 400;
@@ -47,51 +88,108 @@ p {
     color: var(--silver);
   }
 
+  .hero-text-lib {
+    max-width: 249px;    
+  }
+
+  .hero-btn {
+    display: flex;
+    padding: 12px 24px;
+    width: 110px;
+    height: 40px;
+    background: var(--gradient-1);
+    border: 0;
+    border-radius: 74px;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 1.17;
+    align-items: center;
+    text-align: center;
+    color: var(--black);
+  }
+
+  .hero-btn:hover {
+    background: transparent;
+    border: 1px solid;
+    border-image-source: var(--gradient-1);
+    color: var(--orange);
+  }
+
+  .hero-random {
+    margin-bottom: 12px;
+  }
+
+  .hero-random-btn {
+    display: flex;
+    gap: 8px;
+  }
+  
   @media (min-device-pixel-ratio: 2),
   (min-resolution: 192dpi),
   (min-resolution: 2dppx) {
-  .hero-section {
+  .hero-section-lib {
     background-image: linear-gradient(86.77deg, #111111 30.38%, rgba(17, 17, 17, 0) 65.61%),
     url(../images/hero-img/hero-lib-mob-2x-min.jpg);
-  }
+  }  
 }
   
 
 /*----MOBILE----*/
+@media screen and (min-width: 321px) {
+.hero-section-lib {
+    background-image: linear-gradient(86.77deg, #111111 30.38%, rgba(17, 17, 17, 0) 65.61%),
+      url(../images/hero-img/hero-lib-tab-min.jpg);
+  }
+  .hero-section-random {
+    background-image: linear-gradient(86.77deg, #111111 30.38%, rgba(17, 17, 17, 0) 65.61%);
+  }
+
+  @media (min-device-pixel-ratio: 2),
+(min-resolution: 192dpi),
+(min-resolution: 2dppx) {
+.hero-section-lib {
+  background-image: linear-gradient(86.77deg, #111111 30.38%, rgba(17, 17, 17, 0) 65.61%),
+  url(../images/hero-img/hero-lib-tab-2x-min.jpg);
+}
+}
+}
 
 /*----TABLET----*/
 @media screen and (min-width: 768px) {
 .hero-section {
   width: 768px;
-  height: 432px;
-  padding-top: 62px;
-  padding-bottom: 62px;
-  background-image: linear-gradient(86.77deg, #111111 30.38%, rgba(17, 17, 17, 0) 65.61%),
-    url(../images/hero-img/hero-lib-tab-min.jpg);
+  min-height: 432px;
+  
 }
 
 .hero-container {
+  width: 768px;
   padding-left: 32px;
   padding-right: 32px;
 }
 
 .hero-title {
-  width: 332px;
+  max-width: 332px;
+  padding-top:122px;
   font-size: 44px;
   line-height: 1.18;
 }
 
-.hero-text {
-  width: 357px;
+.hero-title-random {
+  padding-top:96px;
 }
 
-@media (min-device-pixel-ratio: 2),
-(min-resolution: 192dpi),
-(min-resolution: 2dppx) {
-.hero-section {
-  background-image: linear-gradient(86.77deg, #111111 30.38%, rgba(17, 17, 17, 0) 65.61%),
-  url(../images/hero-img/hero-lib-tab-2x-min.jpg);
+.hero-text {
+  max-width: 357px;
+  margin-bottom: 30px;
 }
+
+.hero-btn {
+  width: 128px;
+  font-size: 14px;
+  line-height: 1.43;
 }
 }
 
@@ -99,37 +197,74 @@ p {
 @media screen and (min-width: 1280px) {
   .hero-section {
     width: 1280px;
-    height: 720px;
-    padding-top: 169px;
-    padding-bottom: 169px;
+    min-height: 720px;        
+  }
+
+  .hero-section-lib {
     background-image: linear-gradient(86.77deg, #111111 30.38%, rgba(17, 17, 17, 0) 65.61%),
-      url(../images/hero-img/hero-lib-desk-min.jpg);
+    url(../images/hero-img/hero-lib-desk-min.jpg);
+  }
+
+  .hero-section-random {
+    position: relative;  
+    background-image: linear-gradient(86.77deg, #111111 30.38%, rgba(17, 17, 17, 0) 65.61%);
   }
   
   .hero-container {
-    padding-left: 117px;
-    padding-right: 117px;
+    width: 1280px;    
   }
-  
+
   .hero-title {
-    width: 464px;
+    max-width: 549px;
     font-size: 64px;
     line-height: 1.17;
+    padding-top: 229px;
     margin-bottom: 16px;
   }
-  
+
+  .hero-title-lib {
+    padding-left: 85px;
+  }
+
+  .hero-title-random {
+    margin-bottom: 16px;
+    padding-top: 178px;
+    padding-left: 103px;
+  }
+
   .hero-text {
-    width: 464px;
+    max-width: 549px;
     font-size: 16px;
     line-height: 1.19;
   }
+
+  .hero-text-lib {
+    padding-left: 85px;
+  }
+
+  .hero-text-random {
+    padding-left: 103px;
+  }
+
+  .hero-btn {
+    width: 135px;
+    height: 48px;
+    font-size: 16px;
+    line-height: 1.5;
+  }
+
+  .hero-random-btn {
+    padding-left: 103px;
+    gap: 14px;
+  }
+
   
   @media (min-device-pixel-ratio: 2),
   (min-resolution: 192dpi),
   (min-resolution: 2dppx) {
-  .hero-section {
+  .hero-section-lib {
     background-image: linear-gradient(86.77deg, #111111 30.38%, rgba(17, 17, 17, 0) 65.61%),
     url(../images/hero-img/hero-lib-desk-2x-min.jpg);
   }
-  }
-  }
+}
+}
