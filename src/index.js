@@ -4,10 +4,11 @@
 // import axios from 'axios'; | const axios = require('axios').default; https://axios-http.com/uk/docs/example
 import './js/hero-random-film.js'
 import "./js/header.js";
-import "./js/catalog.js"
-import './js/library-filter.js';
-import './js/footer-modal.js';
+// import "./js/catalog.js";
+// import './js/library-filter.js';
+// import './js/footer-modal.js';
 import './js/library-II.js';
 import './js/rating.js';
 import './js/weekly-trends.js';
 import './js/upcomingThisMounth.js';
+// import './js/test.js'
