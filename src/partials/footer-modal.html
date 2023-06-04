@@ -1,222 +1,589 @@
-<div class="footer__backdrop is-hidden" id="backdrop__modal">
-  <div  class="modal__body modal__footer js-close-modal">
-    <div class="footer__modal">
-      <button class="modal__button-close" data-modal-close-contacts>
-        <svg class="modal__icon-close" width="24" height="24">
-          <use href="./images/icons.svg#icon-close-outline"></use>
+<div class="footer-backdrop" id="backdrop-modal" data-modal>
+  <div class="modal-body modal-footer js-close-modal">
+    <div class="footer-modal">
+      <button class="modal-button-close" data-modal-close-contacts>
+        <svg class="modal-icon-close" width="11" height="11">
+          <use href="./images/icons.svg#icon-close"></use>
         </svg>
       </button>
       <p class="team-modal-title">T_T team</p>
 
-      <ul class="team__list">
+      <ul class="team-list list">
         <!-- 1 -->
-        <li class="portfolio-item card app">
-          <div class="card-thumb">
-            <!-- <picture>
-              <source
-                srcset=""
-                media=""
-              />
-              <source
-                srcset=""
-                media=""
-              />
-              <source
-                srcset=""
-                media=""
-              />
-              <img
-                
-                alt="banking app interface concept"
-                width="396"
-                height="280"
-              />
-            </picture> -->
-            <div class="team-member">
-              <h3 class="team-member-title">Novitskyi Volodymyr</h3>
-              <p class="team-item-text">Team lead</p>
-              <ul class="member-soc-list list">
-                <li class="member-soc-item">
-                  <a
-                    href="https://github.com/"
-                    class="member-soc-link link"
-                    target="_blank"
-                    rel="noopener noreferrer nofollow"
-                    aria-label="link to Github"
-                  >
-                    <svg class="member-soc-icon" width="40" height="40">
-                      <!-- <use href=""></use> -->
-                    </svg>
-                  </a>
-                </li>
-                <li class="member-soc-item">
-                  <a
-                    href="https://www.linkedin.com/"
-                    class="member-soc-link link"
-                    target="_blank"
-                    rel="noopener noreferrer nofollow"
-                    aria-label="link to Linkedin"
-                  >
-                    <svg class="member-soc-icon" width="16" height="16">
-                      <!-- <use href=""></use> -->
-                    </svg>
-                  </a>
-                </li>
-              </ul>
-            </div>
-            <p class="card-thumb-text">
-              14 Stylish and User-Friendly App Design Concepts · Task Manager
-              App · Calorie Tracker App · Exotic Fruit Ecommerce App · Cloud
-              Storage App
-            </p>
+        <li class="team-item">
+          <img
+            src="./images/footer-modal/team-member.jpg"
+            alt="first team member"
+            width="264"
+            height="260"
+          />
+          <div>
+            <h3 class="team-member-title">Novitskyi Volodymyr</h3>
+            <p class="team-item-text">Team lead</p>
+            <ul class="member-soc-list list">
+              <li class="member-soc-item">
+                <a
+                  href="https://github.com/"
+                  class="member-soc-link link"
+                  target="_blank"
+                  rel="noopener noreferrer nofollow"
+                  aria-label="link to Github"
+                >
+                  <svg class="member-soc-icon" width="40" height="40">
+                    <use href="./images/icons.svg#icon-github"></use>
+                  </svg>
+                </a>
+              </li>
+              <li class="member-soc-item">
+                <a
+                  href="https://www.linkedin.com/"
+                  class="member-soc-link link"
+                  target="_blank"
+                  rel="noopener noreferrer nofollow"
+                  aria-label="link to Linkedin"
+                >
+                  <svg class="member-soc-icon" width="28" height="28">
+                    <use href="./images/icons.svg#icon-linkedin"></use>
+                  </svg>
+                </a>
+              </li>
+            </ul>
           </div>
         </li>
 
         <!-- 2nd -->
-        <li class="portfolio-item card app">
-          <div class="card-thumb">
-            <!-- <picture>
-              <source
-                srcset=""
-                media="(min-width: 1200px)"
-              />
-              <source
-                srcset=""
-                media="(min-width: 768px)"
-              />
-              <source
-                srcset=""
-                media="(min-width: 320px)"
-              />
-              <img
-                
-                alt="banking app interface concept"
-                width="396"
-                height="280"
-              />
-            </picture> -->
-            <div class="team-member">
-              <h3 class="team-member-title">Pyrohova Anastasiia</h3>
-              <p class="team-item-text">Scrum master</p>
-              <ul class="member-soc-list list">
-                <li class="member-soc-item">
-                  <a
-                    href="https://github.com/"
-                    class="member-soc-link link"
-                    target="_blank"
-                    rel="noopener noreferrer nofollow"
-                    aria-label="link to Github"
-                  >
-                    <svg class="member-soc-icon" width="40" height="40">
-                      <!-- <use href=""></use> -->
-                    </svg>
-                  </a>
-                </li>
-                <li class="member-soc-item">
-                  <a
-                    href="https://www.linkedin.com/"
-                    class="member-soc-link link"
-                    target="_blank"
-                    rel="noopener noreferrer nofollow"
-                    aria-label="link to Linkedin"
-                  >
-                    <svg class="member-soc-icon" width="16" height="16">
-                      <!-- <use href=""></use> -->
-                    </svg>
-                  </a>
-                </li>
-              </ul>
-            </div>
-            <p class="card-thumb-text">
-              14 Stylish and User-Friendly App Design Concepts · Task Manager
-              App · Calorie Tracker App · Exotic Fruit Ecommerce App · Cloud
-              Storage App
-            </p>
+        <li class="team-item">
+          <img
+            src="./images/footer-modal/team-member-2.jpg"
+            alt="first team member"
+            width="264"
+            height="260"
+          />
+          <div>
+            <h3 class="team-member-title">Pyrohova Anastasiia</h3>
+            <p class="team-item-text">Scrum master</p>
+            <ul class="member-soc-list list">
+              <li class="member-soc-item">
+                <a
+                  href="https://github.com/"
+                  class="member-soc-link link"
+                  target="_blank"
+                  rel="noopener noreferrer nofollow"
+                  aria-label="link to Github"
+                >
+                  <svg class="member-soc-icon" width="40" height="40">
+                    <use href="./images/icons.svg#icon-github"></use>
+                  </svg>
+                </a>
+              </li>
+              <li class="member-soc-item">
+                <a
+                  href="https://www.linkedin.com/"
+                  class="member-soc-link link"
+                  target="_blank"
+                  rel="noopener noreferrer nofollow"
+                  aria-label="link to Linkedin"
+                >
+                  <svg class="member-soc-icon" width="28" height="28">
+                    <use href="./images/icons.svg#icon-linkedin"></use>
+                  </svg>
+                </a>
+              </li>
+            </ul>
           </div>
         </li>
         <!-- 3rd -->
-        <li class="portfolio-item card app">
-          <div class="card-thumb">
-            <!-- <picture>
-              <source
-                srcset=""
-                media=""
-              />
-              <source
-                srcset=""
-                media=""
-              />
-              <source
-                srcset=""
-                media=""
-              />
-              <img
-                
-                alt="banking app interface concept"
-                width=""
-                height=""
-              />
-            </picture> -->
-            <div class="team-member">
-              <h3 class="team-member-title">Pyrohova Anastasiia</h3>
-              <p class="team-item-text">Developer</p>
-              <ul class="member-soc-list list">
-                <li class="member-soc-item">
-                  <a
-                    href="https://github.com/"
-                    class="member-soc-link link"
-                    target="_blank"
-                    rel="noopener noreferrer nofollow"
-                    aria-label="link to Github"
-                  >
-                    <svg class="member-soc-icon" width="40" height="40">
-                      <!-- <use href=""></use> -->
-                    </svg>
-                  </a>
-                </li>
-                <li class="member-soc-item">
-                  <a
-                    href="https://www.linkedin.com/"
-                    class="member-soc-link link"
-                    target="_blank"
-                    rel="noopener noreferrer nofollow"
-                    aria-label="link to Linkedin"
-                  >
-                    <svg class="member-soc-icon" width="16" height="16">
-                      <!-- <use href=""></use> -->
-                    </svg>
-                  </a>
-                </li>
-              </ul>
-            </div>
-            <p class="card-thumb-text">
-              14 Stylish and User-Friendly App Design Concepts · Task Manager
-              App · Calorie Tracker App · Exotic Fruit Ecommerce App · Cloud
-              Storage App
-            </p>
+        <li class="team-item">
+          <img
+            src="./images/footer-modal/team-member-2.jpg"
+            alt="first team member"
+            width="264"
+            height="260"
+          />
+          <div>
+            <h3 class="team-member-title">Team member</h3>
+            <p class="team-item-text">Developer</p>
+            <ul class="member-soc-list list">
+              <li class="member-soc-item">
+                <a
+                  href="https://github.com/"
+                  class="member-soc-link link"
+                  target="_blank"
+                  rel="noopener noreferrer nofollow"
+                  aria-label="link to Github"
+                >
+                  <svg class="member-soc-icon" width="40" height="40">
+                    <use href="./images/icons.svg#icon-github"></use>
+                  </svg>
+                </a>
+              </li>
+              <li class="member-soc-item">
+                <a
+                  href="https://www.linkedin.com/"
+                  class="member-soc-link link"
+                  target="_blank"
+                  rel="noopener noreferrer nofollow"
+                  aria-label="link to Linkedin"
+                >
+                  <svg class="member-soc-icon" width="28" height="28">
+                    <use href="./images/icons.svg#icon-linkedin"></use>
+                  </svg>
+                </a>
+              </li>
+            </ul>
           </div>
         </li>
         <!-- 4th -->
-
+        <li class="team-item">
+          <img
+            src="./images/footer-modal/team-member-2.jpg"
+            alt="first team member"
+            width="264"
+            height="260"
+          />
+          <div>
+            <h3 class="team-member-title">Team member</h3>
+            <p class="team-item-text">Developer</p>
+            <ul class="member-soc-list list">
+              <li class="member-soc-item">
+                <a
+                  href="https://github.com/"
+                  class="member-soc-link link"
+                  target="_blank"
+                  rel="noopener noreferrer nofollow"
+                  aria-label="link to Github"
+                >
+                  <svg class="member-soc-icon" width="40" height="40">
+                    <use href="./images/icons.svg#icon-github"></use>
+                  </svg>
+                </a>
+              </li>
+              <li class="member-soc-item">
+                <a
+                  href="https://www.linkedin.com/"
+                  class="member-soc-link link"
+                  target="_blank"
+                  rel="noopener noreferrer nofollow"
+                  aria-label="link to Linkedin"
+                >
+                  <svg class="member-soc-icon" width="28" height="28">
+                    <use href="./images/icons.svg#icon-linkedin"></use>
+                  </svg>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </li>
         <!-- 5th -->
-
+        <li class="team-item">
+          <img
+            src="./images/footer-modal/team-member-2.jpg"
+            alt="first team member"
+            width="264"
+            height="260"
+          />
+          <div>
+            <h3 class="team-member-title">Team member</h3>
+            <p class="team-item-text">Developer</p>
+            <ul class="member-soc-list list">
+              <li class="member-soc-item">
+                <a
+                  href="https://github.com/"
+                  class="member-soc-link link"
+                  target="_blank"
+                  rel="noopener noreferrer nofollow"
+                  aria-label="link to Github"
+                >
+                  <svg class="member-soc-icon" width="40" height="40">
+                    <use href="./images/icons.svg#icon-github"></use>
+                  </svg>
+                </a>
+              </li>
+              <li class="member-soc-item">
+                <a
+                  href="https://www.linkedin.com/"
+                  class="member-soc-link link"
+                  target="_blank"
+                  rel="noopener noreferrer nofollow"
+                  aria-label="link to Linkedin"
+                >
+                  <svg class="member-soc-icon" width="28" height="28">
+                    <use href="./images/icons.svg#icon-linkedin"></use>
+                  </svg>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </li>
         <!-- 6th -->
-
+        <li class="team-item">
+          <img
+            src="./images/footer-modal/team-member-2.jpg"
+            alt="first team member"
+            width="264"
+            height="260"
+          />
+          <div>
+            <h3 class="team-member-title">Team member</h3>
+            <p class="team-item-text">Developer</p>
+            <ul class="member-soc-list list">
+              <li class="member-soc-item">
+                <a
+                  href="https://github.com/"
+                  class="member-soc-link link"
+                  target="_blank"
+                  rel="noopener noreferrer nofollow"
+                  aria-label="link to Github"
+                >
+                  <svg class="member-soc-icon" width="40" height="40">
+                    <use href="./images/icons.svg#icon-github"></use>
+                  </svg>
+                </a>
+              </li>
+              <li class="member-soc-item">
+                <a
+                  href="https://www.linkedin.com/"
+                  class="member-soc-link link"
+                  target="_blank"
+                  rel="noopener noreferrer nofollow"
+                  aria-label="link to Linkedin"
+                >
+                  <svg class="member-soc-icon" width="28" height="28">
+                    <use href="./images/icons.svg#icon-linkedin"></use>
+                  </svg>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </li>
         <!-- 7th -->
-
+        <li class="team-item">
+          <img
+            src="./images/footer-modal/team-member-2.jpg"
+            alt="first team member"
+            width="264"
+            height="260"
+          />
+          <div>
+            <h3 class="team-member-title">Team member</h3>
+            <p class="team-item-text">Developer</p>
+            <ul class="member-soc-list list">
+              <li class="member-soc-item">
+                <a
+                  href="https://github.com/"
+                  class="member-soc-link link"
+                  target="_blank"
+                  rel="noopener noreferrer nofollow"
+                  aria-label="link to Github"
+                >
+                  <svg class="member-soc-icon" width="40" height="40">
+                    <use href="./images/icons.svg#icon-github"></use>
+                  </svg>
+                </a>
+              </li>
+              <li class="member-soc-item">
+                <a
+                  href="https://www.linkedin.com/"
+                  class="member-soc-link link"
+                  target="_blank"
+                  rel="noopener noreferrer nofollow"
+                  aria-label="link to Linkedin"
+                >
+                  <svg class="member-soc-icon" width="28" height="28">
+                    <use href="./images/icons.svg#icon-linkedin"></use>
+                  </svg>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </li>
         <!-- 8th -->
-
+        <li class="team-item">
+          <img
+            src="./images/footer-modal/team-member-2.jpg"
+            alt="first team member"
+            width="264"
+            height="260"
+          />
+          <div>
+            <h3 class="team-member-title">Team member</h3>
+            <p class="team-item-text">Developer</p>
+            <ul class="member-soc-list list">
+              <li class="member-soc-item">
+                <a
+                  href="https://github.com/"
+                  class="member-soc-link link"
+                  target="_blank"
+                  rel="noopener noreferrer nofollow"
+                  aria-label="link to Github"
+                >
+                  <svg class="member-soc-icon" width="40" height="40">
+                    <use href="./images/icons.svg#icon-github"></use>
+                  </svg>
+                </a>
+              </li>
+              <li class="member-soc-item">
+                <a
+                  href="https://www.linkedin.com/"
+                  class="member-soc-link link"
+                  target="_blank"
+                  rel="noopener noreferrer nofollow"
+                  aria-label="link to Linkedin"
+                >
+                  <svg class="member-soc-icon" width="28" height="28">
+                    <use href="./images/icons.svg#icon-linkedin"></use>
+                  </svg>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </li>
         <!-- 9th -->
-
+        <li class="team-item">
+          <img
+            src="./images/footer-modal/team-member-2.jpg"
+            alt="first team member"
+            width="264"
+            height="260"
+          />
+          <div>
+            <h3 class="team-member-title">Team member</h3>
+            <p class="team-item-text">Developer</p>
+            <ul class="member-soc-list list">
+              <li class="member-soc-item">
+                <a
+                  href="https://github.com/"
+                  class="member-soc-link link"
+                  target="_blank"
+                  rel="noopener noreferrer nofollow"
+                  aria-label="link to Github"
+                >
+                  <svg class="member-soc-icon" width="40" height="40">
+                    <use href="./images/icons.svg#icon-github"></use>
+                  </svg>
+                </a>
+              </li>
+              <li class="member-soc-item">
+                <a
+                  href="https://www.linkedin.com/"
+                  class="member-soc-link link"
+                  target="_blank"
+                  rel="noopener noreferrer nofollow"
+                  aria-label="link to Linkedin"
+                >
+                  <svg class="member-soc-icon" width="28" height="28">
+                    <use href="./images/icons.svg#icon-linkedin"></use>
+                  </svg>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </li>
         <!-- 10th -->
-
+        <li class="team-item">
+          <img
+            src="./images/footer-modal/team-member-2.jpg"
+            alt="first team member"
+            width="264"
+            height="260"
+          />
+          <div>
+            <h3 class="team-member-title">Team member</h3>
+            <p class="team-item-text">Developer</p>
+            <ul class="member-soc-list list">
+              <li class="member-soc-item">
+                <a
+                  href="https://github.com/"
+                  class="member-soc-link link"
+                  target="_blank"
+                  rel="noopener noreferrer nofollow"
+                  aria-label="link to Github"
+                >
+                  <svg class="member-soc-icon" width="40" height="40">
+                    <use href="./images/icons.svg#icon-github"></use>
+                  </svg>
+                </a>
+              </li>
+              <li class="member-soc-item">
+                <a
+                  href="https://www.linkedin.com/"
+                  class="member-soc-link link"
+                  target="_blank"
+                  rel="noopener noreferrer nofollow"
+                  aria-label="link to Linkedin"
+                >
+                  <svg class="member-soc-icon" width="28" height="28">
+                    <use href="./images/icons.svg#icon-linkedin"></use>
+                  </svg>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </li>
         <!-- 11th -->
-
+        <li class="team-item">
+          <img
+            src="./images/footer-modal/team-member-2.jpg"
+            alt="first team member"
+            width="264"
+            height="260"
+          />
+          <div>
+            <h3 class="team-member-title">Team member</h3>
+            <p class="team-item-text">Developer</p>
+            <ul class="member-soc-list list">
+              <li class="member-soc-item">
+                <a
+                  href="https://github.com/"
+                  class="member-soc-link link"
+                  target="_blank"
+                  rel="noopener noreferrer nofollow"
+                  aria-label="link to Github"
+                >
+                  <svg class="member-soc-icon" width="40" height="40">
+                    <use href="./images/icons.svg#icon-github"></use>
+                  </svg>
+                </a>
+              </li>
+              <li class="member-soc-item">
+                <a
+                  href="https://www.linkedin.com/"
+                  class="member-soc-link link"
+                  target="_blank"
+                  rel="noopener noreferrer nofollow"
+                  aria-label="link to Linkedin"
+                >
+                  <svg class="member-soc-icon" width="28" height="28">
+                    <use href="./images/icons.svg#icon-linkedin"></use>
+                  </svg>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </li>
         <!-- 12th -->
-
+        <li class="team-item">
+          <img
+            src="./images/footer-modal/team-member-2.jpg"
+            alt="first team member"
+            width="264"
+            height="260"
+          />
+          <div>
+            <h3 class="team-member-title">Team member</h3>
+            <p class="team-item-text">Developer</p>
+            <ul class="member-soc-list list">
+              <li class="member-soc-item">
+                <a
+                  href="https://github.com/"
+                  class="member-soc-link link"
+                  target="_blank"
+                  rel="noopener noreferrer nofollow"
+                  aria-label="link to Github"
+                >
+                  <svg class="member-soc-icon" width="40" height="40">
+                    <use href="./images/icons.svg#icon-github"></use>
+                  </svg>
+                </a>
+              </li>
+              <li class="member-soc-item">
+                <a
+                  href="https://www.linkedin.com/"
+                  class="member-soc-link link"
+                  target="_blank"
+                  rel="noopener noreferrer nofollow"
+                  aria-label="link to Linkedin"
+                >
+                  <svg class="member-soc-icon" width="28" height="28">
+                    <use href="./images/icons.svg#icon-linkedin"></use>
+                  </svg>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </li>
         <!-- 13th -->
-
+        <li class="team-item">
+          <img
+            src="./images/footer-modal/team-member-2.jpg"
+            alt="first team member"
+            width="264"
+            height="260"
+          />
+          <div>
+            <h3 class="team-member-title">Team member</h3>
+            <p class="team-item-text">Developer</p>
+            <ul class="member-soc-list list">
+              <li class="member-soc-item">
+                <a
+                  href="https://github.com/"
+                  class="member-soc-link link"
+                  target="_blank"
+                  rel="noopener noreferrer nofollow"
+                  aria-label="link to Github"
+                >
+                  <svg class="member-soc-icon" width="40" height="40">
+                    <use href="./images/icons.svg#icon-github"></use>
+                  </svg>
+                </a>
+              </li>
+              <li class="member-soc-item">
+                <a
+                  href="https://www.linkedin.com/"
+                  class="member-soc-link link"
+                  target="_blank"
+                  rel="noopener noreferrer nofollow"
+                  aria-label="link to Linkedin"
+                >
+                  <svg class="member-soc-icon" width="28" height="28">
+                    <use href="./images/icons.svg#icon-linkedin"></use>
+                  </svg>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </li>
         <!-- 14th -->
+        <li class="team-item">
+          <img
+            src="./images/footer-modal/team-member-2.jpg"
+            alt="first team member"
+            width="264"
+            height="260"
+          />
+          <div>
+            <h3 class="team-member-title">Team member</h3>
+            <p class="team-item-text">Developer</p>
+            <ul class="member-soc-list list">
+              <li class="member-soc-item">
+                <a
+                  href="https://github.com/"
+                  class="member-soc-link link"
+                  target="_blank"
+                  rel="noopener noreferrer nofollow"
+                  aria-label="link to Github"
+                >
+                  <svg class="member-soc-icon" width="40" height="40">
+                    <use href="./images/icons.svg#icon-github"></use>
+                  </svg>
+                </a>
+              </li>
+              <li class="member-soc-item">
+                <a
+                  href="https://www.linkedin.com/"
+                  class="member-soc-link link"
+                  target="_blank"
+                  rel="noopener noreferrer nofollow"
+                  aria-label="link to Linkedin"
+                >
+                  <svg class="member-soc-icon" width="28" height="28">
+                    <use href="./images/icons.svg#icon-linkedin"></use>
+                  </svg>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </li>
       </ul>
     </div>
   </div>
