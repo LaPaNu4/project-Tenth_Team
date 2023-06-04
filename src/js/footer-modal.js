@@ -31,14 +31,14 @@ function onPressESC(e) {
   }
 }
 
-const toggleContacts = () => {
-  const isContactsOpen =
-    openMenuBtn.getAttribute('aria-expanded') === 'true' || false;
-  openModalBtn.setAttribute('aria-expanded', !isMenuOpen);
-  mobileMenu.classList.toggle('is-open');
+// const toggleContacts = () => {
+//   const isContactsOpen =
+//     openMenuBtn.getAttribute('aria-expanded') === 'true' || false;
+//   openModalBtn.setAttribute('aria-expanded', !isMenuOpen);
+//   mobileMenu.classList.toggle('is-open');
 
-  const scrollLockMethod = !isContactsOpen
-    ? 'disableBodyScroll'
-    : 'enableBodyScroll';
-  bodyScrollLock[scrollLockMethod](document.body);
-};
+//   const scrollLockMethod = !isContactsOpen
+//     ? 'disableBodyScroll'
+//     : 'enableBodyScroll';
+//   bodyScrollLock[scrollLockMethod](document.body);
+// };
