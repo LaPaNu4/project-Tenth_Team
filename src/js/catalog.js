@@ -8,7 +8,10 @@ const catalogList = document.getElementById('catalog-list');
 const searchForm = document.getElementById('search-form');
 
 async function getTopFilmsData() {
-  const response = await axios.get(`${URL}trending/all/week?${KEY}`);
+  const response = await axios.get(
+    `${URL}trending/all/week?${KEY}&language=en-US`
+  );
+  // console.log(response);
   const results = response.data.results;
   console.log(results);
 
@@ -27,17 +30,22 @@ function createTopFilmsMarkup(results) {
       if (!result.release_date) {
         releaseDate = 'Unknown';
       } else releaseDate = releaseDate.slice(0, 4);
-      console.log(releaseDate);
 
       let filmName = result.original_title;
       if (!filmName) {
         filmName = 'Unknown';
       }
 
-      // const jenres = result.genre_ids.map(jenre => console.log(jenre));
-      // console.log(jenres);
+      // let aaaa = result.genre_ids.map(jenre =>
+      //   getGenreName(jenre).then(value => {
+      //     console.log(value);
+      //     return value;
+      //   })
+      // );
 
-      return `<li class="catalog-item">
+      // console.log(aaaa);
+
+      return `<li class="catalog-item" id="${result.id}">
             <div class="photo-card">
               <div class="image-wrap">
                 <img src="https://image.tmdb.org/t/p/w500${result.poster_path}" alt="${result.title}" />
@@ -45,7 +53,7 @@ function createTopFilmsMarkup(results) {
               <div class="film-info">
                 <p class="film-title">${filmName}</p>
                 <div class="info">
-                  <p class="info-item">Drama</p>
+                  <p class="info-item">"value"</p>
                   <p class="info-item">|</p>
                   <p class="info-item">${releaseDate}</p>
                 </div>
@@ -62,12 +70,10 @@ function renderTopFilmsMarkup(markup) {
 }
 
 async function getFilmsData(request) {
-  console.log(request);
   const response = await axios.get(
     `${URL}search/movie?${KEY}&query=${request}`
   );
   const results = response.data.results;
-  console.log(results);
 
   return results;
 }
@@ -86,3 +92,18 @@ function handleSubmit(event) {
 function clearSearchForm() {
   searchForm.searchQuery.value = '';
 }
+
+// async function getGenreName(id) {
+//   const response = await axios.get(
+//     `https://api.themoviedb.org/3/genre/movie/list?api_key=249f222afb1002186f4d88b2b5418b55&language=en-US`
+//   );
+//   try {
+//     const allGenres = response.data.genres;
+
+//     const jenre = allGenres.find(jenre => jenre.id == id);
+//     console.log(jenre.name);
+//     return jenre.name;
+//   } catch (error) {
+//     console.log(error.message);
+//   }
+// }
