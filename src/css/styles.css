@@ -13,10 +13,12 @@
   font-family: Roboto-700;
   src: url(../font/Roboto-Bold.ttf);
 }
+
 @font-face {
   font-family: Roboto-500;
   src: url(../font/Roboto-Medium.ttf);
 }
+
 @font-face {
   font-family: Roboto-400;
   src: url(../font/Roboto-Regular.ttf);
@@ -31,11 +33,9 @@
   --silver: #f8f8f8;
   --orange: #f87719;
   --gradient-1: linear-gradient(141.22deg, #ffc226 9.4%, #f84119 91.91%);
-  --gradient-2: linear-gradient(
-    141.22deg,
-    #f84119 9.4%,
-    rgba(248, 159, 25, 0.68) 91.91%
-  );
+  --gradient-2: linear-gradient(141.22deg,
+      #f84119 9.4%,
+      rgba(248, 159, 25, 0.68) 91.91%);
 }
 
 body {
@@ -43,31 +43,48 @@ body {
   background: var(--black);
   color: var(--white);
 }
+
 .container {
   width: 100%;
   padding-left: 32px;
   padding-right: 32px;
   margin: 0 auto;
 }
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+}
+
 li {
   list-style: none;
 }
+
 html {
   scroll-behavior: smooth;
 }
+
 ul,
 ol {
   list-style: none;
   padding: 0;
 }
+
 button {
   cursor: pointer;
 }
+
 img {
   display: block;
   max-width: 100%;
   height: auto;
 }
+
 a {
   color: currentColor;
   text-decoration: none;
