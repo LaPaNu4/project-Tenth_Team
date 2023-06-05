@@ -46,6 +46,13 @@ body {
   color: var(--white);
 }
 
+.color-h{
+  color:var(--gray-light);
+}
+.color-p{
+  color: var(--orange);
+}
+
 .container {
   width: 100%;
   padding-left: 32px;
