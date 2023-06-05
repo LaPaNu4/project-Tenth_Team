@@ -1,53 +1,65 @@
 import axios from 'axios';
 
-const sectionHero = document.getElementById('hero-main-section');
+const sectionHero = document.querySelector('.hero-section');
 const containerDefault = document.querySelector('.hero-default');
 const container = document.querySelector('.hero-random');
 const URL_DAY = 'https://api.themoviedb.org/3/trending/all/day?api_key=d30846261444a5a49dd702fa51e06838';
 
 document.addEventListener("DOMContentLoaded", renderFilmDay);
 
-function renderFilmDay() {
-    try {
+ async function renderFilmDay() {
+     try {
+     const filmsArr = await getFilmsDay(URL_DAY);
 
-        getFilmsDay(URL_DAY).then(randomFilmFind).then(createRandomFilm);
-    } catch (error) {
-        console.log(error)
-    }    
-}
+     if(!filmsArr) {
+        containerDefault.classList.remove('hero-hidden');
+        return;
+     }
 
+     if (!filmsArr || filmsArr.length ===0) throw new Error('No data!');
+
+     const filmOfDay = await randomFilmFind(filmsArr); 
+     createRandomFilm(filmOfDay);
+
+     document.removeEventListener("DOMContentLoaded", renderFilmDay);
+     } catch (err) {
+         onError(err);
+     }    
+ }
+ 
 async function getFilmsDay(url) {
     const response = await axios.get(url);
     const results = response.data.results;
-    console.log(results); //delete
-
+    
     return results;
 }
 
 function randomFilmFind (arr) {
     const randomIndex = Math.floor(Math.random() * arr.length);
     const randomFilm = arr[randomIndex];
-    console.log(randomFilm);
+    console.log(randomFilm); // for info
 
     return randomFilm;
 }
 
 function createRandomFilm(filmObj) {
-    if (!filmObj) {
-      return;
-    }
     const{backdrop_path, original_title, original_name, popularity, overview} = filmObj;
-    
-    //containerDefault.classList.add('hero-hidden')
+    const poster = `https://image.tmdb.org/t/p/original/${backdrop_path}`;
 
+    if (!filmObj) {
+        containerDefault.classList.remove('hero-hidden');
+        return;
+    } else if(backdrop_path === undefined || backdrop_path === "") {
+         poster = `./images/hero-img/coming-soon.jpg`;
+    } else {        
     sectionHero.classList.add('hero-section-random');
     
     container.innerHTML = `
-    <img src="https://image.tmdb.org/t/p/original/${backdrop_path}" alt="best-film-day" class="hero-img-random"/>
+    <img src="${poster}" alt="best-film-day" class="hero-img-random"/>
     <h1 class="hero-title hero-title-random">${original_title || original_name}</h1>
     <div class="form_item">
             <div class="form_lebel"> </div>
-            <div data-ajax="true" class="rating rating_set">
+            <div data-ajax="true" class="rating rating_set rating-hero">
                 <div class="rating_body">
                     <div class="rating_active"></div>
                     <div class="rating_items">
@@ -68,6 +80,11 @@ function createRandomFilm(filmObj) {
     </div>
 </div>`
  };
-          
+}  
+
+function onError(err) {
+    console.error(err);
+    containerDefault.classList.remove('hero-hidden');
+}
 
 
