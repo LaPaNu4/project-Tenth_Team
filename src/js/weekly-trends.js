@@ -95,9 +95,22 @@ function createMarkup(results) {
                 </div>
               </div>
           </div>
-          <div class='star-rate'>
-                  ${starIcons}
-          </div>
+          
+        </div>
+        <div class="form_item_weekly">
+            <div class="form_lebel"> </div>
+            <div data-ajax="true" class="rating rating_set rating-hero">
+                <div class="rating_body">
+                    <div class="rating_active"></div>
+                    <div class="rating_items">
+                        <input type="radio" class="rating_item" value="1" name="rating">
+                        <input type="radio" class="rating_item" value="2" name="rating">
+                        <input type="radio" class="rating_item" value="3" name="rating">
+                        <input type="radio" class="rating_item" value="4" name="rating">
+                        <input type="radio" class="rating_item" value="5" name="rating">
+                    </div>
+                </div>
+            </div>
         </div>
       </li>`;
       }
