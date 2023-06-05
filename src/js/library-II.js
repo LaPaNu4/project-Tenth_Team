@@ -5,6 +5,7 @@ const searchMore = document.querySelector('.search-more');
 const loadMore = document.querySelector('.load');
 const emptyGallery = document.querySelector('.empty-gallery');
 const dropDown = document.querySelector('.dropdown-library');
+const dropMenuLibrary = document.querySelector('.dropdown-menu-library');
 
 
 //adding dropdown functionality
@@ -66,6 +67,7 @@ function fetchFromLibrary() {
         .then(data => data.json())
         .then(movieData => {
             renderedMovies.push(movieData);
+
             const moviesById = movieMarkUp(movieData);
             gallery.insertAdjacentHTML('beforeend', moviesById);
             loadMore.classList.add('show');
@@ -82,7 +84,7 @@ function fetchFromLibrary() {
 }
 
 const filterMoviesByGenre = (movies) => {
-    const genre = selectGenre.value;
+    const genre = dropMenuLibrary.value;
 
     const chosenMovies = movies.filter(movie => movie.genre === genre);
     if(chosenMovies.length > 0) {
@@ -98,7 +100,7 @@ const filterMoviesByGenre = (movies) => {
 }    
 
  const movieMarkUp = (dataComing) => {
-    // return dataComing.map(item => {
+    // return dataComing.map(item => {}
         const {img, title, genre, year, rating, id} = dataComing;
         return (`
         <div class="movie" id=${id}>
@@ -113,6 +115,6 @@ const filterMoviesByGenre = (movies) => {
 }
 
 window.onload = fetchFromLibrary;
-dropDown.addEventListener('click', filterMoviesByGenre);
+dropDown.addEventListener('click', () => filterMoviesByGenre(renderedMovies));
 
 
