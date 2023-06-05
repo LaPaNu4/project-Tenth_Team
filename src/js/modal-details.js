@@ -133,21 +133,23 @@ function onCloseModalBackdrop(event) {
 //   }
 // }
 
-function onAddLibrary() {
-  const btnActiveValue = modalBtnEl.textContent;
-  let favoriteMovies = [];
-
-  const storedMovies = localStorage.getItem('favoriteMovies');
-  if (storedMovies) {
-    favoriteMovies = JSON.parse(storedMovies);
-  }
-
-  if (btnActiveValue === 'Add to my library') {
-    const movie = document.querySelector('.film-card-poster');
-    const idMovie = movie.getAttribute('id');
-    favoriteMovies.push(idMovie);
-
-
-    localStorage.setItem('favoriteMovies', JSON.stringify(favoriteMovies));
-  }
+function onAddLibrary() { 
+  const btnActiveValue = modalBtnEl.textContent; 
+ 
+  let favoriteMovies = []; 
+ 
+  const storedMovies = localStorage.getItem('favoriteMovies'); 
+  if (storedMovies) { 
+    favoriteMovies = JSON.parse(storedMovies); 
+  } 
+ 
+  if (btnActiveValue === 'Add to my library') { 
+    const movie = document.querySelector('.film-card-poster'); 
+    const idMovie = movie.getAttribute('id'); 
+    favoriteMovies.push(idMovie); 
+    localStorage.setItem('favoriteMovies', JSON.stringify(favoriteMovies)); 
+    modalBtnEl.textContent = 'Remove from library' 
+  } 
+console.log(favoriteMovies) 
+   
 }
