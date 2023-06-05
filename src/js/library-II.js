@@ -1,8 +1,11 @@
+const { all } = require("axios");
+
 const gallery = document.querySelector('.movies-galery');
-const selectGenre = document.querySelector('.genres');
 const searchMore = document.querySelector('.search-more');
 const loadMore = document.querySelector('.load');
 const emptyGallery = document.querySelector('.empty-gallery');
+const dropDown = document.querySelector('.dropdown-library');
+const dropMenuLibrary = document.querySelector('.dropdown-menu-library');
 
 
 //adding dropdown functionality
@@ -39,64 +42,79 @@ const emptyGallery = document.querySelector('.empty-gallery');
 
 
 
+const STORAGE = 'favoriteMovies';
+
+loadMore.classList.add('hide');
+emptyGallery.classList.add('hide');
+dropDown.classList.add('hide');
 
 
+const BASE_URL = 'https://api.themoviedb.org/3/movie/';
+const API_KEY = '14b16a10583a3d9315723a356100e4ad';
+const renderedMovies = [];
 
-const movies = [];
-const STORAGE = 'movies-from-storage';
+function fetchFromLibrary() {
+    const movieIds = JSON.parse(localStorage.getItem(STORAGE));
 
-//loadMore.classList.add('hide');
-// selectGenre.classList.add('hide');
-//emptyGallery.classList.add('hide');
+    if(!movieIds || movieIds.length === 0) {
+        emptyGallery.classList.remove('hide');
+        emptyGallery.classList.add('show');
+        return;
+    }
 
+    movieIds.forEach(movie_id => {
+        fetch(`${BASE_URL}?api_key=${API_KEY}&${movie_id}`)
+        .then(data => data.json())
+        .then(movieData => {
+            renderedMovies.push(movieData);
 
-const getStoredMovies = (e) => {
-    e.preventDefault();
+            const moviesById = movieMarkUp(movieData);
+            gallery.insertAdjacentHTML('beforeend', moviesById);
+            loadMore.classList.add('show');
+            loadMore.classList.remove('hide');
+            dropDown.classList.add('show');
+            dropDown.classList.remove('hide');
+        })            
+        .catch(error => {
+        console.log(error);
+        throw new Error(error);
+        });
+    })
+    filterMoviesByGenre(renderedMovies);
+}
 
-    const movie = {
-        img: img,
-        title: title,
-        genre: genre,
-        year: year,
-        rating: rating,
-    };
+const filterMoviesByGenre = (movies) => {
+    const genre = dropMenuLibrary.value;
 
-
-    const movies = localStorage.parse(localStorage.getItem(STORAGE));
-
-    if(movies) {
-        const genre = selectGenre.value;
-        const chosenMovies = movies.filter(movie => movie.genre);
-
+    const chosenMovies = movies.filter(movie => movie.genre === genre);
+    if(chosenMovies.length > 0) {
         const galleryItems = movieMarkUp(chosenMovies);
         gallery.insertAdjacentHTML('beforeend', galleryItems);
         loadMore.classList.add('show');
         loadMore.classList.remove('hide');
+    } else {
+        gallery.innerHTML = '';
+        loadMore.classList.add('hide');
+        loadMore.classList.remove('show');
     }
-    console.log('something');
-    emptyLibrary();
-}
+}    
 
-const movieMarkUp = (dataComing) => {
-
-    return dataComing.map(item => {
-        const {img, title, genre, year, rating} = item;
-        `
-        <div class="movie">
+ const movieMarkUp = (dataComing) => {
+    // return dataComing.map(item => {}
+        const {img, title, genre, year, rating, id} = dataComing;
+        return (`
+        <div class="movie" id=${id}>
             <img class="movie-img" src="${img}">
             <h2 class="movie-title">${title}</h2>
             <h2 class="movie-genre">${genre}</h2>
             <h2 class="movie-year">${year}</h2>
             <span class="movie-rating">${rating}</span>
         </div>
-        `;
-}).join('');
+        `
+).join('');
 }
 
-// const emptyLibrary = () => {
-//     searchMore.classList.add('show');
-//     searchMore.classList.remove('hide');
-//     selectGenre.classList.add('show');
+window.onload = fetchFromLibrary;
+dropDown.addEventListener('click', () => filterMoviesByGenre(renderedMovies));
 
-// }
 

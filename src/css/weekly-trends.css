@@ -1,6 +1,5 @@
 /* weekly-trends */
 .weekly .container {
-  width: 480px;
   padding-left: 20px;
   padding-right: 20px;
 }
@@ -75,24 +74,41 @@
   border-radius: inherit;
 }
 .gallery-weekly__title {
+  font-family: 'Roboto-400';
+  font-weight: 500;
   font-size: 12px;
-  line-height: 1.5;
+  line-height: 1.66;
   text-transform: uppercase;
   overflow: hidden;
   color: var(--white);
 }
-.gallery-weekly__text {
+.cards-list__text {
+  font-family: 'Roboto-400';
+  font-weight: 500;
   font-size: 12px;
-  line-height: 1.5;
+  line-height: 1.66;
   overflow: hidden;
   color: var(--gray-light);
 }
 .gallery-weekly__info {
   max-width: 100%;
-  margin-right: -30%;
+  bottom: 50px;
+  margin-right: -10%;
 }
+/* .rating_body {
+  color: var(--gray-light);
+  margin-top: auto;
+  margin-left: auto;
 
-.gallery-weekly__rate {
+  font-size: 12px;
+  line-height: 1.5;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+} */
+.form_item_weekly {
+  margin-top: -30px;
+  margin-right: 12px;
   color: var(--gray-light);
   margin-top: auto;
   margin-left: auto;
@@ -103,6 +119,7 @@
   overflow: hidden;
   text-overflow: ellipsis;
 }
+
 .gallery-weekly__all-info {
   display: flex;
   align-items: baseline;
@@ -151,13 +168,19 @@
     height: auto;
   }
   .gallery-weekly__title {
-    line-height: 1.2;
+    line-height: 1.5;
   }
-  .gallery-weekly__text {
-    font-size: 10px;
-    line-height: 1.2;
+  .cards-list__text {
+    font-size: 12px;
+    line-height: 1.5;
   }
-  .gallery-weekly__rate {
+  /* .rating_body {
+    font-size: 12px;
+    line-height: 1.5;
+  } */
+  .form_item_weekly {
+    margin-top: -30px;
+    margin-right: 12px;
     font-size: 12px;
     line-height: 1.5;
   }
@@ -196,18 +219,23 @@
   }
   .gallery-weekly__title {
     font-size: 20px;
-    line-height: 1.67;
+    line-height: 1.15;
   }
-  .gallery-weekly__text {
+  .cards-list__text {
     font-size: 20px;
     line-height: 1.2;
   }
-  .gallery-weekly__rate {
+  /* .rating_body {
     font-size: 20px;
-    line-height: 1.2;
+    line-height: 1.15;
+  } */
+  .form_item_weekly {
+    margin-top: -35px;
+    margin-right: 12px;
+    font-size: 20px;
+    line-height: 1.15;
   }
   .gallery-weekly__all-info {
     width: 395px;
   }
 }
-
