@@ -1,10 +1,7 @@
 var _ = require('lodash');
 const imgEL = document.querySelector(".catalog-list");
-const bodyEl = document.querySelector('body');
 const modalEl = document.querySelector('.modal-backdrop');
-// 
 const cardHeaderEl = document.querySelector('.film-card-content')
-
 const modalBtnEl = document.querySelector('.film-card-btn')
 
 imgEL.addEventListener("click", _.throttle(onClickPoster, 100));
@@ -13,6 +10,7 @@ modalBtnEl.addEventListener('click', onAddLibrary);
 
 function onClickPoster(event) {
   event.preventDefault();
+
   const currentMovie = event.target.closest('.catalog-item');
 
   console.log(currentMovie);
@@ -22,8 +20,7 @@ function onClickPoster(event) {
     console.log(idOfMovie);
     fetchMoreFilmDetails(idOfMovie)
       .then(data => {
-        console.log(data.original_title);
-        onOpenModalWindow(data);
+         onOpenModalWindow(data);
         onMarkUpDetails(data);
       })
       .catch(error => {
@@ -136,7 +133,7 @@ function onCloseModalBackdrop(event) {
 function onAddLibrary(event) {
   const btn = event.target;
   const btnActiveValue = btn.textContent;
-  console.log(btnActiveValue);
+  console.log('кнопкаааа');
 
   let favoriteMovies = [];
 
@@ -145,25 +142,24 @@ function onAddLibrary(event) {
     favoriteMovies = JSON.parse(storedMovies);
   }
 
-  if (btnActiveValue === 'Add to my library'|| favoriteMovies === '') {
-    const movie = document.querySelector('.film-card-poster');
+  if (btnActiveValue === 'Add to my library' || favoriteMovies.length === 0) {
+    const movie = btn.closest('.film-card').querySelector('.film-card-poster');
     const movieId = movie.getAttribute('id');
+    console.log(movieId);
 
     favoriteMovies.push(movieId);
     localStorage.setItem('favoriteMovies', JSON.stringify(favoriteMovies));
     btn.textContent = 'Remove from library';
-   
   }
 
   if (btnActiveValue === 'Remove from library') {
- const movie = document.querySelector('.film-card-poster');
+    const movie = btn.closest('.film-card').querySelector('.film-card-poster');
     const movieId = movie.getAttribute('id');
-    removeIdMovie(movieId, storedMovies)
+    removeIdMovie(movieId, storedMovies);
   }
 
   console.log(favoriteMovies);
 }
-
 
 function removeIdMovie(movieId, storedMovies) {
   const favoriteMovies = JSON.parse(storedMovies);
@@ -174,9 +170,9 @@ function removeIdMovie(movieId, storedMovies) {
       favoriteMovies.splice(indexToRemove, 1);
     }
   }
-  localStorage.setItem('favoriteMovies', JSON.stringify(favoriteMovies));
-  modalBtnEl.textContent = 'Add to library'
 
+  localStorage.setItem('favoriteMovies', JSON.stringify(favoriteMovies));
+  modalBtnEl.textContent = 'Add to my library';
 }
 
 

@@ -122,6 +122,15 @@ section.cards-library {
 
 .empty-gallery {
   text-align: center;
+  /* display: none; */
+}
+
+.hide {
+  display: none;
+}
+
+.show {
+  display: block;
 }
 
 @media screen and (min-width: 768px) {
