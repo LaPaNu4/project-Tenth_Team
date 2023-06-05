@@ -1,10 +1,11 @@
+var _ = require('lodash');
 const imgEL = document.querySelector(".catalog-list");
 const bodyEl = document.querySelector('body');
 const modalEl = document.querySelector('.modal-backdrop');
 const cardHeaderEl = document.querySelector('.film-card-header')
 const modalBtnEl = document.querySelector('.film-card-btn')
 
-imgEL.addEventListener("click", onClickPoster);
+imgEL.addEventListener("click", _.throttle(onClickPoster, 100));
 modalEl.addEventListener('click', onCloseModalBackdrop);
 modalBtnEl.addEventListener('click', onAddLibrary);
 
@@ -28,6 +29,7 @@ function onClickPoster(event) {
         throw new Error(error);
       });
   }
+  clearMarkup()
 }
 
 function fetchMoreFilmDetails(idOfMovie) {
@@ -55,6 +57,7 @@ function fetchMoreFilmDetails(idOfMovie) {
 function onOpenModalWindow(data) {
   modalEl.classList.remove('is-hidden');
   window.addEventListener('keydown', onPressESC);
+
 }
 
 function onCloseModal() {
@@ -120,36 +123,54 @@ function onCloseModalBackdrop(event) {
   }
 }
 
-// function onAddLibrary() {
-//   console.log('btn')
-//   const btnActiveValue = modalBtnEl.textContent;
-//   console.log(btnActiveValue)
-//   let favoriteMovies = []
-//   if (btnActiveValue === 'Add to my library') {
-//     const movie = document.querySelector('.film-card-poster');
-//     const idMovie = movie.getAttribute('id');
-//     favoriteMovies.push(idMovie)
-//     localStorage.setItem('favoriteMovies', JSON.stringify(favoriteMovies));
-//   }
-// }
 
-function onAddLibrary() { 
-  const btnActiveValue = modalBtnEl.textContent; 
- 
-  let favoriteMovies = []; 
- 
-  const storedMovies = localStorage.getItem('favoriteMovies'); 
-  if (storedMovies) { 
-    favoriteMovies = JSON.parse(storedMovies); 
-  } 
- 
-  if (btnActiveValue === 'Add to my library') { 
-    const movie = document.querySelector('.film-card-poster'); 
-    const idMovie = movie.getAttribute('id'); 
-    favoriteMovies.push(idMovie); 
-    localStorage.setItem('favoriteMovies', JSON.stringify(favoriteMovies)); 
-    modalBtnEl.textContent = 'Remove from library' 
-  } 
-console.log(favoriteMovies) 
+
+
+function onAddLibrary(event) {
+  const btn = event.target;
+  const btnActiveValue = btn.textContent;
+  console.log(btnActiveValue);
+
+  let favoriteMovies = [];
+
+  const storedMovies = localStorage.getItem('favoriteMovies');
+  if (storedMovies) {
+    favoriteMovies = JSON.parse(storedMovies);
+  }
+
+  if (btnActiveValue === 'Add to my library'|| favoriteMovies === '') {
+    const movie = document.querySelector('.film-card-poster');
+    const movieId = movie.getAttribute('id');
+
+    favoriteMovies.push(movieId);
+    localStorage.setItem('favoriteMovies', JSON.stringify(favoriteMovies));
+    btn.textContent = 'Remove from library';
    
+  }
+
+  if (btnActiveValue === 'Remove from library') {
+ const movie = document.querySelector('.film-card-poster');
+    const movieId = movie.getAttribute('id');
+    removeIdMovie(movieId, storedMovies)
+  }
+
+  console.log(favoriteMovies);
 }
+
+
+function removeIdMovie(movieId, storedMovies) {
+  const favoriteMovies = JSON.parse(storedMovies);
+
+  if (favoriteMovies.includes(movieId)) {
+    const indexToRemove = favoriteMovies.indexOf(movieId);
+    if (indexToRemove !== -1) {
+      favoriteMovies.splice(indexToRemove, 1);
+    }
+  }
+  localStorage.setItem('favoriteMovies', JSON.stringify(favoriteMovies));
+  modalBtnEl.textContent = 'Add to library'
+
+}
+
+
+
