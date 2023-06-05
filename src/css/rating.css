@@ -1,5 +1,6 @@
 .rating {
     display: flex;
+    align-items: flex-end;
     font-size: 25px;
     line-height: 0.75;
 }
@@ -15,7 +16,7 @@
 
 .rating_active {
     position: absolute;
-    width:50%;
+    width:0%;
     height: 100%;
     left: 0;
     /* right: 3.12%; */
@@ -47,4 +48,10 @@
     flex: 0 0 20%;
     height: 100%;
     opacity: 0;
+}
+
+.rating_value {
+    font-size: 80%;
+    line-height: 1;
+    padding: 0px 0px 0px 10px;
 }
