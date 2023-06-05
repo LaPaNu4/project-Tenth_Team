@@ -8,10 +8,9 @@ dropdownItemsLibrary.forEach(function(item) {
 });
 
 function toggleDropdownLibrary() {
-  dropdownToggleLibrary.classList.toggle('rotated');
-
   if (dropdownMenuLibrary.style.display === 'none' || dropdownMenuLibrary.style.display === '') {
     dropdownMenuLibrary.style.display = 'block';
+    dropdownToggleLibrary.classList.toggle('rotated');
   } else {
     dropdownMenuLibrary.style.display = 'none';
   }
@@ -29,6 +28,6 @@ function selectOptionLibrary(e) {
   selectedOptionLibrary.classList.add('dropdown-item-library-color');
 
   dropdownToggleLibrary.textContent = selectedOptionLibrary.textContent;
-
+  dropdownToggleLibrary.classList.toggle('rotated');
   dropdownMenuLibrary.style.display = 'none';
 }

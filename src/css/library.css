@@ -28,7 +28,7 @@ section.cards-library {
 
 .dropdown-menu-library {
   width: 172px;
-  background-color: transparent;
+  background-color: #1C1C1C;
   border: 1px solid var(--white);
   z-index: 5000;
   border-radius: 8px;
