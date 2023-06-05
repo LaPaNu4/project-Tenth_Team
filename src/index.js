@@ -13,3 +13,4 @@ import './js/rating.js';
 // import './js/weekly-trends.js';
 import './js/upcomingThisMounth.js';
 // import './js/test.js'
+import './js/modal-details.js';
