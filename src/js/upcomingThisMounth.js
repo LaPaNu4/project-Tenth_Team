@@ -5,9 +5,8 @@ const URL = 'https://api.themoviedb.org/3/movie/upcoming';
 const API_KEY = '0b7ed72c0b07bc683ffc3b8a0e430792';
 
 const upcomingFilm = document.querySelector('.upcoming-film');
-// const btnAdd = document.getElementById('addLibrary');
+const favoriteMovies = 'favoriteMovies';
 
-// btnAdd.addEventListener('click', OnBtnAddClick)
 
 async function getUpcomingData () {
     const response = await axios.get(`${URL}?api_key=${API_KEY}`);
@@ -20,8 +19,6 @@ async function getUpcomingData () {
 async function getUpcoming() {
     try {
         const data = await getUpcomingData();
-        
-           
 
       if (data.length === 0) {
         renderMarkupError();
@@ -29,26 +26,48 @@ async function getUpcoming() {
       }
 
       const randomFilm = Math.floor(Math.random() * data.length);
-     
         const renderFilm = data[randomFilm];
-        const idFilm = renderFilm.id;
+       const idFilm = renderFilm.id;
       const render = await createMarcup(renderFilm);
         renderMarkup(render);
         
-        
-        
+        const upcomingBtn = document.querySelector('.upcoming_content_btn');  
+        let savedLocal = localStorage.getItem('favoriteMovies');
+        let parsedLocal = JSON.parse(savedLocal);
+        parsedLocal = parsedLocal ? parsedLocal : [];   
+
+      if (parsedLocal.includes(idFilm)) {
+        upcomingBtn.textContent = 'Remove from my library';
+      } else {
+        upcomingBtn.textContent = 'Add to my library';
+      }
+
+        upcomingBtn.addEventListener('click', () => {
+          
+  let savedLocal = localStorage.getItem('favoriteMovies');
+  let parsedLocal = JSON.parse(savedLocal);
+  parsedLocal = parsedLocal ? parsedLocal : [];
+
+  if (!parsedLocal.includes(idFilm)) {
+    parsedLocal.push(idFilm);
+    localStorage.setItem(favoriteMovies, JSON.stringify(parsedLocal));
+    upcomingBtn.textContent = 'Remove from my library';
+  } else {
+    let index = parsedLocal.findIndex(id => id === idFilm);
+    parsedLocal.splice(index, 1);
+    localStorage.setItem(favoriteMovies, JSON.stringify(parsedLocal));
+    upcomingBtn.textContent = 'Add to my library';
+  }
+      });
+    
+    
     } catch (error) {
       console.log(error);
     }
 }
 
-
-
 getUpcoming();
 
-// function OnBtnAddClick() {
-    
-// }
   
 
 function createMarcup({
@@ -126,3 +145,4 @@ function renderMarkupError() {
         </p>
       </div>`;
 }
+

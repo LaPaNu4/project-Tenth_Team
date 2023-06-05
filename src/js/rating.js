@@ -1,12 +1,16 @@
 // основна функція
+
 const ratings = document.querySelectorAll('.rating');
 if (ratings.length > 0) {
     initRatings();
 }
 
 function initRatings() {
+
     let ratingActive, ratingValue;
-    
+
+    let ratingActive, ratingValue;   
+
     for (let index = 0; index < ratings.length; index++){
         const rating = ratings[index];
         initRating(rating);
@@ -72,10 +76,6 @@ const URL = 'https://api.themoviedb.org/3/movie/{movie_id}/rating';
 //     console.log(${Math.round(value) * 10}%);
 // }
 // addReting(4.6)
-
-
-
-
 
 
 

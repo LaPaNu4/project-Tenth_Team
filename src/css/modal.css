@@ -10,6 +10,8 @@
     height: 100%;
     background-color: rgba(61, 57, 57, 0.9);
     opacity: 1;
+    z-index: 1;
+    overflow: auto;
     transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -24,20 +26,27 @@
     transform: translate(-50%, -50%);
     max-height: 100%;
     background-color: var(--black);
-    overflow-y: auto;
     box-shadow: 1px 1px 14px 4px rgba(255, 107, 8, 0.42);
     border-radius: 16px;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    overflow-y: scroll;
+}
+
+.film-card::-webkit-scrollbar {
+    display: none;
 }
 
 .film-card-container {
     min-width: 280px;
-    padding: 20px 16px 52px;
+    padding: 20px 16px 52px 16px;
     margin: 0 auto;
 }
 
 @media screen and (min-width: 768px) {
     .film-card-container {
         width: 704px;
+        padding: 24px 24px 44px 44px;
     }
 }
 
@@ -52,6 +61,22 @@
     justify-content: end;
 }
 
+.film-card-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 22px;
+}
+
+@media screen and (min-width: 768px) {
+    .film-card-content {
+        flex-direction: row;
+        align-items: flex-start;
+        gap: 16px;
+    }
+}
+
 .film-card-close-btn {
     display: inline-flex;
     margin-bottom: 8px;
@@ -60,37 +85,57 @@
     background-color: transparent;
 }
 
-.film-card-close-btn-icon {}
+@media screen and (min-width: 768px) {
+    .film-card-close-btn {
+        margin-bottom: 0px;
+    }
+}
 
 .film-card-poster {
     width: 248px;
-    margin-bottom: 22px;
+}
+
+@media screen and (min-width: 768px) {
+    .film-card-poster {
+        min-width: 294px;
+    }
 }
 
 .film-card-poster img {
     border-radius: 5px;
 }
 
-.film-summary {}
-
 .film-title {
     font-weight: 500;
     font-size: 20px;
-    line-height: 23px;
     margin-bottom: 29px;
+}
+
+@media screen and (min-width: 768px) {
+    .film-title {
+        font-weight: 500;
+        font-size: 24px;
+        line-height: 1.16;
+        margin-bottom: 24px;
+    }
 }
 
 .film-info-list {
     display: flex;
+    justify-content: space-between;
     gap: 62px;
     margin-bottom: 0;
     font-weight: 500;
     font-size: 14px;
-    line-height: 16px;
+    line-height: 1.14;
     color: #B7B7B7;
 }
 
-.film-info-list-item {}
+@media screen and (min-width: 768px) {
+    .film-info-list {
+        justify-content: flex-start;
+    }
+}
 
 .film-info-list-item>ul>li {
     margin-bottom: 12px;
@@ -104,13 +149,15 @@
     margin-bottom: 4px;
 }
 
+@media screen and (min-width: 768px) {
+    .film-info-list-item .film-genre-text {
+        margin-bottom: 20px;
+    }
+}
+
 .film-vote {
     width: 78px;
 }
-
-.film-popularity {}
-
-.film-genre {}
 
 .film-vote-text {
     padding: 1px 8px;
@@ -130,10 +177,7 @@
     line-height: 1.16;
 }
 
-.film-popularity-text {
-    color: var(--white);
-}
-
+.film-popularity-text,
 .film-genre-text {
     color: var(--white);
 }
@@ -141,9 +185,15 @@
 .film-about {
     margin-bottom: 12px;
     font-size: 14px;
-    line-height: 16px;
+    line-height: 1.14;
     text-transform: uppercase;
     color: var(--gray-light);
+}
+
+@media screen and (min-width: 768px) {
+    .film-about {
+        margin-bottom: 16px;
+    }
 }
 
 .film-text {
@@ -152,7 +202,30 @@
     font-size: 12px;
     line-height: 1.66;
     color: #F8F8F8;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
     overflow-y: scroll;
+}
+
+@media screen and (min-width: 768px) {
+    .film-text {
+        height: 140px;
+        margin-bottom: 24px;
+    }
+}
+
+.film-text::-webkit-scrollbar {
+    display: none;
+}
+
+.film-card-btn-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 140px;
+    height: 40px;
+    background: linear-gradient(155deg, #FFC226, #F84119);
+    border-radius: 74px;
 }
 
 .film-card-btn {
@@ -160,7 +233,14 @@
     font-weight: 500;
     font-size: 12px;
     line-height: 1.16;
-    background-color: transparent;
+    border: none;
+    background-color: var(--black);
     color: #FFFFFF;
     border-radius: 74px;
+    transition: background-color 500ms cubic-bezier(0.4, 0, 0.2, 1), color 1000ms cubic-bezier(0.4, 0, 0.2, 1)
+}
+
+.film-card-btn:is(:hover, :focus) {
+    background-color: var(--white);
+    color: var(--orange);
 }

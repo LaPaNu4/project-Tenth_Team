@@ -1,5 +1,39 @@
 import axios from 'axios';
 import Notiflix from 'notiflix';
+// import { pagination } from './pagination.js';
+import Pagination from 'tui-pagination';
+
+let totalEl = 0;
+let page = 1;
+console.log(page);
+
+const options = {
+  totalItems: totalEl,
+  itemsPerPage: 20,
+  visiblePages: 3,
+  page: page,
+  centerAlign: false,
+  firstItemClassName: 'tui-first-child',
+  lastItemClassName: 'tui-last-child',
+  template: {
+    page: '<a href="#" class="tui-page-btn">{{page}}</a>',
+    currentPage:
+      '<strong class="tui-page-btn tui-is-selected">{{page}}</strong>',
+    moveButton:
+      '<a href="#" class="tui-page-btn tui-{{type}}">' +
+      '<span class="tui-ico-{{type}}"></span>' +
+      '</a>',
+    disabledMoveButton:
+      '<span class="tui-page-btn tui-is-disabled tui-{{type}}">' +
+      '<span class="tui-ico-{{type}}"></span>' +
+      '</span>',
+    moreButton:
+      '<a href="#" class="tui-page-btn tui-{{type}}-is-ellip">...</a>',
+  },
+};
+
+const pagination = new Pagination('pagination', options);
+
 const URL = 'https://api.themoviedb.org/3/';
 // 'https://api.themoviedb.org/3/trending/all/week?api_key=d30846261444a5a49dd702fa51e06838';
 const KEY = 'api_key=d30846261444a5a49dd702fa51e06838';
@@ -7,15 +41,34 @@ const KEY = 'api_key=d30846261444a5a49dd702fa51e06838';
 const catalogList = document.getElementById('catalog-list');
 const searchForm = document.getElementById('search-form');
 
-async function getTopFilmsData() {
-  const response = await axios.get(`${URL}trending/all/week?${KEY}`);
+getTopFilmsData(page).then(createTopFilmsMarkup).then(renderTopFilmsMarkup);
+
+setTimeout(() => {
+  pagination.reset(totalEl);
+}, 500);
+
+async function getTopFilmsData(page) {
+  const response = await axios.get(
+    `${URL}trending/all/week?${KEY}&language=en-US&page=${page}`
+  );
+
+  totalEl = response.data.total_results;
+  console.log(totalEl);
+
   const results = response.data.results;
-  console.log(results);
 
   return results;
 }
 
-getTopFilmsData().then(createTopFilmsMarkup).then(renderTopFilmsMarkup);
+pagination.on('afterMove', event => {
+  const currentPage = event.page;
+
+  getTopFilmsData(currentPage)
+    .then(createTopFilmsMarkup)
+    .then(renderTopFilmsMarkup);
+});
+
+// getTopFilmsData().then(createTopFilmsMarkup).then(renderTopFilmsMarkup);
 
 function createTopFilmsMarkup(results) {
   if (!results) {
@@ -27,17 +80,22 @@ function createTopFilmsMarkup(results) {
       if (!result.release_date) {
         releaseDate = 'Unknown';
       } else releaseDate = releaseDate.slice(0, 4);
-      console.log(releaseDate);
 
       let filmName = result.original_title;
       if (!filmName) {
         filmName = 'Unknown';
       }
 
-      // const jenres = result.genre_ids.map(jenre => console.log(jenre));
-      // console.log(jenres);
+      // let aaaa = result.genre_ids.map(jenre =>
+      //   getGenreName(jenre).then(value => {
+      //     console.log(value);
+      //     return value;
+      //   })
+      // );
 
-      return `<li class="catalog-item">
+      // console.log(aaaa);
+
+      return `<li class="catalog-item" id="${result.id}">
             <div class="photo-card">
               <div class="image-wrap">
                 <img src="https://image.tmdb.org/t/p/w500${result.poster_path}" alt="${result.title}" />
@@ -61,26 +119,42 @@ function renderTopFilmsMarkup(markup) {
   catalogList.innerHTML = markup;
 }
 
-async function getFilmsData(request) {
-  console.log(request);
+async function getFilmsData(page, request) {
   const response = await axios.get(
-    `${URL}search/movie?${KEY}&query=${request}`
+    `${URL}search/movie?${KEY}&query=${request}&page=${page}`
   );
   const results = response.data.results;
-  console.log(results);
+  totalEl = response.data.total_results;
+  console.log(totalEl);
 
   return results;
 }
 
-searchForm.addEventListener('submit', handleSubmit);
+searchForm.addEventListener('submit', onSubmit);
 
-function handleSubmit(event) {
+function onSubmit(event) {
   event.preventDefault();
   const searchQuery = searchForm.searchQuery.value.trim();
-  getFilmsData(searchQuery)
+  let page = 1;
+  console.log(page);
+
+  getFilmsData(page, searchQuery)
     .then(createTopFilmsMarkup)
     .then(renderTopFilmsMarkup)
     .then(clearSearchForm);
+
+  setTimeout(() => {
+    pagination.reset(totalEl);
+  }, 500);
+
+  pagination.on('afterMove', event => {
+    page = event.page;
+
+    getFilmsData(page, searchQuery)
+      .then(createTopFilmsMarkup)
+      .then(renderTopFilmsMarkup)
+      .then(clearSearchForm);
+  });
 }
 
 function clearSearchForm() {
