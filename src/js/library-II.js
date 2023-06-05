@@ -1,3 +1,5 @@
+const { all } = require("axios");
+
 const gallery = document.querySelector('.movies-galery');
 const selectGenre = document.querySelector('.genres');
 const searchMore = document.querySelector('.search-more');
@@ -41,27 +43,32 @@ const emptyGallery = document.querySelector('.empty-gallery');
 
 const STORAGE = 'favoriteMovies';
 
-//loadMore.classList.add('hide');
-// selectGenre.classList.add('hide');
-//emptyGallery.classList.add('hide');
+loadMore.classList.add('hide');
+selectGenre.classList.add('hide');
+emptyGallery.classList.add('hide');
+
 const BASE_URL = 'https://api.themoviedb.org/3/movie/';
 const API_KEY = '14b16a10583a3d9315723a356100e4ad';
 
-function fetchFromLibrary(movieId) {
-    const query = `${BASE_URL}?api_key=${API_KEY}&${movieId}`;
+function fetchFromLibrary() {
+    const movieIds = JSON.parse(localStorage.getItem(STORAGE));
 
-    return fetch(query)
-        .then(response => {
-        if (!response.ok) {
-            throw new Error(response.status);
-        }
-        return response.json();
+    if(!movieIds || movieIds.length === 0) {
+        emptyGallery.classList.remove('hide');
+        emptyGallery.classList.add('show');
+        return;
+    }
+
+    movieIds.forEach(movie_id => {
+        fetch(`${BASE_URL}?api_key=${API_KEY}&${movie_id}`)
+        .then(data => data.json())
+        .then(movieData => {
+            const moviesById = movieMarkUp(movieData);
+            gallery.insertAdjacentHTML('beforeend', moviesById);
+            loadMore.classList.add('show');
+            loadMore.classList.remove('hide');
         })
-        .then(data => {
-        return data;
-        })
-        .then(getAllStoredMovies)
-        .then(filterMoviesByGenre)
+    })    
         .catch(error => {
         console.log(error);
         throw new Error(error);
@@ -69,44 +76,43 @@ function fetchFromLibrary(movieId) {
 }
 
 
-const getAllStoredMovies = (e) => {
-    e.preventDefault();
-    // const movie = {
-    //     img: img,
-    //     title: title,
-    //     genre: genre,
-    //     year: year,
-    //     rating: rating,
-    // };
+// function getAllStoredMovies() {
+//     //e.preventDefault();
+//     // const movie = {
+//     //     img: img,
+//     //     title: title,
+//     //     genre: genre,
+//     //     year: year,
+//     //     rating: rating,
+//     // };
 
-    const movies = JSON.parse(localStorage.getItem(STORAGE));
-    console.log(movies);
-    let movieId;
+//     const movies = JSON.parse(localStorage.getItem(STORAGE));
+//     console.log(movies);
+//     let movieId;
 
-    if(movies) {
-        return movieId = movies.map(item => {
-            item.movie_id;
-        });
-    }
-}
+//     if(movies) {
+//         return movieId = movies.map(item => {
+//             item.movie_id;
+//         });
+//     }
+// }
 
-const filterMoviesByGenre = (movies) => {
-    const genre = selectGenre.value;
+// const filterMoviesByGenre = (movies) => {
+//     const genre = selectGenre.value;
 
-    const chosenMovies = movies.filter(movie => movie.genre === genre);
-    if(chosenMovies.length > 0) {
-        const galleryItems = movieMarkUp(chosenMovies);
-        gallery.insertAdjacentHTML('beforeend', galleryItems);
-        loadMore.classList.add('show');
-        loadMore.classList.remove('hide');
-    }
-}
-    
+//     const chosenMovies = movies.filter(movie => movie.genre === genre);
+//     if(chosenMovies.length > 0) {
+//         const galleryItems = movieMarkUp(chosenMovies);
+//         gallery.insertAdjacentHTML('beforeend', galleryItems);
+//         loadMore.classList.add('show');
+//         loadMore.classList.remove('hide');
+//     }
+// }    
 
-const movieMarkUp = (dataComing) => {
-    return dataComing.map(item => {
-        const {img, title, genre, year, rating, id} = item;
-        return `
+ const movieMarkUp = (dataComing) => {
+    // return dataComing.map(item => {
+        const {img, title, genre, year, rating, id} = dataComing;
+        return (`
         <div class="movie" id=${id}>
             <img class="movie-img" src="${img}">
             <h2 class="movie-title">${title}</h2>
@@ -114,8 +120,8 @@ const movieMarkUp = (dataComing) => {
             <h2 class="movie-year">${year}</h2>
             <span class="movie-rating">${rating}</span>
         </div>
-        `;
-}).join('');
+        `
+).join('');
 }
 
 // const emptyLibrary = () => {
@@ -125,17 +131,4 @@ const movieMarkUp = (dataComing) => {
 
 // }
 
-function onAddLibrary() {  
-    const btnActiveValue = modalBtnEl.textContent;
-    let favoriteMovies = [];
-    // Retrieve existing array from localStorage or initialize an empty array  const storedMovies = localStorage.getItem('favoriteMovies');
-    if (storedMovies) {    
-        favoriteMovies = JSON.parse(storedMovies);
-    }
-    if (btnActiveValue === 'Add to my library') {    
-        const movie = document.querySelector('.film-card-poster');
-      const idMovie = movie.getAttribute('id');    
-      favoriteMovies.push(idMovie);
-      // Update localStorage with the updated array
-      localStorage.setItem('favoriteMovies', JSON.stringify(favoriteMovies));  }
-  }
+
