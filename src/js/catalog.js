@@ -1,5 +1,39 @@
 import axios from 'axios';
 import Notiflix from 'notiflix';
+// import { pagination } from './pagination.js';
+import Pagination from 'tui-pagination';
+
+let totalEl = 0;
+let page = 1;
+console.log(page);
+
+const options = {
+  totalItems: totalEl,
+  itemsPerPage: 20,
+  visiblePages: 3,
+  page: page,
+  centerAlign: false,
+  firstItemClassName: 'tui-first-child',
+  lastItemClassName: 'tui-last-child',
+  template: {
+    page: '<a href="#" class="tui-page-btn">{{page}}</a>',
+    currentPage:
+      '<strong class="tui-page-btn tui-is-selected">{{page}}</strong>',
+    moveButton:
+      '<a href="#" class="tui-page-btn tui-{{type}}">' +
+      '<span class="tui-ico-{{type}}"></span>' +
+      '</a>',
+    disabledMoveButton:
+      '<span class="tui-page-btn tui-is-disabled tui-{{type}}">' +
+      '<span class="tui-ico-{{type}}"></span>' +
+      '</span>',
+    moreButton:
+      '<a href="#" class="tui-page-btn tui-{{type}}-is-ellip">...</a>',
+  },
+};
+
+const pagination = new Pagination('pagination', options);
+
 const URL = 'https://api.themoviedb.org/3/';
 // 'https://api.themoviedb.org/3/trending/all/week?api_key=d30846261444a5a49dd702fa51e06838';
 const KEY = 'api_key=d30846261444a5a49dd702fa51e06838';
@@ -7,18 +41,34 @@ const KEY = 'api_key=d30846261444a5a49dd702fa51e06838';
 const catalogList = document.getElementById('catalog-list');
 const searchForm = document.getElementById('search-form');
 
-async function getTopFilmsData() {
+getTopFilmsData(page).then(createTopFilmsMarkup).then(renderTopFilmsMarkup);
+
+setTimeout(() => {
+  pagination.reset(totalEl);
+}, 500);
+
+async function getTopFilmsData(page) {
   const response = await axios.get(
-    `${URL}trending/all/week?${KEY}&language=en-US`
+    `${URL}trending/all/week?${KEY}&language=en-US&page=${page}`
   );
-  // console.log(response);
+
+  totalEl = response.data.total_results;
+  console.log(totalEl);
+
   const results = response.data.results;
-  console.log(results);
 
   return results;
 }
 
-getTopFilmsData().then(createTopFilmsMarkup).then(renderTopFilmsMarkup);
+pagination.on('afterMove', event => {
+  const currentPage = event.page;
+
+  getTopFilmsData(currentPage)
+    .then(createTopFilmsMarkup)
+    .then(renderTopFilmsMarkup);
+});
+
+// getTopFilmsData().then(createTopFilmsMarkup).then(renderTopFilmsMarkup);
 
 function createTopFilmsMarkup(results) {
   if (!results) {
@@ -53,7 +103,7 @@ function createTopFilmsMarkup(results) {
               <div class="film-info">
                 <p class="film-title">${filmName}</p>
                 <div class="info">
-                  <p class="info-item">"value"</p>
+                  <p class="info-item">Drama</p>
                   <p class="info-item">|</p>
                   <p class="info-item">${releaseDate}</p>
                 </div>
@@ -69,41 +119,44 @@ function renderTopFilmsMarkup(markup) {
   catalogList.innerHTML = markup;
 }
 
-async function getFilmsData(request) {
+async function getFilmsData(page, request) {
   const response = await axios.get(
-    `${URL}search/movie?${KEY}&query=${request}`
+    `${URL}search/movie?${KEY}&query=${request}&page=${page}`
   );
   const results = response.data.results;
+  totalEl = response.data.total_results;
+  console.log(totalEl);
 
   return results;
 }
 
-searchForm.addEventListener('submit', handleSubmit);
+searchForm.addEventListener('submit', onSubmit);
 
-function handleSubmit(event) {
+function onSubmit(event) {
   event.preventDefault();
   const searchQuery = searchForm.searchQuery.value.trim();
-  getFilmsData(searchQuery)
+  let page = 1;
+  console.log(page);
+
+  getFilmsData(page, searchQuery)
     .then(createTopFilmsMarkup)
     .then(renderTopFilmsMarkup)
     .then(clearSearchForm);
+
+  setTimeout(() => {
+    pagination.reset(totalEl);
+  }, 500);
+
+  pagination.on('afterMove', event => {
+    page = event.page;
+
+    getFilmsData(page, searchQuery)
+      .then(createTopFilmsMarkup)
+      .then(renderTopFilmsMarkup)
+      .then(clearSearchForm);
+  });
 }
 
 function clearSearchForm() {
   searchForm.searchQuery.value = '';
 }
-
-// async function getGenreName(id) {
-//   const response = await axios.get(
-//     `https://api.themoviedb.org/3/genre/movie/list?api_key=249f222afb1002186f4d88b2b5418b55&language=en-US`
-//   );
-//   try {
-//     const allGenres = response.data.genres;
-
-//     const jenre = allGenres.find(jenre => jenre.id == id);
-//     console.log(jenre.name);
-//     return jenre.name;
-//   } catch (error) {
-//     console.log(error.message);
-//   }
-// }
