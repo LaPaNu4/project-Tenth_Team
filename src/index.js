@@ -9,7 +9,7 @@ import './js/light-theme.js';
 // import './js/library-filter.js';
 import './js/footer-modal.js';
 // import './js/library-II.js';
-import './js/rating.js';
+// import './js/rating.js';
 // import './js/weekly-trends.js';
 import './js/upcomingThisMounth.js';
 // import './js/test.js'
