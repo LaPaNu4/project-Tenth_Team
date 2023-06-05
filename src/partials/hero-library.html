@@ -1,6 +1,46 @@
-<section class="hero-section hero-section-lib">
-    <div class="hero-container">
-        <h1 class="hero-title hero-title-lib">Create Your Dream Cinema</h1>
-        <p class="hero-text hero-text-lib">Is a guide to designing a personalized movie theater experience with the right equipment, customized decor, and favorite films. This guide helps you bring the cinema experience into your own home with cozy seating, dim lighting, and movie theater snacks.</p>        
+<section class="hero-section">
+  <div class="hero-container">
+    <div class="hero-default hero-hidden">
+      <picture class="hero-img">
+        <source
+          srcset="
+            ./images/hero-img/hero-lib-desk-min.jpg    1x,
+            ./images/hero-img/hero-lib-desk-2x-min.jpg 2x
+          "
+          media="(min-width: 1200px)"
+        />
+        <source
+          srcset="
+            ./images/hero-img/hero-lib-tab-min.jpg    1x,
+            ./images/hero-img/hero-lib-tab-2x-min.jpg 2x
+          "
+          media="(min-width: 321px)"
+        />
+        <source
+          srcset="
+            ./images/hero-img/hero-lib-mob-min.jpg    1x,
+            ./images/hero-img/hero-lib-mob-2x-min.jpg 2x
+          "
+          media="(max-width: 320px)"
+        />
+        <img
+          src="./images/hero-img/hero-lib-desk-min.jpg"
+          alt="cinema-lib-default"
+        />
+      </picture>
+      <h1 class="hero-title hero-title-lib">Create Your Dream Cinema</h1>
+      <p class="hero-text hero-text-lib">
+        Is a guide to designing a personalized movie theater experience with the
+        right equipment, customized decor, and favorite films. This guide helps
+        you bring the cinema experience into your own home with cozy seating,
+        dim lighting, and movie theater snacks.
+      </p>
     </div>
+
+    <div class="hero-random">
+      <!-- render -->
+    </div>
+  </div>
 </section>
+
+<!-- hero-section-lib -->
