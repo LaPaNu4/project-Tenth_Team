@@ -19,14 +19,9 @@ p {
   margin: 0 auto;
 }
 
-.hero-section-lib {
-    background-image: linear-gradient(86.77deg, #111111 30.38%, rgba(17, 17, 17, 0) 65.61%),
-    url(../images/hero-img/hero-lib-mob-min.jpg);
-}
-
 .hero-section-random {
   position: relative;  
-  background-image: linear-gradient(86.77deg, #111111 30.38%, rgba(17, 17, 17, 0) 65.61%);
+  /* background-image: linear-gradient(86.77deg, #111111 30.38%, rgba(17, 17, 17, 0) 65.61%); */
 }
 
   .hero-container {
@@ -36,8 +31,8 @@ p {
   }
 
   .hero-img {
-    width: 100%;
-    height: 100%;
+    width: 320px;
+    min-height: 380px;
     object-fit: cover;
     z-index: -3;
     position: absolute;
@@ -58,7 +53,7 @@ p {
   .hero-title {
     display: flex;    
     max-width: 199px;
-    font-family: 'Roboto';
+    font-family:'Roboto-700', sans-serif;
     font-weight: 700;
     font-size: 32px;
     line-height: 1.19;
@@ -79,7 +74,7 @@ p {
     display: flex;
     max-width: 177px;
     margin-bottom: 20px;
-    font-family: 'Roboto';
+    font-family:'Roboto-400', sans-serif;
     font-style: normal;
     font-weight: 400;
     font-size: 14px;
@@ -92,15 +87,19 @@ p {
     max-width: 249px;    
   }
 
+  .hero-text-random {
+    margin-top: 16px;
+  }
+
   .hero-btn {
     display: flex;
     padding: 12px 24px;
-    width: 110px;
+    min-width: 110px;
     height: 40px;
     background: var(--gradient-1);
     border: 0;
     border-radius: 74px;
-    font-family: 'Roboto';
+    font-family:'Roboto-500', sans-serif;
     font-style: normal;
     font-weight: 500;
     font-size: 12px;
@@ -126,34 +125,11 @@ p {
     gap: 8px;
   }
   
-  @media (min-device-pixel-ratio: 2),
-  (min-resolution: 192dpi),
-  (min-resolution: 2dppx) {
-  .hero-section-lib {
-    background-image: linear-gradient(86.77deg, #111111 30.38%, rgba(17, 17, 17, 0) 65.61%),
-    url(../images/hero-img/hero-lib-mob-2x-min.jpg);
-  }  
-}
-  
-
 /*----MOBILE----*/
 @media screen and (min-width: 321px) {
-.hero-section-lib {
-    background-image: linear-gradient(86.77deg, #111111 30.38%, rgba(17, 17, 17, 0) 65.61%),
-      url(../images/hero-img/hero-lib-tab-min.jpg);
-  }
-  .hero-section-random {
-    background-image: linear-gradient(86.77deg, #111111 30.38%, rgba(17, 17, 17, 0) 65.61%);
-  }
-
-  @media (min-device-pixel-ratio: 2),
-(min-resolution: 192dpi),
-(min-resolution: 2dppx) {
-.hero-section-lib {
-  background-image: linear-gradient(86.77deg, #111111 30.38%, rgba(17, 17, 17, 0) 65.61%),
-  url(../images/hero-img/hero-lib-tab-2x-min.jpg);
-}
-}
+  .hero-img {
+    width: 768px;
+    min-height: 380px;
 }
 
 /*----TABLET----*/
@@ -161,7 +137,6 @@ p {
 .hero-section {
   width: 768px;
   min-height: 432px;
-  
 }
 
 .hero-container {
@@ -170,15 +145,20 @@ p {
   padding-right: 32px;
 }
 
+.hero-img {
+  width: 100%;
+  min-height: 100%;
+}
+
 .hero-title {
   max-width: 332px;
-  padding-top:122px;
+  padding-top:62px;
   font-size: 44px;
   line-height: 1.18;
 }
 
 .hero-title-random {
-  padding-top:96px;
+  padding-top:36px;
 }
 
 .hero-text {
@@ -186,8 +166,12 @@ p {
   margin-bottom: 30px;
 }
 
+.hero-text-random {
+  margin-top: 20px;
+}
+
 .hero-btn {
-  width: 128px;
+  min-width: 128px;
   font-size: 14px;
   line-height: 1.43;
 }
@@ -199,16 +183,6 @@ p {
     width: 1280px;
     min-height: 720px;        
   }
-
-  .hero-section-lib {
-    background-image: linear-gradient(86.77deg, #111111 30.38%, rgba(17, 17, 17, 0) 65.61%),
-    url(../images/hero-img/hero-lib-desk-min.jpg);
-  }
-
-  .hero-section-random {
-    position: relative;  
-    background-image: linear-gradient(86.77deg, #111111 30.38%, rgba(17, 17, 17, 0) 65.61%);
-  }
   
   .hero-container {
     width: 1280px;    
@@ -218,7 +192,7 @@ p {
     max-width: 549px;
     font-size: 64px;
     line-height: 1.17;
-    padding-top: 229px;
+    padding-top: 169px;
     margin-bottom: 16px;
   }
 
@@ -228,7 +202,11 @@ p {
 
   .hero-title-random {
     margin-bottom: 16px;
-    padding-top: 178px;
+    padding-top: 118px;
+    padding-left: 103px;
+  }
+
+  .rating-hero {
     padding-left: 103px;
   }
 
@@ -244,10 +222,11 @@ p {
 
   .hero-text-random {
     padding-left: 103px;
+    margin-top: 28px;
   }
 
   .hero-btn {
-    width: 135px;
+    min-width: 135px;
     height: 48px;
     font-size: 16px;
     line-height: 1.5;
@@ -257,14 +236,6 @@ p {
     padding-left: 103px;
     gap: 14px;
   }
-
+}
+}
   
-  @media (min-device-pixel-ratio: 2),
-  (min-resolution: 192dpi),
-  (min-resolution: 2dppx) {
-  .hero-section-lib {
-    background-image: linear-gradient(86.77deg, #111111 30.38%, rgba(17, 17, 17, 0) 65.61%),
-    url(../images/hero-img/hero-lib-desk-2x-min.jpg);
-  }
-}
-}
