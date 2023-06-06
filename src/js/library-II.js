@@ -68,14 +68,14 @@ function fetchFromLibrary() {
 
     Promise.all(fetchMovies)
         .then(movieData => {
-            console.log(movieData)
+            // console.log(movieData)
             renderedMovies.push(...movieData);
-            console.log(renderedMovies);
+            // console.log(renderedMovies);
 
             gallery.innerHTML = '';
 
             const moviesById = movieMarkUp(movieData);
-            console.log(moviesById);
+            // console.log(moviesById);
             gallery.insertAdjacentHTML('beforeend', moviesById);
             loadMore.classList.add('show');
             loadMore.classList.remove('hide');
@@ -109,12 +109,12 @@ const movieMarkUp = (dataComing) => {
     return dataComing.map(item => {
         const { poster_path, original_title, release_date, popularity, id } = item;
         const genre = item.genres.map(genres => genres.name).slice(0, 2).join(', ');
-        console.log(typeof(genre)); 
+        // console.log(typeof(genre)); 
         const year = item.release_date.slice(0, 4);
 
         return `
-        <li class="movie-item">
-            <div class="movie" id=${id}>
+        <li class="movie-item"  >
+            <div class="movie" data-catalog-item id=${id}>
                 <img class="movie-img" src="https://image.tmdb.org/t/p/w500${poster_path}">
                 <div class="movie-info">
                     <div class="info">
