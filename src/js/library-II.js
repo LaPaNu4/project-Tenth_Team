@@ -52,12 +52,7 @@ const renderedMovies = [];
 
 function fetchFromLibrary() {
     const movieIds = JSON.parse(localStorage.getItem(STORAGE));
-    const ids = movieIds.map(item => {
-        return item.id;
-    })
-    console.log(movieIds);
-    console.log(ids);   
-
+    
     if(!movieIds || movieIds.length === 0) {
         emptyGallery.classList.remove('hide');
         emptyGallery.classList.add('show');
@@ -75,6 +70,8 @@ function fetchFromLibrary() {
         .then(movieData => {
             console.log(movieData)
             renderedMovies.push(...movieData);
+
+            gallery.innerHTML = '';
 
             const moviesById = movieMarkUp(movieData);
             gallery.insertAdjacentHTML('beforeend', moviesById);
@@ -108,17 +105,30 @@ const filterMoviesByGenre = (movies) => {
 }    
 
 const movieMarkUp = (dataComing) => {
+
     return dataComing.map(item => {
-        const { poster_path, original_title, genre, year, popularity, id } = item;
+        const { poster_path, original_title, release_date, popularity, id } = item;
+        const genre = item.genres.map(genres => genres.name).slice(0, 2).join(', ');
+        console.log(typeof(genre)); 
+        const year = item.release_date.slice(0, 4);
 
         return `
-        <div class="movie" id=${id}>
-            <img class="movie-img" src="https://image.tmdb.org/t/p/w500${poster_path}">
-            <h2 class="movie-title">${original_title}</h2>
-            <h2 class="movie-genre">${genre}</h2>
-            <h2 class="movie-year">${year}</h2>
-            <span class="movie-rating">${popularity}</span>
-        </div>`;
+        <li class="movie-item">
+            <div class="movie" id=${id}>
+                <img class="movie-img" src="https://image.tmdb.org/t/p/w500${poster_path}">
+                <div class="movie-info">
+                    <div class="info">
+                        <h2 class="movie-title">${original_title}</h2>
+                        <div class="genre_year">
+                            <h2 class="movie-genre">${genre}</h2>
+                            <h2 class="movie-year">${year}</h2></div>
+                        </div>
+                    <div>
+                        <span class="movie-rating"></span>
+                    </div>
+                </div>
+            </div>
+        </li>`;
     }).join('');
 }
 
