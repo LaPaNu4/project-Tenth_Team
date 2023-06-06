@@ -44,7 +44,7 @@ const dropMenuLibrary = document.querySelector('.dropdown-menu-library');
 
 const STORAGE = 'favoriteMovies';
 loadMore.classList.add('hide');
-emptyGallery.classList.add('hide');
+emptyGallery.classList.add('show');
 dropDown.classList.add('hide');
 
 
@@ -88,28 +88,49 @@ function fetchFromLibrary() {
     }    
 
 
-const filterMoviesByGenre = (movies) => {
-    const genre = dropMenuLibrary.value;
+// const filterMoviesByGenre = () => {
 
-    const chosenMovies = movies.filter(movie => movie.genre === genre);
-    if(chosenMovies.length > 0) {
-        const galleryItems = movieMarkUp(chosenMovies);
-        gallery.insertAdjacentHTML('beforeend', galleryItems);
-        loadMore.classList.add('show');
-        loadMore.classList.remove('hide');
+
+//     const chosenMovies = renderedMovies.map(movie => movie.genres);
+//     console.log(chosenMovies);
+
+//     if(chosenMovies.length > 0) {
+//         const galleryItems = movieMarkUp(chosenMovies);
+//         gallery.insertAdjacentHTML('beforeend', galleryItems);
+//         loadMore.classList.add('show');
+//         loadMore.classList.remove('hide');
+//     } else {
+//         gallery.innerHTML = '';
+//         loadMore.classList.add('hide');
+//         loadMore.classList.remove('show');
+//     }
+// }    
+
+const filterMoviesByGenre = () => {
+    const genre = dropMenuLibrary.value; 
+  
+    const chosenMovies = renderedMovies.filter(movie => {
+      const movieGenres = movie.genres.map(genre => genre.name);
+      return movieGenres.includes(genre);
+    });
+  
+    if (chosenMovies.length > 0) {
+      gallery.innerHTML = ''; 
+      const galleryItems = movieMarkUp(chosenMovies);
+      gallery.insertAdjacentHTML('beforeend', galleryItems);
+      loadMore.classList.add('show');
+      loadMore.classList.remove('hide');
     } else {
-        gallery.innerHTML = '';
-        loadMore.classList.add('hide');
-        loadMore.classList.remove('show');
+      gallery.innerHTML = '';
+      loadMore.classList.add('hide');
+      loadMore.classList.remove('show');
     }
-}    
+  }
 
 const movieMarkUp = (dataComing) => {
-
     return dataComing.map(item => {
         const { poster_path, original_title, release_date, popularity, id } = item;
         const genre = item.genres.map(genres => genres.name).slice(0, 2).join(', ');
-        console.log(typeof(genre)); 
         const year = item.release_date.slice(0, 4);
 
         return `
@@ -133,6 +154,7 @@ const movieMarkUp = (dataComing) => {
 }
 
 window.onload = fetchFromLibrary;
-//dropDown.addEventListener('click', () => filterMoviesByGenre(renderedMovies));
+
+dropMenuLibrary.addEventListener('change', filterMoviesByGenre);
 
 
