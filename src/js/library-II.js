@@ -1,6 +1,6 @@
 const { all } = require("axios");
 
-const gallery = document.querySelector('.movies-galery');
+const gallery = document.querySelector('.movies-gallery');
 const searchMore = document.querySelector('.search-more');
 const loadMore = document.querySelector('.load');
 const emptyGallery = document.querySelector('.empty-gallery');
@@ -43,18 +43,20 @@ const dropMenuLibrary = document.querySelector('.dropdown-menu-library');
 
 
 const STORAGE = 'favoriteMovies';
-
 loadMore.classList.add('hide');
 emptyGallery.classList.add('hide');
 dropDown.classList.add('hide');
 
 
-const BASE_URL = 'https://api.themoviedb.org/3/movie/';
-const API_KEY = '14b16a10583a3d9315723a356100e4ad';
 const renderedMovies = [];
 
 function fetchFromLibrary() {
     const movieIds = JSON.parse(localStorage.getItem(STORAGE));
+    const ids = movieIds.map(item => {
+        return item.id;
+    })
+    console.log(movieIds);
+    console.log(ids);   
 
     if(!movieIds || movieIds.length === 0) {
         emptyGallery.classList.remove('hide');
@@ -62,11 +64,17 @@ function fetchFromLibrary() {
         return;
     }
 
-    movieIds.forEach(movie_id => {
-        fetch(`${BASE_URL}?api_key=${API_KEY}&${movie_id}`)
-        .then(data => data.json())
+    const BASE_URL = 'https://api.themoviedb.org/3/movie/';
+    const API_KEY = '14b16a10583a3d9315723a356100e4ad';
+    const fetchMovies = movieIds.map(movie => {
+        return fetch(`${BASE_URL}${movie.id}?api_key=${API_KEY}`)
+        .then(data => data.json());
+    });
+
+    Promise.all(fetchMovies)
         .then(movieData => {
-            renderedMovies.push(movieData);
+            console.log(movieData)
+            renderedMovies.push(...movieData);
 
             const moviesById = movieMarkUp(movieData);
             gallery.insertAdjacentHTML('beforeend', moviesById);
@@ -74,14 +82,14 @@ function fetchFromLibrary() {
             loadMore.classList.remove('hide');
             dropDown.classList.add('show');
             dropDown.classList.remove('hide');
+
+            filterMoviesByGenre(renderedMovies);
         })            
         .catch(error => {
-        console.log(error);
-        throw new Error(error);
+            console.log(error);
         });
-    })
-    filterMoviesByGenre(renderedMovies);
-}
+    }    
+
 
 const filterMoviesByGenre = (movies) => {
     const genre = dropMenuLibrary.value;
@@ -99,19 +107,19 @@ const filterMoviesByGenre = (movies) => {
     }
 }    
 
- const movieMarkUp = (dataComing) => {
-    // return dataComing.map(item => {}
-        const {img, title, genre, year, rating, id} = dataComing;
-        return (`
+const movieMarkUp = (dataComing) => {
+    return dataComing.map(item => {
+        const { poster_path, original_title, genre, year, popularity, id } = item;
+
+        return `
         <div class="movie" id=${id}>
-            <img class="movie-img" src="${img}">
-            <h2 class="movie-title">${title}</h2>
+            <img class="movie-img" src="https://image.tmdb.org/t/p/w500${poster_path}">
+            <h2 class="movie-title">${original_title}</h2>
             <h2 class="movie-genre">${genre}</h2>
             <h2 class="movie-year">${year}</h2>
-            <span class="movie-rating">${rating}</span>
-        </div>
-        `
-).join('');
+            <span class="movie-rating">${popularity}</span>
+        </div>`;
+    }).join('');
 }
 
 window.onload = fetchFromLibrary;
