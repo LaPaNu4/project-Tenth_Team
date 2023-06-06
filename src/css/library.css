@@ -117,7 +117,7 @@ section.cards-library {
   flex-direction: column;
   align-items: flex-start;
   margin-right: 50px;
-  
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 63.48%, rgba(0, 0, 0, 0.9) 92.16%);
 }
 
 .genre_year {

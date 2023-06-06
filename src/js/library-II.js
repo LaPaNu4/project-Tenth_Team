@@ -74,9 +74,10 @@ function fetchFromLibrary() {
 
             gallery.innerHTML = '';
 
-            const moviesById = movieMarkUp(movieData);
-            console.log(moviesById);
+            const moviesById = movieMarkUp(movieData);            
             gallery.insertAdjacentHTML('beforeend', moviesById);
+            emptyGallery.classList.add('hide');
+            emptyGallery.classList.remove('show');
             loadMore.classList.add('show');
             loadMore.classList.remove('hide');
             dropDown.classList.add('show');
@@ -132,11 +133,16 @@ const movieMarkUp = (dataComing) => {
         const { poster_path, original_title, release_date, popularity, id } = item;
         const genre = item.genres.map(genres => genres.name).slice(0, 2).join(', ');
         const year = item.release_date.slice(0, 4);
+        const moviePoster = `https://image.tmdb.org/t/p/w500${poster_path}`;
+        
+        if(poster_path === undefined || poster_path === "") {
+            moviePoster = `./images/hero-img/coming-soon.jpg`;
+        }
 
         return `
         <li class="movie-item">
             <div class="movie" id=${id}>
-                <img class="movie-img" src="https://image.tmdb.org/t/p/w500${poster_path}">
+                <img class="movie-img" src=${moviePoster}>
                 <div class="movie-info">
                     <div class="info">
                         <h2 class="movie-title">${original_title}</h2>
