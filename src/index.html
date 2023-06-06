@@ -1,29 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Home</title>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/2.0.0/modern-normalize.min.css"
-      integrity="sha512-4xo8blKMVCiXpTaLzQSLSw3KFOVPWhm/TRtuPVc4WG6kUgjH6J03IBuG7JZPkcWMxJ5huwaBpOpnwYElP/m6wg=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-    <link rel="stylesheet" href="./css/styles.css" />
-  </head>
 
-  <body>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Home</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/2.0.0/modern-normalize.min.css"
+    integrity="sha512-4xo8blKMVCiXpTaLzQSLSw3KFOVPWhm/TRtuPVc4WG6kUgjH6J03IBuG7JZPkcWMxJ5huwaBpOpnwYElP/m6wg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="./css/styles.css" />
+</head>
+
+<body>
+  <header>
     <include src="./partials/modal.html" frameborder="0"></include>
     <include src="./partials/header.html" frameborder="0"></include>
+  </header>
+  <main>
     <include src="./partials/hero-main.html" frameborder="0"></include>
     <include src="./partials/weekly-trends.html" frameborder="0"></include>
     <include src="./partials/upcomingThisMounth.html" frameborder="0"></include>
+  </main>
+  <footer>
     <include src="./partials/footer.html" frameborder="0"></include>
     <include src="./partials/footer-modal.html" frameborder="0"></include>
+  </footer>
 
-    <script type="module" src="./index.js"></script>
-    <script type="module" src="./js/weekly-trends.js"></script>
-  </body>
+
+
+  <script type="module" src="./index.js"></script>
+  <script type="module" src="./js/upcomingThisMounth.js"></script>
+  <script type="module" src="./js/weekly-trends.js"></script>
+</body>
+
 </html>
