@@ -1,7 +1,8 @@
 const refs = {
   openFooterModalBtn: document.querySelector('[data-modal-open-contacts]'),
   footerBackdrop: document.querySelector('.footer-backdrop'),
-  closeFooterModalBtn: document.querySelector('[data-modal-close-contacts]'),  
+  closeFooterModalBtn: document.querySelector('[data-modal-close-contacts]'),
+  body: document.querySelector('body'),
 };
 
 refs.openFooterModalBtn.addEventListener('click', onOpenFooterModal);
@@ -11,11 +12,13 @@ refs.footerBackdrop.addEventListener('click', onClickFooterModalBackdrop);
 function onOpenFooterModal() {
   refs.footerBackdrop.classList.remove('is-hidden');
   window.addEventListener('keydown', onPressESC);
+  refs.body.classList.add('no-scroll');
 }
 
 function onCloseFooterModal() {
   refs.footerBackdrop.classList.add('is-hidden');
   window.removeEventListener('keydown', onPressESC);
+  refs.body.classList.remove('no-scroll');
 }
 
 function onClickFooterModalBackdrop(e) {
