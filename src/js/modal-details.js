@@ -1,6 +1,7 @@
 
 var _ = require('lodash');
-const imgEL = document.querySelector(".catalog-list");
+// const imgEL = document.querySelector(".catalog-list");
+const imgEL = document.querySelector('[data-catalog-list]');
 const modalEl = document.querySelector('.modal-backdrop');
 const cardHeaderEl = document.querySelector('.film-card-content');
 
@@ -11,7 +12,8 @@ let favoriteMovies = [];
 function onClickPoster(event) {
   event.preventDefault();
 
-  const currentMovie = event.target.closest('.catalog-item');
+  // const currentMovie = event.target.closest('.catalog-item');
+  const currentMovie = event.target.closest('[data-catalog-item]');
 
   console.log(currentMovie);
 
