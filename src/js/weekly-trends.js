@@ -84,7 +84,7 @@ function createMarkup(results) {
           }
           starIcons += `<span class="fa star ${starClass}"> </span>`;
         }
-        return ` <li class='gallery-weekly__list-elem hover-cursor' id='${id}'>           
+        return ` <li class='gallery-weekly__list-elem hover-cursor' data-catalog-item id='${id}'>           
           <img class='gallery-weekly__image' src="${posterIMG}" alt="${original_title}" loading="lazy" id='${id}'>
          <div class='gallery-weekly__all-info'> 
           <div class="gallery-weekly__info">

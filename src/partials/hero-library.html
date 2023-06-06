@@ -37,8 +37,39 @@
       </p>
     </div>
 
-    <div class="hero-random">
+    <div class="hero-random hero-hidden">
       <!-- render -->
+      <div class="hero-random-btn">
+        <button class="hero-btn hero-watch" type="button" name="watch-trailer-btn">Watch trailer</button>
+        <button class="hero-btn hero-info" type="button" name="more-details-btn">More details</button>
+    </div>
+    </div>    
+  </div>
+
+  <div class="popup popup-hidden">
+    <div class="popup-body">
+      <div class="popup-content">
+        <a href="" class="popup-close">
+          <svg class="popup-icon-out" width="16px" height="16px">
+            <use
+              href="./images/icons.svg#icon-close-outline"
+            ></use>
+          </svg>
+          <svg class="popup-icon" width="7px" height="7px">
+            <use
+              href="./images/icons.svg#icon-close"
+            ></use>
+          </svg>
+        </a>
+        <div class="popup-content-default">
+          <p class="popup-text">OOPS...<br>We are very sorry!<br>But we couldn’t find the trailer.</p>
+         <img src="./images/hero-img/popup-min.png" alt="popup" class="popup-img" width="159px" height="153px">
+        </div>
+
+        <div class="popup-content-render hero-hidden">
+          <!-- render -->
+        </div>
+      </div>      
     </div>
   </div>
 </section>

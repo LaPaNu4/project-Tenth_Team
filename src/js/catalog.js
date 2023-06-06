@@ -95,7 +95,7 @@ function createTopFilmsMarkup(results) {
 
       // console.log(aaaa);
 
-      return `<li class="catalog-item" id="${result.id}">
+      return `<li class="catalog-item"  data-catalog-item id="${result.id}">
             <div class="photo-card">
               <div class="image-wrap">
                 <img src="https://image.tmdb.org/t/p/w500${result.poster_path}" alt="${result.title}" />
