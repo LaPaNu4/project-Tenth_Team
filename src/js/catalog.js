@@ -5,7 +5,7 @@ import Pagination from 'tui-pagination';
 
 let totalEl = 0;
 let page = 1;
-console.log(page);
+// console.log(page);
 
 const options = {
   totalItems: totalEl,
@@ -53,10 +53,9 @@ async function getTopFilmsData(page) {
   );
 
   totalEl = response.data.total_results;
-  console.log(totalEl);
 
   const results = response.data.results;
-
+  console.log(results);
   return results;
 }
 
@@ -71,9 +70,13 @@ pagination.on('afterMove', event => {
 // getTopFilmsData().then(createTopFilmsMarkup).then(renderTopFilmsMarkup);
 
 function createTopFilmsMarkup(results) {
-  if (!results) {
-    return;
+  if (results.length == 0) {
+    console.log('qweqwwe');
+    const markup =
+      '<span>OOPS... We are very sorry! We don’t have any results matching your search.</span>';
+    return markup;
   }
+
   const markup = results
     .map(result => {
       let releaseDate = result.release_date;
@@ -86,30 +89,40 @@ function createTopFilmsMarkup(results) {
         filmName = 'Unknown';
       }
 
-      // let aaaa = result.genre_ids.map(jenre =>
-      //   getGenreName(jenre).then(value => {
-      //     console.log(value);
-      //     return value;
-      //   })
-      // );
-
-      // console.log(aaaa);
-
-      return `<li class="catalog-item" id="${result.id}">
+      if (!result.poster_path) {
+        console.log('dsadsadsad');
+        return `<li class="catalog-item" id="${result.id}">
             <div class="photo-card">
               <div class="image-wrap">
-                <img src="https://image.tmdb.org/t/p/w500${result.poster_path}" alt="${result.title}" />
+                <img src="https://marketplace.canva.com/EAE9OZ4Eh9o/1/0/1131w/canva-black-minimalist-coming-soon-poster-rmN33IHdOEM.jpg" alt="${result.title}" />
               </div>
               <div class="film-info">
-                <p class="film-title">${filmName}</p>
+                <p class="catalog-film-title">${filmName}</p>
                 <div class="info">
-                  <p class="info-item">Drama</p>
+                  <p class="info-item">"jenre"</p>
                   <p class="info-item">|</p>
                   <p class="info-item">${releaseDate}</p>
                 </div>
               </div>
             </div>
         </li>`;
+      } else {
+        return `<li class="catalog-item" id="${result.id}">
+            <div class="photo-card">
+              <div class="image-wrap">
+                <img src="https://image.tmdb.org/t/p/w500${result.poster_path}" alt="${result.title}" />
+              </div>
+              <div class="film-info">
+                <p class="catalog-film-title">${filmName}</p>
+                <div class="info">
+                  <p class="info-item">"jenre"</p>
+                  <p class="info-item">|</p>
+                  <p class="info-item">${releaseDate}</p>
+                </div>
+              </div>
+            </div>
+        </li>`;
+      }
     })
     .join('');
   return markup;
@@ -125,7 +138,7 @@ async function getFilmsData(page, request) {
   );
   const results = response.data.results;
   totalEl = response.data.total_results;
-  console.log(totalEl);
+  console.log(results);
 
   return results;
 }
@@ -136,7 +149,7 @@ function onSubmit(event) {
   event.preventDefault();
   const searchQuery = searchForm.searchQuery.value.trim();
   let page = 1;
-  console.log(page);
+  // console.log(page);
 
   getFilmsData(page, searchQuery)
     .then(createTopFilmsMarkup)

@@ -79,8 +79,91 @@ section.cards-library {
   color: var(--orange);
 }
 
-/*----------------------------------------------------*/
+/*-----------------------------------Catalog-----------------*/
+/* .movies-gallery-catalog {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+} */
 
+
+.movies-gallery {
+  display: flex;
+  gap: 16px;
+  flex-direction: column;
+  width: 280px;
+  /* align-items: center; */
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.movie-item {
+  width: 280px;
+  height: 406px;
+  position: relative;
+  margin-bottom: 16px;
+}
+
+.movie-info {
+  display: flex;
+  position: absolute;
+  bottom: 12px;
+  left: 12px;
+  justify-content: space-between;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-right: 50px;
+  
+}
+
+.genre_year {
+  display: flex;
+}
+
+
+  .movie-title {
+    text-transform: uppercase;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 20px;
+  }
+
+  .movie-genre {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 20px;
+    margin-right: 10px;
+  }
+
+  /* .movie-year::before {
+    content: '';
+    display: block;
+    height: 10px;
+    width: 1px;
+    background-color: white;
+  } */
+
+  .movie-year {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 20px;
+  }
+
+  .movie-rating {
+    display: flex;
+    align-items: baseline;
+    justify-content: flex-end;
+  }
 
 .load,
 .search-more {
@@ -112,9 +195,9 @@ section.cards-library {
   border: 1px solid var(--orange);
 }
 
-.movies-gallery-catalog {
+/* .movies-gallery-catalog {
   text-align: center;
-}
+} */
 
 .notify-message {
   text-align: center;
@@ -161,6 +244,86 @@ section.cards-library {
     margin: 0 0 36px;
   }
 
+
+  /*-----------------------------Catalog------------*/
+   
+  .movies-gallery {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 704px;
+    gap: 16px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+  
+  .movie-item {
+    width: 224px;
+    height: 325px;
+    position: relative;
+    margin-bottom: 16px;
+  }
+  
+  .movie-info {
+    display: flex;
+    position: absolute;
+    bottom: 12px;
+    left: 12px;
+    justify-content: space-between;
+  }
+  
+  .info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-right: 50px;
+  }
+  
+  .genre_year {
+    display: flex;
+  }
+  
+    .movie-title {
+      text-transform: uppercase;
+      font-family: 'Roboto';
+      font-style: normal;
+      font-weight: 500;
+      font-size: 12px;
+      line-height: 20px;
+    }
+  
+    .movie-genre {
+      font-family: 'Roboto';
+      font-style: normal;
+      font-weight: 500;
+      font-size: 12px;
+      line-height: 20px;
+      margin-right: 10px;
+    }
+  
+    /* .movie-year::before {
+      content: '';
+      display: block;
+      height: 10px;
+      width: 1px;
+      background-color: white;
+    } */
+  
+    .movie-year {
+      font-family: 'Roboto';
+      font-style: normal;
+      font-weight: 500;
+      font-size: 12px;
+      line-height: 20px;
+    }
+  
+    .movie-rating {
+      display: flex;
+      align-items: baseline;
+      justify-content: flex-end;
+    }
+
+    /*------------------Buttons------------------------*/
   .load,
   .search-more {
     font-size: 14px;
@@ -216,6 +379,74 @@ section.cards-library {
   .dropdown-menu-library {
     width: 260px;
   }
+
+  /*-------------Catalog--------------*/
+  .movies-gallery {
+    display: flex;
+    gap: 16px;
+
+    width: 1214px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+  
+  .movie-item {
+    width: 394px;
+    height: 574px;
+    position: relative;
+    margin-bottom: 16px;
+  }
+  
+  .movie-info {
+    display: flex;
+    position: absolute;
+    bottom: 12px;
+    left: 12px;
+    justify-content: space-between;
+  }
+  
+  .info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-right: 50px;
+    
+  }
+  
+  .genre_year {
+    display: flex;
+  }
+  
+  
+  .movie-title {
+    text-transform: uppercase;
+  }
+
+  .movie-genre,
+  .movie-title,
+  .movie-year {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+  }
+  
+    /* .movie-year::before {
+      content: '';
+      display: block;
+      height: 10px;
+      width: 1px;
+      background-color: white;
+    } */
+  
+    
+  .movie-rating {
+    display: flex;
+    align-items: baseline;
+    justify-content: flex-end;
+  }
+  
 
   .load,
   .search-more {

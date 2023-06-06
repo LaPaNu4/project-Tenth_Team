@@ -44,12 +44,21 @@
   }
  
   .lightcolorsilver{
-    columns: var(--silver);
+    color: var(--silver);
   }
   .lightcolorgray{
-    columns: var(--gray-light);
+    color: var(--gray-light);
   }   
+
+  .lightcolordark{
+    color: var(--gray-dark);
+  }
+  .borderlight{
+    border: 1px solid #595959;
+  }
+
   .button-subjectlight{
+    display: none;
     cursor: pointer;
     background: var(--gradient-1);
     display: flex;
