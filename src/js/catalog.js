@@ -91,7 +91,7 @@ function createTopFilmsMarkup(results) {
 
       if (!result.poster_path) {
         console.log('dsadsadsad');
-        return `<li class="catalog-item" id="${result.id}">
+        return `<li class="catalog-item" data-catalog-item id="${result.id}">
             <div class="photo-card">
               <div class="image-wrap">
                 <img src="https://marketplace.canva.com/EAE9OZ4Eh9o/1/0/1131w/canva-black-minimalist-coming-soon-poster-rmN33IHdOEM.jpg" alt="${result.title}" />
@@ -107,7 +107,7 @@ function createTopFilmsMarkup(results) {
             </div>
         </li>`;
       } else {
-        return `<li class="catalog-item" id="${result.id}">
+        return `<li class="catalog-item" data-catalog-item id="${result.id}">
             <div class="photo-card">
               <div class="image-wrap">
                 <img src="https://image.tmdb.org/t/p/w500${result.poster_path}" alt="${result.title}" />
