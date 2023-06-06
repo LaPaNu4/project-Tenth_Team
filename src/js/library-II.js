@@ -70,17 +70,17 @@ function fetchFromLibrary() {
         .then(movieData => {
             console.log(movieData)
             renderedMovies.push(...movieData);
+            console.log(renderedMovies);
 
             gallery.innerHTML = '';
 
             const moviesById = movieMarkUp(movieData);
+            console.log(moviesById);
             gallery.insertAdjacentHTML('beforeend', moviesById);
             loadMore.classList.add('show');
             loadMore.classList.remove('hide');
             dropDown.classList.add('show');
             dropDown.classList.remove('hide');
-
-            filterMoviesByGenre(renderedMovies);
         })            
         .catch(error => {
             console.log(error);
@@ -133,6 +133,6 @@ const movieMarkUp = (dataComing) => {
 }
 
 window.onload = fetchFromLibrary;
-dropDown.addEventListener('click', () => filterMoviesByGenre(renderedMovies));
+//dropDown.addEventListener('click', () => filterMoviesByGenre(renderedMovies));
 
 
