@@ -3,6 +3,7 @@ import axios from 'axios';
 
 const URL = 'https://api.themoviedb.org/3/movie/upcoming';
 const API_KEY = '0b7ed72c0b07bc683ffc3b8a0e430792';
+const GENRE_URL = `https://api.themoviedb.org/3/genre/movie/list`;
 
 const upcomingFilm = document.querySelector('.upcoming-film');
 const favoriteMovies = 'favoriteMovies';
@@ -15,6 +16,21 @@ async function getUpcomingData () {
     return result
 }
 
+async function getGenresById(genreIds) {
+
+const response = await axios.get(`${GENRE_URL}?api_key=${API_KEY}`);
+ const data = response.data.genres;
+  
+  const genreNames = genreIds.map(genreId => {
+    const genre = data.find(genre => genre.id === genreId);
+    return genre.name;
+  });
+
+  return genreNames.join(', ');
+}
+
+
+getGenresById()
 
 async function getUpcoming() {
     try {
@@ -70,7 +86,7 @@ getUpcoming();
 
   
 
-function createMarcup({
+async function createMarcup({
   backdrop_path,
   genre_ids,
   title,
@@ -80,6 +96,7 @@ function createMarcup({
   release_date,
   popularity,
 }) {
+    const genreNames = await getGenresById(genre_ids);
 
      return `
       <img
@@ -96,11 +113,11 @@ function createMarcup({
         <div class="upcoming_thumb">
           <ul class="upcoming-list left">
             <li class="upcoming_list_item">
-              <p class="upcoming_list_text">Release date</p>
-              <p class="upcoming_list_date">${release_date}</p>
+              <p class="upcoming_list_text color-h">Release date</p>
+              <p class="upcoming_list_date color-p">${release_date}</p>
             </li>
             <li class="upcoming_list_item">
-              <p class="upcoming_list_text">Vote / Votes</p>
+              <p class="upcoming_list_text color-h">Vote / Votes</p>
               <p class="upcoming_list_vote">
                 <span class="vote"> ${vote_average}</span> / <span class="vote">${vote_count}</span>
               </p>
@@ -108,18 +125,18 @@ function createMarcup({
           </ul>
 
           <ul class="upcoming-list rigth">
-            <li class="upcoming_list_item">
-              <p class="upcoming_list_text">Popularity</p>
+            <li class="upcoming_list_item ">
+              <p class="upcoming_list_text color-h">Popularity</p>
               <p class="upcoming_list_pop">${popularity.toFixed(1)}</p>
             </li>
             <li class="upcoming_list_item">
-              <p class="upcoming_list_text">Genre</p>
-              <p class="upcoming_list_genre">${genre_ids}</p>
+              <p class="upcoming_list_text color-h">Genre</p>
+              <p class="upcoming_list_genre">${genreNames}</p>
             </li>
           </ul>
         </div>
 
-        <h3 class="upcoming_content_title">About</h3>
+        <h3 class="upcoming_content_title color-h">About</h3>
         <p class="upcoming_content_text">${overview}
         </p>
 
@@ -145,4 +162,6 @@ function renderMarkupError() {
         </p>
       </div>`;
 }
+
+
 
