@@ -90,7 +90,7 @@ function createMarkup(results) {
           <div class="gallery-weekly__info">
               <h3 class= 'gallery-weekly__title'>${original_title}</h3>
               <div class='cards-list_second_line'>
-                <div class='cards-list__text'>
+                <div class='cards-list__text color-h'>
                   <p>${genre_ids} | ${release_date}</p>
                 </div>
               </div>
@@ -99,7 +99,7 @@ function createMarkup(results) {
         </div>
         <div class="form_item_weekly">
             <div class="form_lebel"> </div>
-            <div data-ajax="true" class="rating rating_set rating-hero">
+            <div data-ajax="true" class="rating_weekly rating_set rating-hero">
                 <div class="rating_body">
                     <div class="rating_active"></div>
                     <div class="rating_items">
@@ -120,3 +120,24 @@ function createMarkup(results) {
 export const getWeeklyTrends = getTrendData().then(({ results }) => {
   return renderMarkup(results);
 });
+
+// Функція, яка для екрану менше 768 рх показує один постер
+
+function renderWeeklyFilms() {
+  if (window.innerWidth < 768) {
+    getTrendData(1).then(data => {
+      const films = [data.results[0]];
+      renderMarkup(films)
+        .then(data => (filmList.innerHTML = data))
+        .catch(error => console.log(error));
+    });
+  } else {
+    getTrendData(1).then(data => {
+      const films = data.results.slice(0, 3);
+      renderMarkup(films)
+        .then(data => (filmList.innerHTML = data))
+        .catch(error => console.log(error));
+    });
+  }
+}
+window.addEventListener('resize', renderWeeklyFilms);
