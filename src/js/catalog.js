@@ -1,96 +1,98 @@
-import axios from 'axios';
 import Notiflix from 'notiflix';
-// import { pagination } from './pagination.js';
-import Pagination from 'tui-pagination';
-
-let totalEl = 0;
-let page = 1;
-// console.log(page);
-
-const options = {
-  totalItems: totalEl,
-  itemsPerPage: 20,
-  visiblePages: 3,
-  page: page,
-  centerAlign: false,
-  firstItemClassName: 'tui-first-child',
-  lastItemClassName: 'tui-last-child',
-  template: {
-    page: '<a href="#" class="tui-page-btn">{{page}}</a>',
-    currentPage:
-      '<strong class="tui-page-btn tui-is-selected">{{page}}</strong>',
-    moveButton:
-      '<a href="#" class="tui-page-btn tui-{{type}}">' +
-      '<span class="tui-ico-{{type}}"></span>' +
-      '</a>',
-    disabledMoveButton:
-      '<span class="tui-page-btn tui-is-disabled tui-{{type}}">' +
-      '<span class="tui-ico-{{type}}"></span>' +
-      '</span>',
-    moreButton:
-      '<a href="#" class="tui-page-btn tui-{{type}}-is-ellip">...</a>',
-  },
-};
-
-const pagination = new Pagination('pagination', options);
-
-const URL = 'https://api.themoviedb.org/3/';
-// 'https://api.themoviedb.org/3/trending/all/week?api_key=d30846261444a5a49dd702fa51e06838';
-const KEY = 'api_key=d30846261444a5a49dd702fa51e06838';
+import { pagination } from './pagination.js';
+import { getTopFilmsData, getFilmsData } from './catalog-api.js';
+import { addRating } from './rating.js';
 
 const catalogList = document.getElementById('catalog-list');
 const searchForm = document.getElementById('search-form');
 
-getTopFilmsData(page).then(createTopFilmsMarkup).then(renderTopFilmsMarkup);
+let totalEl = 0;
+let page = 1;
+
+// -----------------------------------------------------
+
+onCatalogPageLoad(page);
 
 setTimeout(() => {
   pagination.reset(totalEl);
 }, 500);
 
-async function getTopFilmsData(page) {
-  const response = await axios.get(
-    `${URL}trending/all/week?${KEY}&language=en-US&page=${page}`
-  );
-
-  totalEl = response.data.total_results;
-
-  const results = response.data.results;
-  console.log(results);
-  return results;
-}
-
 pagination.on('afterMove', event => {
   const currentPage = event.page;
-
-  getTopFilmsData(currentPage)
-    .then(createTopFilmsMarkup)
-    .then(renderTopFilmsMarkup);
+  onCatalogPageLoad(currentPage);
 });
 
-// getTopFilmsData().then(createTopFilmsMarkup).then(renderTopFilmsMarkup);
+searchForm.addEventListener('submit', onSubmit);
 
-function createTopFilmsMarkup(results) {
+// -------------------- Функция сабмита формы
+
+function onSubmit(event) {
+  event.preventDefault();
+  const searchQuery = searchForm.searchQuery.value.trim();
+  let page = 1;
+
+  makeFilmMarkup(page, searchQuery);
+
+  setTimeout(() => {
+    pagination.reset(totalEl);
+  }, 500);
+
+  pagination.on('afterMove', event => {
+    page = event.page;
+    makeFilmMarkup(page, searchQuery);
+  });
+}
+
+// -------------------- Функция загрузки ТОП фильмов
+
+async function onCatalogPageLoad(page) {
+  const response = await getTopFilmsData(page);
+  const markup = await createTopFilmsMarkup(response);
+  renderTopFilmsMarkup(markup);
+}
+
+// -------------------- Функция поиска фильмов
+
+async function makeFilmMarkup(page, request) {
+  const response = await getFilmsData(page, request);
+  const markup = await createTopFilmsMarkup(response);
+  renderTopFilmsMarkup(markup);
+  clearSearchForm();
+}
+
+// -------------------- Функция создания разметки
+
+function createTopFilmsMarkup(response) {
+  const results = response.data.results;
+  console.log(results);
+  totalEl = response.data.total_results;
+
   if (results.length == 0) {
-    console.log('qweqwwe');
     const markup =
-      '<span>OOPS... We are very sorry! We don’t have any results matching your search.</span>';
+      '<div class="no-films-message"><p>OOPS...</p><p>We are very sorry!</p><p>We don’t have any results matching your search.</p><div>';
     return markup;
   }
 
+
+
+
+
   const markup = results
     .map(result => {
+      const rating = result.vote_average;
+      addRating(rating);
+
       let releaseDate = result.release_date;
       if (!result.release_date) {
-        releaseDate = 'Unknown';
+        releaseDate = 'Coming soon';
       } else releaseDate = releaseDate.slice(0, 4);
 
       let filmName = result.original_title;
       if (!filmName) {
-        filmName = 'Unknown';
+        filmName = 'Coming soon';
       }
 
       if (!result.poster_path) {
-        console.log('dsadsadsad');
         return `<li class="catalog-item" data-catalog-item id="${result.id}">
             <div class="photo-card">
               <div class="image-wrap">
@@ -98,13 +100,14 @@ function createTopFilmsMarkup(results) {
               </div>
               <div class="film-info">
                 <p class="catalog-film-title">${filmName}</p>
-                <div class="info">
+                <div class="info-wrap">
                   <p class="info-item">"jenre"</p>
                   <p class="info-item">|</p>
                   <p class="info-item">${releaseDate}</p>
                 </div>
               </div>
             </div>
+            <div class="rating_active" style="width: 100%;"></div>
         </li>`;
       } else {
         return `<li class="catalog-item" data-catalog-item id="${result.id}">
@@ -114,13 +117,14 @@ function createTopFilmsMarkup(results) {
               </div>
               <div class="film-info">
                 <p class="catalog-film-title">${filmName}</p>
-                <div class="info">
+                <div class="info-wrap">
                   <p class="info-item">"jenre"</p>
                   <p class="info-item">|</p>
                   <p class="info-item">${releaseDate}</p>
                 </div>
               </div>
             </div>
+            <div class="rating_active catalog-rating" style="width: 100%;"></div>
         </li>`;
       }
     })
@@ -128,48 +132,30 @@ function createTopFilmsMarkup(results) {
   return markup;
 }
 
+// -------------------- Функция рендера разметки
+
 function renderTopFilmsMarkup(markup) {
   catalogList.innerHTML = markup;
 }
 
-async function getFilmsData(page, request) {
-  const response = await axios.get(
-    `${URL}search/movie?${KEY}&query=${request}&page=${page}`
-  );
-  const results = response.data.results;
-  totalEl = response.data.total_results;
-  console.log(results);
-
-  return results;
-}
-
-searchForm.addEventListener('submit', onSubmit);
-
-function onSubmit(event) {
-  event.preventDefault();
-  const searchQuery = searchForm.searchQuery.value.trim();
-  let page = 1;
-  // console.log(page);
-
-  getFilmsData(page, searchQuery)
-    .then(createTopFilmsMarkup)
-    .then(renderTopFilmsMarkup)
-    .then(clearSearchForm);
-
-  setTimeout(() => {
-    pagination.reset(totalEl);
-  }, 500);
-
-  pagination.on('afterMove', event => {
-    page = event.page;
-
-    getFilmsData(page, searchQuery)
-      .then(createTopFilmsMarkup)
-      .then(renderTopFilmsMarkup)
-      .then(clearSearchForm);
-  });
-}
+// -------------------- Функция очистки формы
 
 function clearSearchForm() {
   searchForm.searchQuery.value = '';
 }
+
+// -------------------- Функция получения рейтинга
+
+// function getRating() {
+//   const filmsOnPage = document.querySelectorAll(".catalog-item");
+//   filmsOnPage.forEach(element => {
+//     const filmID = element.id;
+//   });
+// }
+
+
+// setTimeout(() => {
+//   addRating(7.944);
+// }, 300);
+
+

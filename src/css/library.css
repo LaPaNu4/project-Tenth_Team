@@ -59,16 +59,16 @@ section.cards-library {
 
 .dropdown-toggle-library::before {
   content: '';
-  position: absolute;
   background-image: url(../images/chevron-down.svg);
-  bottom: 13px;
-  right: 14px;
   display: block;
   width: 16px;
   height: 16px;
   opacity: 10;
   fill: var(--white);
   transition: transform 0.3s;
+  position: absolute;
+  bottom: 11px;
+  left: 142px;
 }
 
 .dropdown-toggle-library.rotated::before {
@@ -117,7 +117,8 @@ section.cards-library {
   flex-direction: column;
   align-items: flex-start;
   margin-right: 50px;
-  
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 63.48%, rgba(0, 0, 0, 0.9) 92.16%);
+
 }
 
 .genre_year {
@@ -125,45 +126,45 @@ section.cards-library {
 }
 
 
-  .movie-title {
-    text-transform: uppercase;
-    font-family: 'Roboto';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 12px;
-    line-height: 20px;
-  }
+.movie-title {
+  text-transform: uppercase;
+  font-family: 'Roboto-500', sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 20px;
+}
 
-  .movie-genre {
-    font-family: 'Roboto';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 12px;
-    line-height: 20px;
-    margin-right: 10px;
-  }
+.movie-genre {
+  font-family: 'Roboto-500', sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 20px;
+  margin-right: 10px;
+}
 
-  /* .movie-year::before {
-    content: '';
-    display: block;
-    height: 10px;
-    width: 1px;
-    background-color: white;
-  } */
+/* .movie-year::before {
+  content: '';
+  display: block;
+  height: 10px;
+  width: 1px;
+  background-color: white;
+} */
 
-  .movie-year {
-    font-family: 'Roboto';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 12px;
-    line-height: 20px;
-  }
+.movie-year {
+  font-family: 'Roboto-500', sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 20px;
+}
 
-  .movie-rating {
-    display: flex;
-    align-items: baseline;
-    justify-content: flex-end;
-  }
+.movie-rating {
+  display: flex;
+  align-items: baseline;
+  justify-content: flex-end;
+}
 
 .load,
 .search-more {
@@ -201,6 +202,7 @@ section.cards-library {
 
 .notify-message {
   text-align: center;
+  color: var(--white);
 }
 
 .empty-gallery {
@@ -244,9 +246,12 @@ section.cards-library {
     margin: 0 0 36px;
   }
 
+  .dropdown-toggle-library:before {
+    bottom: 13px;
+    left: 114px;
+  }
 
   /*-----------------------------Catalog------------*/
-   
   .movies-gallery {
     display: flex;
     flex-direction: row;
@@ -256,14 +261,14 @@ section.cards-library {
     margin-right: auto;
     margin-left: auto;
   }
-  
+
   .movie-item {
     width: 224px;
     height: 325px;
     position: relative;
     margin-bottom: 16px;
   }
-  
+
   .movie-info {
     display: flex;
     position: absolute;
@@ -271,64 +276,64 @@ section.cards-library {
     left: 12px;
     justify-content: space-between;
   }
-  
+
   .info {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     margin-right: 50px;
   }
-  
+
   .genre_year {
     display: flex;
   }
-  
-    .movie-title {
-      text-transform: uppercase;
-      font-family: 'Roboto';
-      font-style: normal;
-      font-weight: 500;
-      font-size: 12px;
-      line-height: 20px;
-    }
-  
-    .movie-genre {
-      font-family: 'Roboto';
-      font-style: normal;
-      font-weight: 500;
-      font-size: 12px;
-      line-height: 20px;
-      margin-right: 10px;
-    }
-  
-    /* .movie-year::before {
-      content: '';
-      display: block;
-      height: 10px;
-      width: 1px;
-      background-color: white;
-    } */
-  
-    .movie-year {
-      font-family: 'Roboto';
-      font-style: normal;
-      font-weight: 500;
-      font-size: 12px;
-      line-height: 20px;
-    }
-  
-    .movie-rating {
-      display: flex;
-      align-items: baseline;
-      justify-content: flex-end;
-    }
 
-    /*------------------Buttons------------------------*/
+  .movie-title {
+    text-transform: uppercase;
+    font-family: 'Roboto-500', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 20px;
+  }
+
+  .movie-genre {
+    font-family: 'Roboto-500', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 20px;
+    margin-right: 10px;
+  }
+
+  /* .movie-year::before {
+    content: '';
+    display: block;
+    height: 10px;
+    width: 1px;
+    background-color: white;
+  } */
+  .movie-year {
+    font-family: 'Roboto-500', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 20px;
+  }
+
+  .movie-rating {
+    display: flex;
+    align-items: baseline;
+    justify-content: flex-end;
+  }
+
+  /*------------------Buttons------------------------*/
   .load,
   .search-more {
     font-size: 14px;
     /*line-height: 16px;*/
     line-height: 1.43;
+    padding-top: 9px;
   }
 
   .notify {
@@ -389,14 +394,14 @@ section.cards-library {
     margin-right: auto;
     margin-left: auto;
   }
-  
+
   .movie-item {
     width: 394px;
     height: 574px;
     position: relative;
     margin-bottom: 16px;
   }
-  
+
   .movie-info {
     display: flex;
     position: absolute;
@@ -404,20 +409,20 @@ section.cards-library {
     left: 12px;
     justify-content: space-between;
   }
-  
+
   .info {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     margin-right: 50px;
-    
+
   }
-  
+
   .genre_year {
     display: flex;
   }
-  
-  
+
+
   .movie-title {
     text-transform: uppercase;
   }
@@ -425,34 +430,33 @@ section.cards-library {
   .movie-genre,
   .movie-title,
   .movie-year {
-    font-family: 'Roboto';
+    font-family: 'Roboto-400', sans-serif;
     font-style: normal;
     font-weight: 400;
     font-size: 20px;
     line-height: 24px;
   }
-  
-    /* .movie-year::before {
-      content: '';
-      display: block;
-      height: 10px;
-      width: 1px;
-      background-color: white;
-    } */
-  
-    
+
+  /* .movie-year::before {
+    content: '';
+    display: block;
+    height: 10px;
+    width: 1px;
+    background-color: white;
+  } */
   .movie-rating {
     display: flex;
     align-items: baseline;
     justify-content: flex-end;
   }
-  
+
 
   .load,
   .search-more {
     font-size: 18px;
     line-height: 1.5;
     height: 52px;
+    padding-top: 12px;
   }
 
   .notify {
@@ -469,5 +473,10 @@ section.cards-library {
     font-size: 32px;
     line-height: 36px;
 
+  }
+
+  .dropdown-toggle-library:before {
+    bottom: 13px;
+    left: 223px;
   }
 }
