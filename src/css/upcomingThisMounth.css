@@ -16,8 +16,7 @@ ul{
   font-size: 16px;
   line-height: 1.2;
 
-  color: var(--white);
-
+  
 
 }
 
@@ -63,7 +62,7 @@ ul{
   font-size: 20px;
   line-height: 1.15;
 text-transform: uppercase;
-  color: var(--white);
+ 
 
 
 }
@@ -93,7 +92,7 @@ font-family: 'Roboto';
 }
 .upcoming_list_vote {
   margin-left: 61px;
-    color: var(--white);
+ 
 }
 
 .vote {
@@ -106,13 +105,13 @@ font-family: 'Roboto';
 }
 .upcoming_list_pop {
     
-  color: var(--white);
+  
   margin-left: 72px;
 }
 
 .upcoming_list_genre {
  
-  color: var(--white);
+ 
 
   margin-left: 100px;
 

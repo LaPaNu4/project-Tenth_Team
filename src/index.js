@@ -19,3 +19,4 @@ import './js/modal-details.js';
 
 
 // import './js/pagination.js';
+import './js/light-theme.js';

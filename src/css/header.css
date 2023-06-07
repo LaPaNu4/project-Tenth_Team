@@ -58,7 +58,7 @@
     height: 100vh;
     padding: 8px 20px;
     border-radius: 0px 8px 8px 0px;
-    background: #171717;
+    background: var(--bgmenu);
     transform: translateX(0);
     transition: transform 250ms ease-in-out ;
 }
@@ -76,7 +76,7 @@
     font-weight: 400;
     font-size: 14px;
     line-height: 16px;
-    color: #FFFFFF;
+    color: var(--white);
 }
 
 .mobile-menu-link.active{
