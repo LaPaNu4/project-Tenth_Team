@@ -141,6 +141,7 @@ function onCloseBtnClick(e) {
   e.preventDefault();
   popupContainer.classList.add('popup-hidden');
   document.body.style.position = '';
+  popupRender.innerHTML = "";
 }
 
 function onError(err) {
