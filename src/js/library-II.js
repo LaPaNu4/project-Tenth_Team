@@ -3,19 +3,17 @@ const gallery = document.querySelector('.movies-gallery');
 const searchMore = document.querySelector('.search-more');
 const loadMore = document.querySelector('.load');
 const emptyGallery = document.querySelector('.empty-gallery');
-
 const dropDown = document.querySelector('.dropdown-library');
 const dropLibraryItem = document.querySelectorAll('.dropdown-item-library');
 const dropMenuLibrary = document.querySelector('.dropdown-menu-library');
 
-
+const renderedMovies = [];
 
 const STORAGE = 'favoriteMovies';
 loadMore.classList.add('hide');
 emptyGallery.classList.add('show');
 dropDown.classList.add('hide');
 
-const renderedMovies = [];
 
 function fetchFromLibrary() {
     const movieIds = JSON.parse(localStorage.getItem(STORAGE));
@@ -58,9 +56,6 @@ function fetchFromLibrary() {
     const filterMoviesByGenre = (e) => {
         const target = e.target;
         const genreSelected = target.dataset.filter; 
-        console.log(genreSelected);
-        console.log(renderedMovies);
-   
 
         const chosenMovies = renderedMovies.filter(movie => {
             const movieGenres = movie.genres.map(genre => genre.name.toLowerCase());
@@ -68,17 +63,22 @@ function fetchFromLibrary() {
         });
         console.log(chosenMovies);
 
-          
-        if (chosenMovies.length > 0) {
-        gallery.innerHTML = ''; 
-        const galleryItems = movieMarkUp(chosenMovies);
-        gallery.insertAdjacentHTML('beforeend', galleryItems);
-        loadMore.classList.add('show');
-        loadMore.classList.remove('hide');
+        if(genreSelected.toLowerCase() === 'all') {
+            gallery.innerHTML = ''; 
+            const galleryItems = movieMarkUp(renderedMovies);
+            gallery.insertAdjacentHTML('beforeend', galleryItems);
+            loadMore.classList.add('show');
+            loadMore.classList.remove('hide');
+        } else if (chosenMovies.length > 0) {
+            gallery.innerHTML = ''; 
+            const galleryItems = movieMarkUp(chosenMovies);
+            gallery.insertAdjacentHTML('beforeend', galleryItems);
+            loadMore.classList.add('show');
+            loadMore.classList.remove('hide');
         } else {
-        gallery.innerHTML = `<h1 class="np_chosen">Sorry but there are no ${genreSelected} movies in your Library...</h1>`;
-        loadMore.classList.add('hide');
-        loadMore.classList.remove('show');
+            gallery.innerHTML = `<h1 class="np_chosen">Sorry but there are no ${genreSelected} movies in your Library...</h1>`;
+            loadMore.classList.add('hide');
+            loadMore.classList.remove('show');
         }
   }
 

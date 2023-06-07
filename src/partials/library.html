@@ -3,6 +3,7 @@
     <div class='dropdown-library'>
       <div class='dropdown-toggle-library' data-filter='all'>Genre</div>
       <div class='dropdown-menu-library' id='dropdownMenuLibrary'>
+        <div class='dropdown-item-library' data-filter='all'>All</div>
         <div class='dropdown-item-library' data-filter='romance'>Romance</div>
         <div class='dropdown-item-library' data-filter='detective'>Detective</div>
         <div class='dropdown-item-library' data-filter='thriller'>Thriller</div>
@@ -21,7 +22,8 @@
         <p class="notify-message">Ooops...<br/> We are very sorry! <br/> You don't have any movies at your library.
         </p>
       </div>
-      <button type="submit" class="search-more">Search movie</button>
+      <!-- <a href="/src/catalog.html" class="search-more">Search movie</a> -->
+      <button type="submit" class="search-more" onClick="document.location='/src/partials/catalog.html'">Search movie</button>
     </div>
   </div>
 </section>
