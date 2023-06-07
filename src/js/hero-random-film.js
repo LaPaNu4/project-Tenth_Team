@@ -1,16 +1,18 @@
 import axios from 'axios';
 import {addRating} from './rating'
+
 const sectionHero = document.querySelector('.hero-section');
 const containerDefault = document.querySelector('.hero-default');
 const containerRender = document.querySelector('.hero-random');
 const watchBtn = document.querySelector('.hero-watch');
+const moreDetailsBtn = document.querySelector('.hero-info');
 const closeBtn = document.querySelector('.popup-close');
 const popupContainer = document.querySelector('.popup');
 const popupDefault = document.querySelector('.popup-content-default');
 const popupRender = document.querySelector('.popup-content-render');
-const URL_DAY =
-  'https://api.themoviedb.org/3/trending/all/day?api_key=b2a327199ab710c06f4180e085359e4a';
-let rating = ''
+const URL_DAY = 'https://api.themoviedb.org/3/trending/all/day?api_key=b2a327199ab710c06f4180e085359e4a';
+let rating = '';
+
 document.addEventListener('DOMContentLoaded', renderFilmDay);
 watchBtn.addEventListener('click', onWatchBtnClick);
 closeBtn.addEventListener('click', onCloseBtnClick);
@@ -52,13 +54,16 @@ function createRandomFilm(filmObj) {
     original_name,
     id,
     video,
-    popularity,
     overview,
     vote_average,
   } = filmObj;
+
   const poster = `https://image.tmdb.org/t/p/original/${backdrop_path}`;
-    rating = vote_average
-    console.log(rating)
+    rating = vote_average;
+    console.log(rating);
+    //moreDetailsBtn.dataset.catalogItem;
+    moreDetailsBtn.setAttribute('id', `${id}`);
+    
   if (backdrop_path === undefined || backdrop_path === '') {
     poster = `./images/hero-img/coming-soon.jpg`;
   } else {
