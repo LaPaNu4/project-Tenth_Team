@@ -82,28 +82,33 @@ function fetchFromLibrary() {
             loadMore.classList.remove('hide');
             dropDown.classList.add('show');
             dropDown.classList.remove('hide');
+            return renderedMovies;
         })                    
         .catch(error => {
             console.log(error);
         });
     }    
 
-
-    const filterMoviesByGenre = () => {
+    
+    const filterMoviesByGenre = (movies) => {
         const selectedGenre = dropMenuLibrary.dataset.filter;
+        const getAtt = document.get
       
-        const filteredMovies = renderedMovies.filter(movie => {
+         const filteredMovies = movies.filter(movie => {
           const genres = movie.genres.map(genre => genre.name);
           return genres.includes(selectedGenre);
-        });
-      
+        
+    } );
+
         if (filteredMovies.length > 0) {
-          const galleryItems = movieMarkUp(filteredMovies);
-          gallery.innerHTML = galleryItems;
-          loadMore.classList.add('show');
-          loadMore.classList.remove('hide');
+            fetchFromLibrary(filteredMovies);
+        //   const galleryItems = movieMarkUp(filteredMovies);
+        //   gallery.innerHTML = galleryItems;
+        //   loadMore.classList.add('show');
+        //   loadMore.classList.remove('hide');
         } else {
           gallery.innerHTML = '';
+          emptyGallery.classList.add('show');
           loadMore.classList.add('hide');
           loadMore.classList.remove('show');
         }
@@ -167,6 +172,6 @@ const movieMarkUp = (dataComing) => {
 
 window.onload = fetchFromLibrary;
 
-dropMenuLibrary.addEventListener('change', filterMoviesByGenre);
+dropMenuLibrary.addEventListener('click', () => filterMoviesByGenre(renderedMovies));
 
 
