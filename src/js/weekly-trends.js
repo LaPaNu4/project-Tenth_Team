@@ -1,5 +1,6 @@
 // weekly-trends
 import axios from 'axios';
+import {addRating} from './rating'
 
 const URL =
   'https://api.themoviedb.org/3/trending/movie/week?api_key=ee5376443abaeb243d053aa1ffc4ea05';
@@ -8,6 +9,7 @@ const BASE_URL = 'https://api.themoviedb.org/3';
 const IMG_W400 = `/w400`;
 const API_KEY = 'ee5376443abaeb243d053aa1ffc4ea05';
 const galleryList = document.querySelector('.gallery-weekly-list');
+let rating = '';
 
 function getTrendData() {
   const URL =
@@ -97,9 +99,9 @@ function createMarkup(results) {
           </div>
           
         </div>
-        <div class="form_item_weekly">
+        <div class="form_item form_item_weekly">
             <div class="form_lebel"> </div>
-            <div data-ajax="true" class="rating_weekly rating_set rating-hero">
+            <div data-ajax="true" class="rating rating_weekly rating_set">
                 <div class="rating_body">
                     <div class="rating_active"></div>
                     <div class="rating_items">
@@ -120,24 +122,3 @@ function createMarkup(results) {
 export const getWeeklyTrends = getTrendData().then(({ results }) => {
   return renderMarkup(results);
 });
-
-// Функція, яка для екрану менше 768 рх показує один постер
-
-// function renderWeeklyFilms() {
-//   if (window.innerWidth < 768) {
-//     getTrendData(1).then(data => {
-//       const films = [data.results[0]];
-//       renderMarkup(films)
-//         .then(data => (filmList.innerHTML = data))
-//         .catch(error => console.log(error));
-//     });
-//   } else {
-//     getTrendData(1).then(data => {
-//       const films = data.results.slice(0, 3);
-//       renderMarkup(films)
-//         .then(data => (filmList.innerHTML = data))
-//         .catch(error => console.log(error));
-//     });
-//   }
-// }
-// window.addEventListener('resize', renderWeeklyFilms);

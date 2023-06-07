@@ -44,6 +44,12 @@
   border-radius: 10px;
   z-index: 0;
 }
+.gallery-weekly__list-elem:nth-child(2) {
+  display: none;
+}
+.gallery-weekly__list-elem:nth-child(3) {
+  display: none;
+}
 .gallery-weekly__list-elem::before {
   position: absolute;
   content: ' ';
@@ -143,6 +149,12 @@
   }
   .gallery-weekly__list-elem {
     height: 336px;
+  }
+  .gallery-weekly__list-elem:nth-child(2) {
+    display: block;
+  }
+  .gallery-weekly__list-elem:nth-child(3) {
+    display: block;
   }
   .gallery-weekly__image {
     height: auto;
