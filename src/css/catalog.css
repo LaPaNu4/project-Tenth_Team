@@ -52,6 +52,16 @@ p {
   border: none;
 }
 
+.search-form-icon {
+  stroke: #f84119;
+}
+
+.search-form-btn:hover {
+  border: 1px solid #f84119;
+  background: transparent;
+  fill: #ffc226;
+}
+
 .catalog-list {
   margin-bottom: 20px;
   display: flex;
@@ -80,6 +90,13 @@ p {
   width: 100%;
   object-fit: cover;
   background-repeat: no-repeat;
+}
+
+.catalog-rating:before {
+  width: fit-content !important;
+  height: fit-content !important;
+  top: 372.88px !important;
+  left: 182.44px !important;
 }
 
 .image-wrap:after {
@@ -129,7 +146,7 @@ p {
   width: 24px;
   height: 24px;
 
-  border: 1px solid #b7b7b7;
+  border: 1px solid #595959;
   border-radius: 50%;
 
   font-family: 'Roboto';
@@ -137,7 +154,7 @@ p {
   font-size: 10px;
   line-height: calc(10 / 10);
 
-  color: #ffffff;
+  color: var(--white);
 }
 
 .tui-is-selected {
@@ -161,6 +178,7 @@ p {
   background-position: center;
   background-repeat: no-repeat;
   border: none;
+  fill: #b7b7b7;
   margin-right: 0;
 }
 
@@ -196,7 +214,7 @@ p {
   font-size: 20px;
   line-height: calc(28 / 20);
 
-  color: #ffffff;
+  color: var(--white);
 }
 
 @media screen and (min-width: 768px) {
@@ -217,6 +235,10 @@ p {
   .catalog-item {
     width: 224px;
     height: 325px;
+  }
+  .catalog-rating:before {
+    top: 293.88px !important;
+    left: 133.44px !important;
   }
   .film-info {
     line-height: calc(18 / 12);
@@ -270,5 +292,9 @@ p {
   .no-films-message {
     font-size: 32px;
     line-height: calc(36 / 32);
+  }
+  .catalog-rating:before {
+    top: 533.88px !important;
+    left: 282.44px !important;
   }
 }
