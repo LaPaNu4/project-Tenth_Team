@@ -23,12 +23,10 @@ p {
   padding-left: 20px;
   width: 224px;
   height: 40px;
-
-  border: 1px solid #ffffff;
+  border: 1px solid var(--white);
   border-radius: 8px;
   background: transparent;
-
-  color: #ffffff;
+  color: var(--white);
 }
 
 .search-form input::placeholder {

@@ -34,11 +34,13 @@
   --white: #ffffff;
   --silver: #f8f8f8;
   --orange: #f87719;
+  --bgmenu: #171717;
   --gradient-1: linear-gradient(141.22deg, #ffc226 9.4%, #f84119 91.91%);
   --gradient-2: linear-gradient(141.22deg,
       #f84119 9.4%,
       rgba(248, 159, 25, 0.68) 91.91%);
 }
+
 
 body {
   height: 100%;

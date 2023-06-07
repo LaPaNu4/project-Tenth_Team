@@ -11,3 +11,7 @@ import './js/light-theme.js';
 import './js/footer-modal.js';
 import './js/rating.js'
 import './js/modal-details.js';
+
+
+// import './js/pagination.js';
+import './js/light-theme.js';
