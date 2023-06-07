@@ -1,12 +1,14 @@
 
 var _ = require('lodash');
 // const imgEL = document.querySelector(".catalog-list");
-const imgEL = document.querySelector('[data-catalog-list]');
+const imgELs = document.querySelectorAll('[data-catalog-list]');
 const modalEl = document.querySelector('.modal-backdrop');
 const cardHeaderEl = document.querySelector('.film-card-content');
 const closeBtnEl = document.querySelector('.film-card-close-btn')
 
-imgEL.addEventListener("click", _.throttle(onClickPoster, 100));
+imgELs.forEach(imgEL => {
+  imgEL.addEventListener('click', _.throttle(onClickPoster, 100));
+});
 modalEl.addEventListener('click', onCloseModalBackdrop);
 closeBtnEl.addEventListener("click", toggleModal);
 
@@ -18,9 +20,9 @@ function onClickPoster(event) {
  
   const currentMovie = event.target.closest('[data-catalog-item]');
 
-  // console.log(currentMovie);
+  console.log(currentMovie);
 
-  // if (currentMovie) {
+  if (currentMovie) {
     const idOfMovie = currentMovie.getAttribute('id');
     console.log(idOfMovie);
     fetchMoreFilmDetails(idOfMovie)
@@ -34,7 +36,7 @@ function onClickPoster(event) {
         console.log(error);
         throw new Error(error);
       });
-  // }
+  }
   clearMarkup();
 }
 
