@@ -40,7 +40,7 @@ async function getUpcoming() {
 
     const randomFilm = Math.floor(Math.random() * data.length);
     const renderFilm = data[randomFilm];
-    const idFilm = renderFilm.id;
+    const idFilm = renderFilm.id.toString();
     const render = await createMarkup(renderFilm);
     renderMarkup(render);
 
@@ -49,27 +49,26 @@ async function getUpcoming() {
     let parsedLocal = JSON.parse(savedLocal);
     parsedLocal = parsedLocal ? parsedLocal : [];
 
-    if (parsedLocal.includes(idFilm)) {
+    if (parsedLocal.find(movie => movie.id === idFilm)) {
       upcomingBtn.textContent = 'Remove from my library';
-    } else {
-      upcomingBtn.textContent = 'Add to my library';
-    }
+    } 
 
     upcomingBtn.addEventListener('click', () => {
       let savedLocal = localStorage.getItem('favoriteMovies');
       let parsedLocal = JSON.parse(savedLocal);
       parsedLocal = parsedLocal ? parsedLocal : [];
 
-        if (!parsedLocal.includes(idFilm)) {
-        parsedLocal.push(idFilm);
-        localStorage.setItem(favoriteMovies, JSON.stringify(parsedLocal));
-        upcomingBtn.textContent = 'Remove from my library';
-      } else {
-        let index = parsedLocal.findIndex(id => id === idFilm);
-        parsedLocal.splice(index, 1);
-        localStorage.setItem(favoriteMovies, JSON.stringify(parsedLocal));
-        upcomingBtn.textContent = 'Add to my library';
-      }
+      if (!parsedLocal.find(movie => movie.id === idFilm)) {
+          const movieObject = { id: idFilm, start: '' };
+          parsedLocal.push(movieObject);
+          localStorage.setItem(favoriteMovies, JSON.stringify(parsedLocal));
+          upcomingBtn.textContent = 'Remove from my library';
+        } else {
+          let index = parsedLocal.findIndex(movie => movie.id === idFilm);
+          parsedLocal.splice(index, 1);
+          localStorage.setItem(favoriteMovies, JSON.stringify(parsedLocal));
+          upcomingBtn.textContent = 'Add to my library';
+        }
     });
   } catch (error) {
     console.log(error);
@@ -77,6 +76,7 @@ async function getUpcoming() {
 }
 
 async function createMarkup({
+  poster_path,
   backdrop_path,
   genre_ids,
   title,
@@ -88,12 +88,14 @@ async function createMarkup({
 }) {
   const genreNames = await getGenresById(genre_ids);
 
-  return `
-    <img
-      class="upcoming_img"
-      src="https://image.tmdb.org/t/p/original${backdrop_path}"
-      alt="Poster ${title}"
-    />
+    return `
+  
+
+     <picture class='upcoming_img'>
+      <source srcset="https://image.tmdb.org/t/p/original/${backdrop_path}" media="(min-width: 768px)" loading="lazy"/>
+      <source srcset="https://image.tmdb.org/t/p/original/${poster_path}" media="(min-width: 320px)" loading="lazy"/>
+      <img src="https://image.tmdb.org/t/p/original/${poster_path}" alt="Movie Poster" loading="lazy"/>
+    </picture>
 
     <div class="upcoming_content">
       <h3 class="upcoming_name">${title}</h3>
@@ -136,7 +138,7 @@ async function createMarkup({
 
 
 function renderMarkup(markup) {
-  upcomingFilm.innerHTML = markup;
+    upcomingFilm.innerHTML = markup;
 }
 
 function renderMarkupError() {
