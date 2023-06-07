@@ -1,64 +1,82 @@
 import axios from 'axios';
+import {addRating} from './rating'
 
 const sectionHero = document.querySelector('.hero-section');
 const containerDefault = document.querySelector('.hero-default');
 const containerRender = document.querySelector('.hero-random');
 const watchBtn = document.querySelector('.hero-watch');
+const moreDetailsBtn = document.querySelector('.hero-info');
 const closeBtn = document.querySelector('.popup-close');
 const popupContainer = document.querySelector('.popup');
 const popupDefault = document.querySelector('.popup-content-default');
 const popupRender = document.querySelector('.popup-content-render');
 const URL_DAY = 'https://api.themoviedb.org/3/trending/all/day?api_key=b2a327199ab710c06f4180e085359e4a';
+let rating = '';
 
-
-
-document.addEventListener("DOMContentLoaded", renderFilmDay);
+document.addEventListener('DOMContentLoaded', renderFilmDay);
 watchBtn.addEventListener('click', onWatchBtnClick);
 closeBtn.addEventListener('click', onCloseBtnClick);
 
- async function renderFilmDay() {
-     try {
-     const filmsArr = await getFilmsDay(URL_DAY);
+async function renderFilmDay() {
+  try {
+    const filmsArr = await getFilmsDay(URL_DAY);
 
-    if (!filmsArr || filmsArr.length ===0) throw new Error('No data!');
+    if (!filmsArr || filmsArr.length === 0) throw new Error('No data!');
 
-     const filmOfDay = await randomFilmFind(filmsArr); 
-     createRandomFilm(filmOfDay);
-
-     document.removeEventListener("DOMContentLoaded", renderFilmDay);
-     } catch (err) {
-         onError(err);
-     }    
- }
- 
-async function getFilmsDay(url) {
-    const response = await axios.get(url);
-    const results = response.data.results;
-    
-    return results;
+    const filmOfDay = await randomFilmFind(filmsArr);
+      createRandomFilm(filmOfDay);
+      addRating(rating)
+    document.removeEventListener('DOMContentLoaded', renderFilmDay);
+  } catch (err) {
+    onError(err);
+  }
 }
 
-function randomFilmFind (arr) {
-    const randomIndex = Math.floor(Math.random() * arr.length);
-    const randomFilm = arr[randomIndex];
-    console.log(randomFilm); // for info
+async function getFilmsDay(url) {
+  const response = await axios.get(url);
+  const results = response.data.results;
 
-    return randomFilm;
+  return results;
+}
+
+function randomFilmFind(arr) {
+  const randomIndex = Math.floor(Math.random() * arr.length);
+  const randomFilm = arr[randomIndex];
+  console.log(randomFilm); // for info
+
+  return randomFilm;
 }
 
 function createRandomFilm(filmObj) {
-    const{backdrop_path, original_title, original_name, id, video, popularity, overview} = filmObj;
-    const poster = `https://image.tmdb.org/t/p/original/${backdrop_path}`;
+  const {
+    backdrop_path,
+    original_title,
+    original_name,
+    id,
+    video,
+    overview,
+    vote_average,
+  } = filmObj;
 
-    if(backdrop_path === undefined || backdrop_path === "") {
-         poster = `./images/hero-img/coming-soon.jpg`;
-    } else {        
+  const poster = `https://image.tmdb.org/t/p/original/${backdrop_path}`;
+    rating = vote_average;
+    console.log(rating);
+    //moreDetailsBtn.dataset.catalogItem;
+    moreDetailsBtn.setAttribute('id', `${id}`);
+    
+  if (backdrop_path === undefined || backdrop_path === '') {
+    poster = `./images/hero-img/coming-soon.jpg`;
+  } else {
     sectionHero.classList.add('hero-section-random');
     containerRender.classList.remove('hero-hidden');
-    
-    containerRender.insertAdjacentHTML('afterbegin', `
+
+    containerRender.insertAdjacentHTML(
+      'afterbegin',
+      `
     <img src="${poster}" alt="best-film-day" class="hero-img-random"/>
-    <h1 class="hero-title hero-title-random">${original_title || original_name}</h1>
+    <h1 class="hero-title hero-title-random">${
+      original_title || original_name
+    }</h1>
     <div class="form_item">
             <div class="form_lebel"> </div>
             <div data-ajax="true" class="rating rating_set rating-hero">
@@ -77,28 +95,29 @@ function createRandomFilm(filmObj) {
         <!-- <div class="rating_value"> 2.0 </div> -->
     <p class="hero-text hero-text-random">${overview}</p>
     
-</div>`);
+</div>`
+    );
 
-if(video === true) {
-    popupDefault.classList.add('hero-hidden');
-    popupRender.innerHTML = `https://api.themoviedb.org/3/movie/${id}/videos?api_key=YOUR_KEY&language=en-US`
-}
-}  
+    if (video === true) {
+      popupDefault.classList.add('hero-hidden');
+      popupRender.innerHTML = `https://api.themoviedb.org/3/movie/${id}/videos?api_key=YOUR_KEY&language=en-US`;
+    }
+  }
 }
 
 function onError(err) {
-    console.error(err);
-    containerDefault.classList.remove('hero-hidden');    
+  console.error(err);
+  containerDefault.classList.remove('hero-hidden');
 }
 
 function onWatchBtnClick(e) {
-    e.preventDefault();
-    popupContainer.classList.remove('popup-hidden');
-    document.body.style.position = 'fixed';
+  e.preventDefault();
+  popupContainer.classList.remove('popup-hidden');
+  document.body.style.position = 'fixed';
 }
 
 function onCloseBtnClick(e) {
-    e.preventDefault();
-    popupContainer.classList.add('popup-hidden');
-    document.body.style.position = '';
+  e.preventDefault();
+  popupContainer.classList.add('popup-hidden');
+  document.body.style.position = '';
 }
