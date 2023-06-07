@@ -4,9 +4,12 @@ var _ = require('lodash');
 const imgEL = document.querySelector('[data-catalog-list]');
 const modalEl = document.querySelector('.modal-backdrop');
 const cardHeaderEl = document.querySelector('.film-card-content');
+const closeBtnEl = document.querySelector('.film-card-close-btn')
 
 imgEL.addEventListener("click", _.throttle(onClickPoster, 100));
 modalEl.addEventListener('click', onCloseModalBackdrop);
+closeBtnEl.addEventListener("click", toggleModal);
+
 let favoriteMovies = [];
 
 function onClickPoster(event) {
@@ -60,7 +63,6 @@ function fetchMoreFilmDetails(idOfMovie) {
 function onOpenModalWindow(data) {
   modalEl.classList.remove('is-hidden');
   window.addEventListener('keydown', onPressESC);
-
 }
 
 
@@ -70,6 +72,22 @@ function onCloseModal() {
   clearMarkup();
 }
 
+function clearMarkup() {
+  cardHeaderEl.innerHTML = '';
+}
+
+function onCloseModalBackdrop(event) {
+  if (event.target.classList.contains('modal-backdrop') || event.target.classList.contains('film-card-close-btn') ) {
+    onCloseModal();
+    clearMarkup();
+  }
+}
+
+
+  function toggleModal() {
+   modalEl.classList.toggle("is-hidden");
+}
+  
 function onPressESC(e) {
   if (e.keyCode === 27) {
     onCloseModal();
@@ -121,16 +139,6 @@ function onMarkUpDetails(data) {
   cardHeaderEl.insertAdjacentHTML('beforeend', markup);
 }
 
-function clearMarkup() {
-  cardHeaderEl.innerHTML = '';
-}
-
-function onCloseModalBackdrop(event) {
-  if (event.target.classList.contains('modal-backdrop')) {
-    clearMarkup();
-    onCloseModal();
-  }
-}
 
 function onAddLibrary(event) {
   const btn = event.target;
@@ -204,6 +212,9 @@ function btnRemove(idOfMovie) {
   }
 }
   
+
+
+
 
 // var _ = require('lodash');
 // const imgEL = document.querySelector(".catalog-list");
