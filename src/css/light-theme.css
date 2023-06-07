@@ -53,6 +53,14 @@
   .cards-list__text{
     color:#b7b7b7  !important;
   }
+  .film-vote-text{
+    background-color: #ffffff !important; 
+    color: #000000 !important;
+  }
+  .film-votes-text{
+    background-color: #ffffff !important; 
+    color: #000000 !important;
+  }
   
   .light{
     
