@@ -1,6 +1,7 @@
 import Notiflix from 'notiflix';
 import { pagination } from './pagination.js';
 import { getTopFilmsData, getFilmsData } from './catalog-api.js';
+import { addRating } from './rating.js';
 
 const catalogList = document.getElementById('catalog-list');
 const searchForm = document.getElementById('search-form');
@@ -63,6 +64,7 @@ async function makeFilmMarkup(page, request) {
 
 function createTopFilmsMarkup(response) {
   const results = response.data.results;
+  console.log(results);
   totalEl = response.data.total_results;
 
   if (results.length == 0) {
@@ -71,8 +73,15 @@ function createTopFilmsMarkup(response) {
     return markup;
   }
 
+
+
+
+
   const markup = results
     .map(result => {
+      const rating = result.vote_average;
+      addRating(rating);
+
       let releaseDate = result.release_date;
       if (!result.release_date) {
         releaseDate = 'Coming soon';
@@ -98,6 +107,7 @@ function createTopFilmsMarkup(response) {
                 </div>
               </div>
             </div>
+            <div class="rating_active" style="width: 100%;"></div>
         </li>`;
       } else {
         return `<li class="catalog-item" data-catalog-item id="${result.id}">
@@ -114,6 +124,7 @@ function createTopFilmsMarkup(response) {
                 </div>
               </div>
             </div>
+            <div class="rating_active catalog-rating" style="width: 100%;"></div>
         </li>`;
       }
     })
@@ -132,3 +143,19 @@ function renderTopFilmsMarkup(markup) {
 function clearSearchForm() {
   searchForm.searchQuery.value = '';
 }
+
+// -------------------- Функция получения рейтинга
+
+// function getRating() {
+//   const filmsOnPage = document.querySelectorAll(".catalog-item");
+//   filmsOnPage.forEach(element => {
+//     const filmID = element.id;
+//   });
+// }
+
+
+// setTimeout(() => {
+//   addRating(7.944);
+// }, 300);
+
+
