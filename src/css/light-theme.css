@@ -75,9 +75,7 @@
     background: #ffffff;
    }
  
-  .lightcolorsilver{
-    color: var(--silver);
-  }
+
   .lightcolorgray{
     color: var(--gray-light);
   }   
