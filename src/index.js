@@ -7,6 +7,6 @@ import './js/header.js';
 import './js/light-theme.js';
 // import "./js/catalog.js";
 // import './js/library-filter.js';
+
 import './js/footer-modal.js';
-// import './js/rating.js';
 import './js/modal-details.js';

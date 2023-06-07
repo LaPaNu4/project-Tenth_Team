@@ -9,14 +9,14 @@
     position: relative;
 }
 .rating_body::before{
-    content: "★★★★★";
+    content: "✰✰✰✰✰";
     display: block;
 }
 
 
 .rating_active {
     position: absolute;
-    width:0%;
+    width:0;
     height: 100%;
     left: 0;
     /* right: 3.12%; */
