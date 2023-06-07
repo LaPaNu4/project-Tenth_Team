@@ -16,7 +16,8 @@ ul{
   font-size: 16px;
   line-height: 1.2;
 
-  
+  /* color: var(--white); */
+
 
 }
 
@@ -42,7 +43,7 @@ ul{
   font-size: 20px;
   line-height: 1.2;
 
-  color: var(--white);
+  /* color: var(--white); */
 
 }
 
@@ -62,7 +63,7 @@ ul{
   font-size: 20px;
   line-height: 1.15;
 text-transform: uppercase;
- 
+  /* color: var(--white); */
 
 
 }
@@ -77,7 +78,7 @@ font-family: 'Roboto';
   font-weight: 500;
   font-size: 16px;
   line-height: 1.2;
-  color: var(--gray-light);
+  /* color: var(--gray-light); */
 
 }
 
@@ -87,12 +88,12 @@ font-family: 'Roboto';
 }
 
 .upcoming_list_date {
-  color: var(--orange);
+  /* color: var(--orange); */
   margin-left: 57px;
 }
 .upcoming_list_vote {
   margin-left: 61px;
- 
+    /* color: var(--white); */
 }
 
 .vote {
@@ -105,13 +106,13 @@ font-family: 'Roboto';
 }
 .upcoming_list_pop {
     
-  
+  /* color: var(--white); */
   margin-left: 72px;
 }
 
 .upcoming_list_genre {
  
- 
+  color: var(--white);
 
   margin-left: 100px;
 
@@ -127,7 +128,7 @@ font-family: 'Roboto';
   align-items: center;
   text-transform: uppercase;
 
-  color: var(--gray-light);
+  /* color: var(--gray-light); */
 
 
 }

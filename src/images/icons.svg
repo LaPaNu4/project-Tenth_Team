@@ -1,7 +1,7 @@
 <svg aria-hidden="true" style="position: absolute; width: 0; height: 0; overflow: hidden;" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 <defs>
 <symbol id="icon-close-outline" viewBox="0 0 32 32">
-<path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="1.3333" d="M23 23l-14-14M23 9l-14 14"></path>
+<path fill="none" stroke="#fff" style="stroke: var(--color2, #fff)" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="1.3333" d="M23 23l-14-14M23 9l-14 14"></path>
 </symbol>
 <symbol id="icon-moon" viewBox="0 0 32 32">
 <path fill="none" stroke="#fff" style="stroke: var(--color2, #fff)" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.1333" d="M2.189 16.585c0.515 7.14 6.772 12.948 14.261 13.267 5.283 0.222 10.008-2.163 12.843-5.92 1.174-1.539 0.544-2.565-1.417-2.218-0.959 0.166-1.947 0.236-2.978 0.194-7.002-0.277-12.729-5.947-12.757-12.643-0.014-1.802 0.372-3.507 1.074-5.060 0.773-1.719-0.157-2.537-1.947-1.802-5.67 2.315-9.55 7.847-9.078 14.182z"></path>
@@ -45,6 +45,9 @@
 <symbol id="icon-circle-right" viewBox="0 0 32 32">
 <path d="M16 0c-8.837 0-16 7.163-16 16s7.163 16 16 16 16-7.163 16-16-7.163-16-16-16zM16 29c-7.18 0-13-5.82-13-13s5.82-13 13-13 13 5.82 13 13-5.82 13-13 13z"></path>
 <path d="M11.086 22.086l2.829 2.829 8.914-8.914-8.914-8.914-2.828 2.828 6.086 6.086z"></path>
+</symbol>
+<symbol id="icon-ratingStar" viewBox="0 0 36 32">
+<path stroke-linejoin="round" stroke-linecap="butt" stroke-miterlimit="4" stroke-width="2" d="M33.75 12.626h-12.094l-3.656-11.25-3.656 11.25h-12.094l9.844 6.75-3.798 11.248 9.704-7.030 9.704 7.030-3.798-11.248 9.844-6.752z"></path>
 </symbol>
 </defs>
 </svg>
