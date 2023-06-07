@@ -1,52 +1,18 @@
-const { all } = require("axios");
 
 const gallery = document.querySelector('.movies-gallery');
 const searchMore = document.querySelector('.search-more');
 const loadMore = document.querySelector('.load');
 const emptyGallery = document.querySelector('.empty-gallery');
+
 const dropDown = document.querySelector('.dropdown-library');
-const dropMenuLibrary = document.querySelector('.dropdown-item-library');
-
-
-//adding dropdown functionality
-// const dropContent = document.querySelector('.drop-content');
-// const genresBtn = document.querySelector('.drop');
-// const pickedGenre = document.querySelector('.drop-item');
-
-// const dropShow = () => {
-//     if(dropContent.classList.contains('show')) {
-//         dropContent.classList.remove('show');
-//         dropContent.classList.add('hide');
-//     } else {
-//         dropContent.classList.add('show');
-//         dropContent.classList.remove('hide');
-//     }
-// }
-
-// const chosenGenre = (e) => {
-//     e.preventDefault();
-//     let chosen = e.target;
-//     console.log(chosen);
-//
-//     chosen.classList.toggle('orange');
-//     genresBtn.classList.remove('orange');
-//
-//     genresBtn.textContent = chosen.textContent;
-//
-//     dropContent.classList.remove('show');
-//     chosen.classList.remove('orange');
-// }
-//
-// genresBtn.addEventListener('click', dropShow);
-// dropContent.addEventListener('click', chosenGenre);
-
+const dropLibraryItem = document.querySelectorAll('.dropdown-item-library');
+const dropMenuLibrary = document.querySelector('.dropdown-menu-library');
 
 
 const STORAGE = 'favoriteMovies';
 loadMore.classList.add('hide');
 emptyGallery.classList.add('show');
 dropDown.classList.add('hide');
-
 
 const renderedMovies = [];
 
@@ -73,7 +39,6 @@ function fetchFromLibrary() {
             gallery.innerHTML = '';
 
             const moviesById = movieMarkUp(movieData);
-            // console.log(moviesById);
 
             gallery.insertAdjacentHTML('beforeend', moviesById);
             emptyGallery.classList.add('hide');
@@ -89,46 +54,32 @@ function fetchFromLibrary() {
     }    
 
 
-    const filterMoviesByGenre = () => {
-        const selectedGenre = dropMenuLibrary.dataset.filter;
-      
-        const filteredMovies = renderedMovies.filter(movie => {
-          const genres = movie.genres.map(genre => genre.name);
-          return genres.includes(selectedGenre);
+    const filterMoviesByGenre = (e) => {
+        const target = e.target;
+        const genreSelected = target.dataset.filter; 
+        console.log(genreSelected);
+        console.log(renderedMovies);
+   
+
+        const chosenMovies = renderedMovies.filter(movie => {
+            const movieGenres = movie.genres.map(genre => genre.name.toLowerCase());
+            return movieGenres.includes(genreSelected.toLowerCase());
         });
-      
-        if (filteredMovies.length > 0) {
-          const galleryItems = movieMarkUp(filteredMovies);
-          gallery.innerHTML = galleryItems;
-          loadMore.classList.add('show');
-          loadMore.classList.remove('hide');
+        console.log(chosenMovies);
+
+          
+        if (chosenMovies.length > 0) {
+        gallery.innerHTML = ''; 
+        const galleryItems = movieMarkUp(chosenMovies);
+        gallery.insertAdjacentHTML('beforeend', galleryItems);
+        loadMore.classList.add('show');
+        loadMore.classList.remove('hide');
         } else {
-          gallery.innerHTML = '';
-          loadMore.classList.add('hide');
-          loadMore.classList.remove('show');
+        gallery.innerHTML = `<h1 class="np_chosen">Sorry but there are no ${genreSelected} movies in your Library...</h1>`;
+        loadMore.classList.add('hide');
+        loadMore.classList.remove('show');
         }
-      };
-// const filterMoviesByGenre = () => {
-//     const genreSelected = dropMenuLibrary.value; 
-//     console.log(genreSelected);
-  
-//     const chosenMovies = renderedMovies.filter(movie => {
-//       const movieGenres = movie.genres.map(genre => genre.name);
-//       return movieGenres.includes(genre);
-//     });
-  
-//     if (chosenMovies.length > 0) {
-//       gallery.innerHTML = ''; 
-//       const galleryItems = movieMarkUp(chosenMovies);
-//       gallery.insertAdjacentHTML('beforeend', galleryItems);
-//       loadMore.classList.add('show');
-//       loadMore.classList.remove('hide');
-//     } else {
-//       gallery.innerHTML = '';
-//       loadMore.classList.add('hide');
-//       loadMore.classList.remove('show');
-//     }
-//   }
+  }
 
 const movieMarkUp = (dataComing) => {
     return dataComing.map(item => {
@@ -167,6 +118,6 @@ const movieMarkUp = (dataComing) => {
 
 window.onload = fetchFromLibrary;
 
-dropMenuLibrary.addEventListener('change', filterMoviesByGenre);
+dropMenuLibrary.addEventListener('click', filterMoviesByGenre);
 
 
