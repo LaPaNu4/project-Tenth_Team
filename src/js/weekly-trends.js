@@ -123,21 +123,21 @@ export const getWeeklyTrends = getTrendData().then(({ results }) => {
 
 // Функція, яка для екрану менше 768 рх показує один постер
 
-function renderWeeklyFilms() {
-  if (window.innerWidth < 768) {
-    getTrendData(1).then(data => {
-      const films = [data.results[0]];
-      renderMarkup(films)
-        .then(data => (filmList.innerHTML = data))
-        .catch(error => console.log(error));
-    });
-  } else {
-    getTrendData(1).then(data => {
-      const films = data.results.slice(0, 3);
-      renderMarkup(films)
-        .then(data => (filmList.innerHTML = data))
-        .catch(error => console.log(error));
-    });
-  }
-}
-window.addEventListener('resize', renderWeeklyFilms);
+// function renderWeeklyFilms() {
+//   if (window.innerWidth < 768) {
+//     getTrendData(1).then(data => {
+//       const films = [data.results[0]];
+//       renderMarkup(films)
+//         .then(data => (filmList.innerHTML = data))
+//         .catch(error => console.log(error));
+//     });
+//   } else {
+//     getTrendData(1).then(data => {
+//       const films = data.results.slice(0, 3);
+//       renderMarkup(films)
+//         .then(data => (filmList.innerHTML = data))
+//         .catch(error => console.log(error));
+//     });
+//   }
+// }
+// window.addEventListener('resize', renderWeeklyFilms);
