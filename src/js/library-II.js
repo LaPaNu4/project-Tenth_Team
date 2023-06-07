@@ -1,52 +1,19 @@
-const { all } = require("axios");
 
 const gallery = document.querySelector('.movies-gallery');
 const searchMore = document.querySelector('.search-more');
 const loadMore = document.querySelector('.load');
 const emptyGallery = document.querySelector('.empty-gallery');
+
 const dropDown = document.querySelector('.dropdown-library');
+const dropLibraryItem = document.querySelectorAll('.dropdown-item-library');
 const dropMenuLibrary = document.querySelector('.dropdown-menu-library');
-
-
-//adding dropdown functionality
-// const dropContent = document.querySelector('.drop-content');
-// const genresBtn = document.querySelector('.drop');
-// const pickedGenre = document.querySelector('.drop-item');
-
-// const dropShow = () => {
-//     if(dropContent.classList.contains('show')) {
-//         dropContent.classList.remove('show');
-//         dropContent.classList.add('hide');
-//     } else {
-//         dropContent.classList.add('show');
-//         dropContent.classList.remove('hide');
-//     }
-// }
-
-// const chosenGenre = (e) => {
-//     e.preventDefault();
-//     let chosen = e.target;
-//     console.log(chosen);
-//
-//     chosen.classList.toggle('orange');
-//     genresBtn.classList.remove('orange');
-//
-//     genresBtn.textContent = chosen.textContent;
-//
-//     dropContent.classList.remove('show');
-//     chosen.classList.remove('orange');
-// }
-//
-// genresBtn.addEventListener('click', dropShow);
-// dropContent.addEventListener('click', chosenGenre);
 
 
 
 const STORAGE = 'favoriteMovies';
 loadMore.classList.add('hide');
-emptyGallery.classList.add('hide');
+emptyGallery.classList.add('show');
 dropDown.classList.add('hide');
-
 
 const renderedMovies = [];
 
@@ -68,54 +35,73 @@ function fetchFromLibrary() {
 
     Promise.all(fetchMovies)
         .then(movieData => {
-            // console.log(movieData)
             renderedMovies.push(...movieData);
-            // console.log(renderedMovies);
 
             gallery.innerHTML = '';
 
             const moviesById = movieMarkUp(movieData);
-            // console.log(moviesById);
+
             gallery.insertAdjacentHTML('beforeend', moviesById);
+            emptyGallery.classList.add('hide');
+            emptyGallery.classList.remove('show');
             loadMore.classList.add('show');
             loadMore.classList.remove('hide');
             dropDown.classList.add('show');
             dropDown.classList.remove('hide');
-        })            
+        })                    
         .catch(error => {
             console.log(error);
         });
     }    
 
 
-const filterMoviesByGenre = (movies) => {
-    const genre = dropMenuLibrary.value;
+    const filterMoviesByGenre = (e) => {
+        const target = e.target;
+        const genreSelected = target.dataset.filter; 
+        console.log(genreSelected);
+        console.log(renderedMovies);
+   
 
-    const chosenMovies = movies.filter(movie => movie.genre === genre);
-    if(chosenMovies.length > 0) {
+        const chosenMovies = renderedMovies.filter(movie => {
+            const movieGenres = movie.genres.map(genre => genre.name.toLowerCase());
+            return movieGenres.includes(genreSelected.toLowerCase());
+        });
+        console.log(chosenMovies);
+
+          
+        if (chosenMovies.length > 0) {
+        gallery.innerHTML = ''; 
         const galleryItems = movieMarkUp(chosenMovies);
         gallery.insertAdjacentHTML('beforeend', galleryItems);
         loadMore.classList.add('show');
         loadMore.classList.remove('hide');
-    } else {
-        gallery.innerHTML = '';
+        } else {
+        gallery.innerHTML = `<h1 class="np_chosen">Sorry but there are no ${genreSelected} movies in your Library...</h1>`;
         loadMore.classList.add('hide');
         loadMore.classList.remove('show');
-    }
-}    
+        }
+  }
+
 
 const movieMarkUp = (dataComing) => {
-
     return dataComing.map(item => {
         const { poster_path, original_title, release_date, popularity, id } = item;
         const genre = item.genres.map(genres => genres.name).slice(0, 2).join(', ');
-        // console.log(typeof(genre)); 
+
         const year = item.release_date.slice(0, 4);
+        const moviePoster = `https://image.tmdb.org/t/p/w500${poster_path}`;
+        
+        if(poster_path === undefined || poster_path === "") {
+            moviePoster = `./images/hero-img/coming-soon.jpg`;
+        }
 
         return `
-        <li class="movie-item"  >
+
+        <li class="movie-item">
             <div class="movie" data-catalog-item id=${id}>
-                <img class="movie-img" src="https://image.tmdb.org/t/p/w500${poster_path}">
+                <img class="movie-img" src=${moviePoster}>
+
+
                 <div class="movie-info">
                     <div class="info">
                         <h2 class="movie-title">${original_title}</h2>
@@ -133,6 +119,7 @@ const movieMarkUp = (dataComing) => {
 }
 
 window.onload = fetchFromLibrary;
-//dropDown.addEventListener('click', () => filterMoviesByGenre(renderedMovies));
+
+dropMenuLibrary.addEventListener('click', filterMoviesByGenre);
 
 
