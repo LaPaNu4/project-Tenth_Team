@@ -19,8 +19,9 @@ document.querySelector('.themetoggle').addEventListener('click', (event) => {
             document.querySelector('.button-subject').style.display = "none";
             document.querySelector('.button-subjectlight').style.display = "flex";
             document.querySelector('.footer-copyright').classList.add('lightcolor');
-            document.querySelector('.footer-copyright--btn').classList.add('lightcolor');
-           
+            document.querySelector('.footer-copyright-btn').classList.add('lightcolor');
+            document.querySelector('.links').classList.add('lightcolor');
+            document.querySelector('.menu-btn-mobile').classList.add('lightcolor');
           }
           else {
               document.querySelector('body').classList.remove('light');
@@ -29,7 +30,9 @@ document.querySelector('.themetoggle').addEventListener('click', (event) => {
               document.querySelector('.button-subject').style.display = "flex";
               document.querySelector('.main-header').classList.remove('lightwhite');
               document.querySelector('.footer-copyright').classList.remove('lightcolor');
-              document.querySelector('.footer-copyright--btn').classList.remove('lightcolor');                          
+              document.querySelector('.footer-copyright-btn').classList.remove('lightcolor');                          
+              document.querySelector('.links').classList.remove('lightcolor');
+              document.querySelector('.menu-btn-mobile').classList.remove('lightcolor');
             }
           } catch (err) { }
   }
