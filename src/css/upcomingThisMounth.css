@@ -28,6 +28,7 @@ ul {
 .upcoming_error_container_text {
   margin-bottom: 24px;
   font-family: 'Roboto-400', sans-serif;
+
   font-size: 20px;
   line-height: 1.2;
 
@@ -54,7 +55,8 @@ ul {
 .upcoming_list_item {
   display: flex;
   padding-bottom: 12px;
-  font-family: 'Roboto-500', sans-serif;
+
+font-family: 'Roboto-500', sans-serif;
   font-style: normal;
   font-weight: 500;
   font-size: 16px;
@@ -67,11 +69,13 @@ ul {
 }
 
 .upcoming_list_date {
-  margin-left: 57px;
+  /* color: var(--orange); */
+  margin-left: 58px;
 }
 
 .upcoming_list_vote {
-  margin-left: 61px;
+  margin-left: 62px;
+    /* color: var(--white); */
 }
 
 .vote {
@@ -84,12 +88,16 @@ ul {
 }
 
 .upcoming_list_pop {
-  margin-left: 72px;
+    
+  /* color: var(--white); */
+  margin-left: 78px;
 }
 
 .upcoming_list_genre {
   color: var(--white);
-  margin-left: 100px;
+
+  margin-left: 108px;
+
 }
 
 .upcoming_content_title {
@@ -115,7 +123,9 @@ ul {
 .upcoming_content_btn {
   display: block;
   margin-top: 20px;
-  padding: 12px 24px;
+  padding: 12 24;
+ 
+
   font-family: 'Roboto-500', sans-serif;
   font-weight: 500;
   font-size: 12px;
