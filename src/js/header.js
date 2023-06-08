@@ -31,6 +31,7 @@ function onBtnClick(event) {
   menu.classList.toggle('is-open');
   btn.classList.toggle('hide');
   backdrop.classList.toggle('is-hidden');
+  headerScrollDisabled()
 }
 
 function onBackClick(event) {
@@ -38,6 +39,11 @@ function onBackClick(event) {
   menu.classList.remove('is-open');
   btn.classList.remove('hide');
   backdrop.classList.add('is-hidden');
+  headerScrollDisabled()
+}
+function headerScrollDisabled(){
+  const bodyHeader = document.body;
+  bodyHeader.classList.toggle('header-scroll-disabled');
 }
 
 window.matchMedia('(min-width: 768px)').addEventListener('change', e => {
@@ -45,4 +51,5 @@ window.matchMedia('(min-width: 768px)').addEventListener('change', e => {
   menu.classList.remove('is-open');
   backdrop.classList.add('is-hidden');
   btn.classList.remove('hide');
+  headerScrollDisabled()
 });
