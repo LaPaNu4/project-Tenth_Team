@@ -1,6 +1,7 @@
 // weekly-trends
 import axios from 'axios';
 import {addRating} from './rating'
+import { add } from 'lodash';
 
 const URL =
   'https://api.themoviedb.org/3/trending/movie/week?api_key=ee5376443abaeb243d053aa1ffc4ea05';
@@ -69,13 +70,14 @@ function createMarkup(results) {
         vote_average,
         id,
       }) => {
+        rating = vote_average
         let posterIMG = ``;
         if (poster_path) {
           posterIMG = `${IMG_BASE_URL}${IMG_W400}${poster_path}`;
         } else {
           posterIMG = 'https://i.ibb.co/C0LFwTh/OIF.jpg';
         }
-
+        
         let starIcons = '';
         for (let i = 1; i <= 5; i++) {
           let starClass = 'fa-star-o';
@@ -101,7 +103,7 @@ function createMarkup(results) {
         </div>
         <div class="form_item form_item_weekly">
             <div class="form_lebel"> </div>
-            <div data-ajax="true" class="rating rating_weekly rating_set">
+            <div data-ajax="true" class="rating rating_weekly  rating_set rating-hero">
                 <div class="rating_body">
                     <div class="rating_active"></div>
                     <div class="rating_items">
@@ -115,9 +117,11 @@ function createMarkup(results) {
             </div>
         </div>
       </li>`;
-      }
+      }, 
     )
     .join('');
+  
+  
 }
 export const getWeeklyTrends = getTrendData().then(({ results }) => {
   return renderMarkup(results);

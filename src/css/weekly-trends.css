@@ -97,6 +97,7 @@
   margin-right: -10%;
 }
 .form_item_weekly {
+  z-index: 3;
   margin-top: -30px;
   margin-right: 12px;
   color: var(--gray-light);
@@ -120,7 +121,7 @@
   width: 280px;
 }
 .rating_weekly {
-  font-size: 20px;
+  font-size: 15px;
   line-height: 0.75;
 }
 /* ------TABLET------ */
@@ -175,10 +176,10 @@
   .gallery-weekly__all-info {
     width: 224px;
   }
-  .rating_weekly {
+  /* .rating_weekly {
     font-size: 15px;
     line-height: 0.75;
-  }
+  } */
 }
 /* -----DESCTOP----- */
 @media screen and (min-width: 1280px) {
@@ -226,8 +227,8 @@
   .gallery-weekly__all-info {
     width: 395px;
   }
-  .rating_weekly {
+  /* .rating_weekly {
     font-size: 25px;
     line-height: 0.75;
-  }
+  } */
 }
