@@ -61,7 +61,7 @@
     background-color: #ffffff !important; 
     color: #000000 !important;
   }
-  
+   
   .light{
     
       --black: #ffffff ;
@@ -70,6 +70,7 @@
       --gray-light:  #111111;
       --silver: #282828;
       --bgmenu: #fff;
+      --dropdown:  #f8f8f8;
    }
 
  .lightcolor{
