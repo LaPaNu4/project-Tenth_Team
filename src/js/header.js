@@ -16,13 +16,13 @@ navLinks.forEach(link => {
 });
 // phone
 const mobNavLinks = document.querySelectorAll('.mobile-menu-link');
-mobNavLinks.forEach(link => {
-  if (link.href === window.location.href) {
-    link.classList.add('active');
+mobNavLinks.forEach(mobLink => {
+  if (mobLink.href === window.location.href) {
+    mobLink.classList.add('active');
   } else if (window.location.pathname === '/') {
     mobNavLinks[0].classList.add('active');
   } else {
-    link.classList.remove('active');
+    mobLink.classList.remove('active');
   }
 });
 
