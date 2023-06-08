@@ -236,7 +236,7 @@ async function bbb(filmID) {
     return jenresMarkupText;
   } catch (error) {
     console.log(error.message);
-    Notiflix.Notify.warning('OOPS... SOMETHING WENT WRONG');
+    // Notiflix.Notify.warning('OOPS... SOMETHING WENT WRONG');
   }
 }
 

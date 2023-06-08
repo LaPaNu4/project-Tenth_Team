@@ -42,7 +42,7 @@ export async function getFilmByID(id) {
     return data;
   } catch (error) {
     console.log(error.message);
-    Notiflix.Notify.warning('OOPS... SOMETHING WENT WRONG');
+    // Notiflix.Notify.warning('OOPS... SOMETHING WENT WRONG');
     return error.message;
   }
 }
