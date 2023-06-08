@@ -96,7 +96,14 @@ function fetchFromLibrary() {
 
 const movieMarkUp = (dataComing) => {
     return dataComing.map(item => {
-        const { poster_path, original_title, release_date, popularity, id } = item;
+        const {
+          poster_path,
+          original_title,
+          release_date,
+          popularity,
+          id,
+          vote_average,
+        } = item;
         const genre = item.genres.map(genres => genres.name).slice(0, 2).join(', ');
 
         const year = item.release_date.slice(0, 4);
@@ -105,7 +112,8 @@ const movieMarkUp = (dataComing) => {
         if(poster_path === undefined || poster_path === "") {
             moviePoster = `./images/hero-img/coming-soon.jpg`;
         }
-
+        let rating = vote_average
+const width = Math.round(rating) * 10;
         return `
 
         <li class="movie-item">
@@ -125,6 +133,21 @@ const movieMarkUp = (dataComing) => {
                     </div>
                 </div>
             </div>
+            <div class="form_item form_item_weekly">
+            <div class="form_lebel"> </div>
+            <div data-ajax="true" class="rating rating_weekly  rating_set rating-hero">
+              <div class="rating_body">
+                <div class="rating_active ${id}" style="width: ${width}%;"></div>
+                <div class="rating_items">
+                  <input type="radio" class="rating_item" value="1" name="rating">
+                  <input type="radio" class="rating_item" value="2" name="rating">
+                  <input type="radio" class="rating_item" value="3" name="rating">
+                  <input type="radio" class="rating_item" value="4" name="rating">
+                  <input type="radio" class="rating_item" value="5" name="rating">
+                </div>
+              </div>
+            </div>
+          </div>
         </li>`;
     }).join('');
 }
