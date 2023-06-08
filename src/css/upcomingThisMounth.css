@@ -190,13 +190,16 @@ font-family: 'Roboto-500', sans-serif;
 
   .upcoming_thumb {
     display: flex;
+    /* justify-content: space-between; */
     margin-left: 4px;
+ 
   }
 
 
   .left {
 
-    margin-right: 118px;
+    /* margin-right: 118px; */
+    width: 350px;
   }
 
   .upcoming_content_title,
