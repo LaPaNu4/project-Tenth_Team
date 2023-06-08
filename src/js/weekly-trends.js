@@ -1,5 +1,6 @@
 // weekly-trends
 import axios from 'axios';
+import Notiflix from 'notiflix';
 import {addRating} from './rating'
 import { add } from 'lodash';
 

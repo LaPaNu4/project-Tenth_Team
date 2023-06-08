@@ -206,7 +206,8 @@ async function zzz(filmID) {
       return filmRating;
     }
   } catch (error) {
-    console.log(error.message);
+    // console.log(error.message);
+    Notiflix.Notify.warning('OOPS... SOMETHING WENT WRONG');
   }
 }
 
@@ -223,7 +224,8 @@ async function bbb(filmID) {
       return;
     } else {
       const jenresList = await renderJenresMarkup(filmData);
-      console.log(jenresList);
+      // console.log(jenresList);
+      // Notiflix.Notify.warning('OOPS... SOMETHING WENT WRONG');
 
       addFirstTwoNames(jenresList, genres);
       // jenresList.map(result => {
@@ -233,7 +235,8 @@ async function bbb(filmID) {
     const jenresMarkupText = genres.join(', ');
     return jenresMarkupText;
   } catch (error) {
-    console.log(error.message);
+    // console.log(error.message);
+    Notiflix.Notify.warning('OOPS... SOMETHING WENT WRONG');
   }
 }
 

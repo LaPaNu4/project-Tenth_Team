@@ -1,5 +1,5 @@
 import axios from 'axios';
-
+import Notiflix from 'notiflix';
 const API_URL = 'https://api.themoviedb.org/3/';
 const API_KEY = 'api_key=d30846261444a5a49dd702fa51e06838';
 
@@ -12,7 +12,8 @@ export async function getTopFilmsData(page) {
     );
     return response;
   } catch (error) {
-    console.log(error.message);
+    // console.log(error.message);
+    Notiflix.Notify.warning('OOPS... SOMETHING WENT WRONG');
   }
 }
 
@@ -25,7 +26,8 @@ export async function getFilmsData(page, request) {
     );
     return response;
   } catch (error) {
-    console.log(error.message);
+    // console.log(error.message);
+    Notiflix.Notify.warning('OOPS... SOMETHING WENT WRONG');
   }
 }
 
@@ -39,7 +41,8 @@ export async function getFilmByID(id) {
     const data = response.data;
     return data;
   } catch (error) {
-    console.log(error.message);
+    // console.log(error.message);
+    Notiflix.Notify.warning('OOPS... SOMETHING WENT WRONG');
     return error.message;
   }
 }
@@ -53,6 +56,7 @@ export async function getGenres() {
     );
     return response;
   } catch (error) {
-    console.log(error.message);
+    // console.log(error.message);
+    Notiflix.Notify.warning('OOPS... SOMETHING WENT WRONG');
   }
 }

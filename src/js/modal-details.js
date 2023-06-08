@@ -1,6 +1,7 @@
 var _ = require('lodash');
 // import { renderLibrary } from './library-II';
 // const imgEL = document.querySelector(".catalog-list");
+import Notiflix from 'notiflix';
 const imgELs = document.querySelectorAll('[data-catalog-list]');
 const modalEl = document.querySelector('.modal-backdrop');
 const cardHeaderEl = document.querySelector('.film-card-content');
@@ -19,11 +20,11 @@ function onClickPoster(event) {
 
   const currentMovie = event.target.closest('[data-catalog-item]');
 
-  console.log(currentMovie);
+  // console.log(currentMovie);
 
   if (currentMovie) {
     const idOfMovie = currentMovie.getAttribute('id');
-    console.log(idOfMovie);
+    // console.log(idOfMovie);
     fetchMoreFilmDetails(idOfMovie)
       .then(data => {
         onOpenModalWindow(data);
@@ -31,7 +32,8 @@ function onClickPoster(event) {
         btnRemove(idOfMovie);
       })
       .catch(error => {
-        console.log(error);
+        // console.log(error);
+        Notiflix.Notify.warning('OOPS... SOMETHING WENT WRONG');
         throw new Error(error);
       });
   }
@@ -51,11 +53,12 @@ function fetchMoreFilmDetails(idOfMovie) {
       return response.json();
     })
     .then(data => {
-      console.log(data);
+      // console.log(data);
       return data;
     })
     .catch(error => {
-      console.log(error);
+      // console.log(error);
+      Notiflix.Notify.warning('OOPS... SOMETHING WENT WRONG');
       throw new Error(error);
     });
 }
@@ -151,8 +154,8 @@ function onMarkUpDetails(data) {
 
 function onAddLibrary(event) {
   const btn = event.target;
-  console.log(btn.textContent.trim());
-  console.log('кнопкаааа');
+  // console.log(btn.textContent.trim());
+  // console.log('кнопкаааа');
 
   // let favoriteMovies = [];
 
@@ -171,7 +174,7 @@ function onAddLibrary(event) {
   if (btn.textContent.trim() === 'Add to my library') {
     const movie = btn.closest('.film-card').querySelector('.film-card-poster');
     const movieId = movie.getAttribute('id');
-    console.log(movieId);
+    // console.log(movieId);
     const movieObject = { id: movieId, start: '' };
     favoriteMovies.push(movieObject);
     localStorage.setItem('favoriteMovies', JSON.stringify(favoriteMovies));

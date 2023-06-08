@@ -1,5 +1,6 @@
 import axios from 'axios';
-import {addRating} from './rating';
+import { addRating } from './rating';
+import Notiflix from 'notiflix';
 
 var _ = require('lodash');
 
@@ -162,12 +163,14 @@ function closePopup() {
 }
 
 function onError(err) {
-  console.error(err);
+  // console.error(err);
+  Notiflix.Notify.warning('OOPS... SOMETHING WENT WRONG');
   containerDefault.classList.remove('hero-hidden');
 }
 
 function onErrorTrailer(err) {
-  console.error(err);
+  // console.error(err);
+  Notiflix.Notify.warning('OOPS... SOMETHING WENT WRONG');
   popupContainer.classList.remove('popup-hidden');
   document.body.style.position = 'fixed';
 }

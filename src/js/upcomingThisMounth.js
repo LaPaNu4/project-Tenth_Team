@@ -1,6 +1,7 @@
 
 import axios from 'axios';
 import { result } from 'lodash';
+import Notiflix from 'notiflix';
 
 const URL = 'https://api.themoviedb.org/3/movie/upcoming';
 const API_KEY = '0b7ed72c0b07bc683ffc3b8a0e430792';
@@ -71,7 +72,8 @@ async function getUpcoming() {
         }
     });
   } catch (error) {
-    console.log(error);
+    // console.log(error);
+    Notiflix.Notify.warning('OOPS... SOMETHING WENT WRONG');
   }
 }
 
