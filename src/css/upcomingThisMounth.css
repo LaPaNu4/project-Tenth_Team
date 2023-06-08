@@ -1,7 +1,7 @@
-/* <!-- ____________Upcoming this mounth_____________-- --> */
-ul{
-    margin: 0;
+ul {
+  margin: 0;
 }
+
 .upcoming .container {
   padding-left: 20px;
   padding-right: 20px;
@@ -11,22 +11,11 @@ ul{
 .upcoming_title {
   margin-bottom: 24px;
   margin-top: 32px;
-  font-family: 'Roboto';
+  font-family: 'Roboto-500', sans-serif;
   font-weight: 500;
   font-size: 16px;
   line-height: 1.2;
-
-  /* color: var(--white); */
-
-
 }
-
-/* .upcoming-content {
-  width: 100%;
-
-
-} */
-
 
 
 .upcoming-error-container {
@@ -38,15 +27,11 @@ ul{
 
 .upcoming_error_container_text {
   margin-bottom: 24px;
-  font-family: 'Roboto';
-
+  font-family: 'Roboto-400', sans-serif;
   font-size: 20px;
   line-height: 1.2;
 
-  /* color: var(--white); */
-
 }
-
 
 
 .upcoming-img {
@@ -58,28 +43,22 @@ ul{
 .upcoming_name {
   margin-top: 24px;
   margin-bottom: 20px;
-  font-family: 'Roboto';
+  font-family: 'Roboto-500', sans-serif;
   font-weight: 500;
   font-size: 20px;
   line-height: 1.15;
-text-transform: uppercase;
-  /* color: var(--white); */
-
-
+  text-transform: uppercase;
 }
 
 
 .upcoming_list_item {
   display: flex;
   padding-bottom: 12px;
-
-font-family: 'Roboto';
+  font-family: 'Roboto-500', sans-serif;
   font-style: normal;
   font-weight: 500;
   font-size: 16px;
   line-height: 1.2;
-  /* color: var(--gray-light); */
-
 }
 
 .upcoming_list_text {
@@ -88,85 +67,66 @@ font-family: 'Roboto';
 }
 
 .upcoming_list_date {
-  /* color: var(--orange); */
   margin-left: 57px;
 }
+
 .upcoming_list_vote {
   margin-left: 61px;
-    /* color: var(--white); */
 }
 
 .vote {
-  font-size: 14px;  
+  font-size: 14px;
   line-height: 1.14;
-  padding: 1 8;
+  padding: 1px 8px;
   background-color: var(--white);
-  color: var(--black); 
+  color: var(--black);
   border-radius: 5px;
 }
+
 .upcoming_list_pop {
-    
-  /* color: var(--white); */
   margin-left: 72px;
 }
 
 .upcoming_list_genre {
- 
   color: var(--white);
-
   margin-left: 100px;
-
 }
 
-.upcoming_content_title{
+.upcoming_content_title {
   margin-top: 20px;
-  font-family: 'Roboto';
+  font-family: 'Roboto-500', sans-serif;
   font-weight: 500;
   font-size: 16px;
   line-height: 1.2;
-
   align-items: center;
   text-transform: uppercase;
-
-  /* color: var(--gray-light); */
-
-
 }
 
 .upcoming_content_text {
   margin-top: 16px;
-  font-family: 'Roboto';
-
+  font-family: 'Roboto-400', sans-serif;
   font-weight: 400;
   font-size: 14px;
   line-height: 1.43;
-
   color: var(--silver);
-
-
 }
-
 
 
 .upcoming_content_btn {
   display: block;
   margin-top: 20px;
-  padding: 12 24;
- 
-
-  font-family: 'Roboto';
+  padding: 12px 24px;
+  font-family: 'Roboto-500', sans-serif;
   font-weight: 500;
   font-size: 12px;
   line-height: 1.16;
-
   border: 1px solid var(--brend-color);
   background: var(--gradient-1);
   border-radius: 74px;
-  color: var(--black); 
+  color: var(--black);
   cursor: pointer;
-
   transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
 }
 
@@ -178,22 +138,16 @@ font-family: 'Roboto';
 }
 
 
-/* 
-.hidden {
-  display: none;
-} */
-
-
 @media screen and (min-width: 768px) {
 
-.upcoming .container {
+  .upcoming .container {
     width: 768px;
     padding-left: 32px;
     padding-right: 32px;
   }
 
-.upcoming_title {
-margin-top: 44px;
+  .upcoming_title {
+    margin-top: 44px;
     font-size: 24px;
     line-height: 1.16;
   }
@@ -203,7 +157,7 @@ margin-top: 44px;
     width: 704px;
   }
 
-.upcoming_error_container_text {
+  .upcoming_error_container_text {
 
     margin-left: auto;
     margin-right: auto;
@@ -226,68 +180,54 @@ margin-top: 44px;
 
   .upcoming_thumb {
     display: flex;
-   margin-left: 4px;
+    margin-left: 4px;
   }
 
 
   .left {
-    
+
     margin-right: 118px;
   }
-.upcoming_content_title,
-.upcoming_content_text{
-     margin-left: 4px;
-}
+
+  .upcoming_content_title,
+  .upcoming_content_text {
+    margin-left: 4px;
+  }
 
 
 }
 
 @media screen and (min-width: 1280px) {
 
-.upcoming .container {
+  .upcoming .container {
     width: 1280px;
   }
 
-.upcoming_title {
- margin-top: 60px;
- margin-bottom: 28px;
+  .upcoming_title {
+    margin-top: 60px;
+    margin-bottom: 28px;
   }
 
 
-.upcoming_error_container_text {
+  .upcoming_error_container_text {
     margin-top: 0;
     margin-bottom: 20px;
   }
-.upcoming-film{
+
+  .upcoming-film {
     display: flex;
     gap: 16px;
-}
+  }
 
-.upcoming_name{
+  .upcoming_name {
     margin-top: 0;
     font-size: 32px;
-line-height: 1.19;
-}
+    line-height: 1.19;
+  }
+
   .upcoming_thumb {
     display: block;
   }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 }

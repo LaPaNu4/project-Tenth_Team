@@ -4,12 +4,12 @@
     width: 100%;
     padding: 8px 20px;
     margin: auto;
-} 
+}
 .navbar{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    
+
 }
 .container-header{
     position: relative;
@@ -33,7 +33,7 @@
 }
 .menu-btn-mobile{
     text-decoration: none;
-    font-family: 'Roboto';
+    font-family: 'Roboto-500',sans-serif;
     font-style: normal;
     font-weight: 500;
     font-size: 12px;
@@ -50,14 +50,14 @@
     opacity: 0;
 }
 .mobile-menu{
-    position: absolute; 
+    position: absolute;
     top: 0;
     right: 100%;
     z-index: 1000;
     width: 204px;
     height: 100vh;
     padding: 8px 20px;
-    border-radius: 0px 8px 8px 0px;
+    border-radius: 0 8px 8px 0;
     background: var(--bgmenu);
     transform: translateX(0);
     transition: transform 250ms ease-in-out ;
@@ -71,7 +71,7 @@
 }
 .mobile-menu-link{
     display: contents;
-    font-family: 'Roboto';
+    font-family: 'Roboto-400',sans-serif;
     font-style: normal;
     font-weight: 400;
     font-size: 14px;
@@ -138,19 +138,19 @@
     .text-logo{
         display: contents;
         text-decoration: none;
-        font-family: 'Roboto';
+        font-family: 'Roboto-400',sans-serif;
         font-style: normal;
         font-weight: 400;
         font-size: 24px;
         line-height: 28px;
-        
+
     }
     .navbar{
         display: flex;
         align-items: center;
         justify-content: center;
     }
-    
+
     .menu-link.active:hover,
     .munu-link.active:focus{
         color: #B7B7B7;
@@ -163,13 +163,13 @@
     }
     .menu-link{
         display: contents;
-        font-family: 'Roboto';
+        font-family: 'Roboto-500',sans-serif;
         font-style: normal;
         font-weight: 500;
         font-size: 14px;
         line-height: 16px;
         text-transform: uppercase;
-      
+
     }
     .menu-link.active{
         color: #F87719;
@@ -194,7 +194,7 @@
         gap: unset;
     }
     .menu-item:not(:nth-last-child(3)){
-        margin-right: 40px; 
+        margin-right: 40px;
     }
     .menu-link{
         transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
