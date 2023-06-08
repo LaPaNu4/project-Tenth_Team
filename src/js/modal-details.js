@@ -68,7 +68,7 @@ function onOpenModalWindow(data) {
 function onCloseModal() {
   modalEl.classList.add('is-hidden');
   window.removeEventListener('keydown', onPressESC);
-  clearMarkup();
+
   document.body.style.overflow = 'auto';
 }
 
@@ -81,8 +81,10 @@ function onCloseModalBackdrop(event) {
     event.target.classList.contains('modal-backdrop') ||
     event.target.classList.contains('film-card-close-btn')
   ) {
+  
+
     onCloseModal();
-    clearMarkup();
+      
   }
 }
 
