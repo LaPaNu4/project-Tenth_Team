@@ -1,5 +1,7 @@
 import axios from 'axios';
-import {addRating} from './rating'
+import {addRating} from './rating';
+
+var _ = require('lodash');
 
 const sectionHero = document.querySelector('.hero-section');
 const containerDefault = document.querySelector('.hero-default');
@@ -16,8 +18,9 @@ let rating = '';
 let ID_T = null;
 
 document.addEventListener('DOMContentLoaded', renderFilmDay);
-watchBtn.addEventListener('click', onWatchBtnClick);
+watchBtn.addEventListener('click', _.throttle(onWatchBtnClick, 100));
 closeBtn.addEventListener('click', onCloseBtnClick);
+popupContainer.addEventListener('click', onBackdropClick);
 
 async function renderFilmDay() {
   try {
@@ -48,9 +51,9 @@ async function renderTrailer(ID) {
     
     popupDefault.classList.add('hero-hidden');
 
-    console.log(trailer);//for info
-    console.log(key);//for info
-  } catch (err) {
+    window.addEventListener('keydown', onESCPress);
+
+    } catch (err) {
     onErrorTrailer(err);
   }
 }
@@ -71,7 +74,6 @@ async function getTrailer(idTrailer) {
 function randomFilmFind(arr) {
   const randomIndex = Math.floor(Math.random() * arr.length);
   const randomFilm = arr[randomIndex];
-  console.log(randomFilm); // for info
   return randomFilm;
 }
 
@@ -87,7 +89,6 @@ function createRandomFilm(filmObj) {
 
   const poster = `https://image.tmdb.org/t/p/original/${backdrop_path}`;
   rating = vote_average;
-  console.log(rating);//for info
   moreDetailsBtn.setAttribute('id', `${id}`);
   ID_T = id;
     
@@ -130,15 +131,31 @@ function createRandomFilm(filmObj) {
 function createTrailer(keyTrailer) {  
   popupContainer.classList.remove('popup-hidden');
   popupRender.classList.remove('hero-hidden');
+  document.body.style.position = 'fixed';
 
   const urlTrailer = `https://www.youtube.com/embed/${keyTrailer}`;
 
   popupRender.innerHTML = `<iframe class="popup-video" width="" height="" src="${urlTrailer}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>`;
 }
 
-
 function onCloseBtnClick(e) {
   e.preventDefault();
+  closePopup();
+}
+
+function onBackdropClick (e) {
+  e.preventDefault();
+    if (!e.target.classList.contains('popup-hidden')) {
+      closePopup();
+}}
+
+function onESCPress(e) {
+  e.preventDefault();
+  if (!e.target.classList.contains('popup-hidden')) {
+    closePopup();
+}}
+
+function closePopup() {
   popupContainer.classList.add('popup-hidden');
   document.body.style.position = '';
   popupRender.innerHTML = "";
