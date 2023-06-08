@@ -105,12 +105,12 @@ const movieMarkUp = (dataComing) => {
           vote_average,
         } = item;
         const genre = item.genres.map(genres => genres.name).slice(0, 2).join(', ');
-
+ const poster = item.poster_path;
         const year = item.release_date.slice(0, 4);
-        const moviePoster = `https://image.tmdb.org/t/p/w500${poster_path}`;
+        let moviePoster = `https://image.tmdb.org/t/p/w500${poster_path}`;
         
-        if(poster_path === undefined || poster_path === "") {
-            moviePoster = `./images/hero-img/coming-soon.jpg`;
+        if(poster_path === null ) {
+            moviePoster = `https://marketplace.canva.com/EAE9OZ4Eh9o/1/0/1131w/canva-black-minimalist-coming-soon-poster-rmN33IHdOEM.jpg`;
         }
         let rating = vote_average
 const width = Math.round(rating) * 10;
@@ -133,7 +133,7 @@ const width = Math.round(rating) * 10;
                     </div>
                 </div>
             </div>
-            <div class="form_item form_item_weekly">
+            <div class="form_item form_item_library">
             <div class="form_lebel"> </div>
             <div data-ajax="true" class="rating rating_weekly  rating_set rating-hero">
               <div class="rating_body">

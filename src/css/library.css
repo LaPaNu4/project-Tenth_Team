@@ -85,7 +85,11 @@ section.cards-library {
   flex-direction: column;
   align-items: center;
 } */
-
+.form_item_library{
+  position: absolute;
+margin-right: 10px;
+padding-bottom: 10px;
+}
 
 .movies-gallery {
   display: flex;
@@ -103,6 +107,9 @@ section.cards-library {
   height: 406px;
   position: relative;
   margin-bottom: 16px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
 }
 
 .movie-info {
