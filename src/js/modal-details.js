@@ -1,4 +1,5 @@
 var _ = require('lodash');
+// import { renderLibrary } from './library-II';
 // const imgEL = document.querySelector(".catalog-list");
 const imgELs = document.querySelectorAll('[data-catalog-list]');
 const modalEl = document.querySelector('.modal-backdrop');
@@ -81,10 +82,7 @@ function onCloseModalBackdrop(event) {
     event.target.classList.contains('modal-backdrop') ||
     event.target.classList.contains('film-card-close-btn')
   ) {
-  
-
-    onCloseModal();
-      
+    onCloseModal()
   }
 }
 
@@ -156,7 +154,7 @@ function onAddLibrary(event) {
   console.log(btn.textContent.trim());
   console.log('кнопкаааа');
 
-  let favoriteMovies = [];
+  // let favoriteMovies = [];
 
   const storedMovies = localStorage.getItem('favoriteMovies');
   if (storedMovies) {

@@ -1,4 +1,3 @@
-
 const gallery = document.querySelector('.movies-gallery');
 const searchMore = document.querySelector('.search-more');
 const loadMore = document.querySelector('.load');
@@ -6,6 +5,10 @@ const emptyGallery = document.querySelector('.empty-gallery');
 const dropDown = document.querySelector('.dropdown-library');
 const dropLibraryItem = document.querySelectorAll('.dropdown-item-library');
 const dropMenuLibrary = document.querySelector('.dropdown-menu-library');
+const modalEl = document.querySelector('.modal-backdrop');
+const closeBtnEl = document.querySelector('.film-card-close-btn');
+modalEl.addEventListener('click', fetchFromLibrary);
+// closeBtnEl.addEventListener('click', fetchFromLibrary);
 
 const renderedMovies = [];
 
@@ -18,9 +21,17 @@ dropDown.classList.add('hide');
 function fetchFromLibrary() {
     const movieIds = JSON.parse(localStorage.getItem(STORAGE));
     
-    if(!movieIds || movieIds.length === 0) {
+    if (!movieIds || movieIds.length === 0) {
+        console.log("відкрився if")
+           gallery.innerHTML = '';
         emptyGallery.classList.remove('hide');
         emptyGallery.classList.add('show');
+        loadMore.classList.remove('show');
+        loadMore.classList.add('hide');
+        dropDown.classList.remove('show');
+        dropDown.classList.add('hide');
+        // emptyGallery.classList.remove('hide');
+        // emptyGallery.classList.add('show');
         return;
     }
 
@@ -121,5 +132,4 @@ const movieMarkUp = (dataComing) => {
 window.onload = fetchFromLibrary;
 
 dropMenuLibrary.addEventListener('click', filterMoviesByGenre);
-
 
