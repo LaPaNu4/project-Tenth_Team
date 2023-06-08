@@ -84,9 +84,6 @@
   color: var(--gray);
 }
 
-.lightblack {
-  color: var(--black);
-}
 
 .lightwhite {
   background: #ffffff;
@@ -109,7 +106,7 @@
 .button-subjectlight {
   cursor: pointer;
   background: var(--gradient-1);
-  display: flex;
+  display: none;
   width: 44px;
   height: 18px;
   border: none;
