@@ -50,7 +50,7 @@ function fetchMoreFilmDetails(idOfMovie) {
       return response.json();
     })
     .then(data => {
-      // console.log(data);
+      console.log(data);
       return data;
     })
     .catch(error => {
@@ -101,11 +101,17 @@ function onMarkUpDetails(data) {
   const popularity = data.popularity.toFixed(1);
   const genre = data.genres.map(genre => genre.name).join(', ');
   const original_title = data.original_title;
-  // console.log(genre);
-  // console.log(popularity);
-
+  const poster = data.poster_path;
+  
+  let imageUrl;
+  if (!poster) {
+    imageUrl = 'https://marketplace.canva.com/EAE9OZ4Eh9o/1/0/1131w/canva-black-minimalist-coming-soon-poster-rmN33IHdOEM.jpg';
+  } else {
+    imageUrl = `https://image.tmdb.org/t/p/w500${poster}`;
+  }
+    
   const markup = `<div class="film-card-poster" id="${data.id}">
-    <img src="https://image.tmdb.org/t/p/w500${data.poster_path}" alt="John Wick poster" />
+    <img src="${imageUrl}" alt="${data.title}" />
   </div>
   <div class="film-summary">
     <h2 class="film-title">${original_title}</h2>
@@ -141,6 +147,7 @@ function onMarkUpDetails(data) {
 
   cardHeaderEl.insertAdjacentHTML('beforeend', markup);
 }
+
 
 function onAddLibrary(event) {
   const btn = event.target;
@@ -219,3 +226,38 @@ function btnRemove(idOfMovie) {
     }
   }
 }
+
+
+
+
+      // const rating = result.vote_average;
+      // addRating(rating);
+
+      // let releaseDate = result.release_date;
+      // if (!result.release_date) {
+      //   releaseDate = 'Coming soon';
+      // } else releaseDate = releaseDate.slice(0, 4);
+
+      // let filmName = result.original_title;
+      // if (!filmName) {
+      //   filmName = 'Coming soon';
+      // }
+
+      // if (!result.poster_path) {
+      //   return `<li class="catalog-item" data-catalog-item id="${result.id}">
+      //       <div class="photo-card">
+      //         <div class="image-wrap">
+      //           <img src="https://marketplace.canva.com/EAE9OZ4Eh9o/1/0/1131w/canva-black-minimalist-coming-soon-poster-rmN33IHdOEM.jpg" alt="${result.title}" />
+      //         </div>
+      //         <div class="film-info">
+      //           <p class="catalog-film-title">${filmName}</p>
+      //           <div class="info-wrap">
+      //             <p class="info-item">"jenre"</p>
+      //             <p class="info-item">|</p>
+      //             <p class="info-item">${releaseDate}</p>
+      //           </div>
+      //         </div>
+      //       </div>
+      //       <div class="rating_active" style="width: 100%;"></div>
+      //   </li>`;
+      // }
