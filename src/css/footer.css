@@ -75,15 +75,14 @@ footer {
 
 .footer-modal {
   position: absolute;
-  width: 290px;
+  min-width: 280px;
   top: 10px;
   left: 50%;
   padding: 0 10px 20px;
   color: var(--gray-light);
   background: rgba(70, 70, 70, 0.9);
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.14), 0 1px 3px rgba(0, 0, 0, 0.12),
-    0 2px 1px rgba(0, 0, 0, 0.2);
-  border-radius: 4px;
+  box-shadow: 1px 1px 14px 4px rgba(255, 107, 8, 0.42);
+  border-radius: 20px;
   visibility: visible;
   transform: translate(-50%) scale(1);
   transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
@@ -99,10 +98,11 @@ footer {
   height: 40px;
   background-color: transparent;
   border: none;
+  border-radius: 50%;
   cursor: pointer;
   display: block;
   margin-left: auto;
-  margin-bottom: 10px;
+  margin-bottom: 0;
 }
 
 .modal-icon-close {
@@ -121,7 +121,7 @@ footer {
 }
 
 .team-modal-title {
-  margin-bottom: 10px;
+  margin-bottom: 20px;
   text-align: center;
   font-family: 'Roboto-700',sans-serif;
   font-weight: 700;
@@ -244,6 +244,7 @@ footer {
   .footer-modal {
     width: 740px;
     padding: 0 20px 30px;
+    border-radius: 16px;
   }
 
   .team-students-foto {
