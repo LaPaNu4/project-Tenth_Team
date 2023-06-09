@@ -2,8 +2,6 @@ import axios from 'axios';
 import { addRating } from './rating';
 import Notiflix from 'notiflix';
 
-var _ = require('lodash');
-
 const sectionHero = document.querySelector('.hero-section');
 const containerDefault = document.querySelector('.hero-default');
 const containerRender = document.querySelector('.hero-random');
@@ -19,7 +17,7 @@ let rating = '';
 let ID_T = null;
 
 document.addEventListener('DOMContentLoaded', renderFilmDay);
-watchBtn.addEventListener('click', _.throttle(onWatchBtnClick, 100));
+watchBtn.addEventListener('click', onWatchBtnClick);
 closeBtn.addEventListener('click', onCloseBtnClick);
 popupContainer.addEventListener('click', onBackdropClick);
 
@@ -132,8 +130,7 @@ function createRandomFilm(filmObj) {
 function createTrailer(keyTrailer) {  
   popupContainer.classList.remove('popup-hidden');
   popupRender.classList.remove('hero-hidden');
-  document.body.style.position = 'fixed';
-
+  
   const urlTrailer = `https://www.youtube.com/embed/${keyTrailer}`;
 
   popupRender.innerHTML = `<iframe class="popup-video" width="" height="" src="${urlTrailer}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>`;
@@ -158,7 +155,6 @@ function onESCPress(e) {
 
 function closePopup() {
   popupContainer.classList.add('popup-hidden');
-  document.body.style.position = '';
   popupRender.innerHTML = "";
 }
 
@@ -172,7 +168,6 @@ function onErrorTrailer(err) {
   // console.error(err);
   Notiflix.Notify.warning('OOPS... SOMETHING WENT WRONG');
   popupContainer.classList.remove('popup-hidden');
-  document.body.style.position = 'fixed';
 }
 
 
