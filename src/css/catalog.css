@@ -30,6 +30,7 @@ p {
 }
 
 .search-form input::placeholder {
+
   font-family: 'Roboto-500', sans-serif;
 
   font-weight: 500;
@@ -108,8 +109,8 @@ p {
 }
 
 .catalog-rating-body::before {
-  content: '\2606''\2606''\2606''\2606''\2606';
-  color: var(--orange);
+   content: '\2606''\2606''\2606''\2606''\2606';
+  color: #F89F19;
   display: block;
 }
 
@@ -144,7 +145,7 @@ p {
   height: 100%;
   top: 0;
   left: 0;
-  color: var(--orange);
+  color: #F89F19;
 }
 
 .image-wrap:after {
@@ -166,6 +167,7 @@ p {
   position: absolute;
   left: 12px;
   bottom: 12px;
+
 
   font-family: 'Roboto-500', sans-serif;
 
@@ -205,6 +207,7 @@ p {
 
   border: 1px solid #595959;
   border-radius: 50%;
+
 
   font-family: 'Roboto-400', sans-serif;
 
