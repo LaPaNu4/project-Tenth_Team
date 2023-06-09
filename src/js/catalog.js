@@ -87,15 +87,30 @@ function createTopFilmsMarkup(response) {
 
   const markup = results
     .map(result => {
+      // --------------- рейтинг
+      const rating = result.vote_average;
+      let filmrating = '';
+      if (!rating) {
+        filmrating = 0;
+      } else filmrating = `${Math.round(rating) * 10}%`;
+
+      // --------------- дата
       let releaseDate = result.release_date;
       if (!result.release_date) {
         releaseDate = 'Coming soon';
       } else releaseDate = releaseDate.slice(0, 4);
 
+      // --------------- название
       let filmName = result.original_title;
       if (!filmName) {
         filmName = 'Coming soon';
       }
+
+      // --------------- жанры
+
+      // const filmID = result.id;
+      // const genresMarkup = bbb(filmID);
+      // console.log(genresMarkup);
 
       if (!result.poster_path) {
         return `<li class="catalog-item" data-catalog-item id="${result.id}">
@@ -112,8 +127,8 @@ function createTopFilmsMarkup(response) {
                 </div>
               </div>
             </div>
-            <div class="catalog-rating-body is-hidden">
-                    <div class="catalog-rating-active"></div>
+            <div class="catalog-rating-body">
+                    <div class="catalog-rating-active" style="width: ${filmrating};"></div>
                     <div class="catalog-rating-items">
                         <input type="radio" aria-label="1 stars" class="catalog-rating-item" value="1" name="rating">
                         <input type="radio" aria-label="2 stars" class="catalog-rating-item" value="2" name="rating">
@@ -138,8 +153,8 @@ function createTopFilmsMarkup(response) {
                 </div>
               </div>
             </div>
-            <div class="catalog-rating-body is-hidden">
-                    <div class="catalog-rating-active"></div>
+            <div class="catalog-rating-body">
+                    <div class="catalog-rating-active" style="width: ${filmrating};"></div>
                     <div class="catalog-rating-items">
                         <input type="radio" aria-label="1 stars" class="catalog-rating-item" value="1" name="rating">
                         <input type="radio" aria-label="2 stars" class="catalog-rating-item" value="2" name="rating">
@@ -173,15 +188,9 @@ async function getRating() {
   const filmsOnPage = document.querySelectorAll('.catalog-item');
   filmsOnPage.forEach(element => {
     const filmID = element.id;
-    const ratingMarkup = element.lastElementChild;
     const jenresMarkup =
       element.firstElementChild.lastElementChild.lastElementChild
         .firstElementChild;
-    const markupToFill = ratingMarkup.firstElementChild;
-
-    zzz(filmID).then(rating => {
-      markupToFill.style.width = `${Math.round(rating) * 10}%`;
-    });
 
     bbb(filmID).then(text => {
       if (!text) {
@@ -190,31 +199,9 @@ async function getRating() {
         jenresMarkup.textContent = text;
       }
     });
-
-    ratingMarkup.classList.remove('is-hidden');
   });
 }
 
-async function zzz(filmID) {
-  try {
-    const filmData = await getFilmByID(filmID);
-
-    if (!filmData) {
-      return;
-    } else {
-      const filmRating = await renderRatingMarkup(filmData);
-      return filmRating;
-    }
-  } catch (error) {
-    console.log(error.message);
-    Notiflix.Notify.warning('OOPS... SOMETHING WENT WRONG');
-  }
-}
-
-function renderRatingMarkup(data) {
-  const rating = data.vote_average;
-  return rating;
-}
 
 async function bbb(filmID) {
   try {
@@ -224,13 +211,8 @@ async function bbb(filmID) {
       return;
     } else {
       const jenresList = await renderJenresMarkup(filmData);
-      // console.log(jenresList);
-      // Notiflix.Notify.warning('OOPS... SOMETHING WENT WRONG');
 
       addFirstTwoNames(jenresList, genres);
-      // jenresList.map(result => {
-      //   genres.push(result.name);
-      // });
     }
     const jenresMarkupText = genres.join(', ');
     return jenresMarkupText;
@@ -254,18 +236,16 @@ function addFirstTwoNames(arr, genres) {
   }
 }
 
-// getGenres();
+// async function convertJenres(genreID, filmGenres) {
+//   const genresList = await getGenres();
+//   const qwe = genresList.find(genre => genre.id === genreID);
+//   const genreName = qwe.name;
+//   console.log(genreName);
+//   filmGenres.push(genreName);
+// }
 
-// async function xxx(id) {
-//   const API_URL = 'https://api.themoviedb.org/3/';
-//   const API_KEY = 'api_key=d30846261444a5a49dd702fa51e06838';
-//   const response = await axios.get(
-//       `${API_URL}genre/movie/list?${API_KEY}&language=en-US`
-//   );
-//   const jenresList = response.data.genres;
-
-//   jenresList.find((id) => {
-//     console.log(id.name)
+// function dafdf(resultIDS, filmGenres) {
+//   resultIDS.map(id => {
+//     convertJenres(id, filmGenres);
 //   });
-
 // }
