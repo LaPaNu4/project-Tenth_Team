@@ -143,11 +143,11 @@ const movieMarkUp = dataComing => {
               <div class="rating_body">
                 <div class="rating_active ${id}" style="width: ${width}%;"></div>
                 <div class="rating_items">
-                  <input type="radio" class="rating_item" value="1" name="rating">
-                  <input type="radio" class="rating_item" value="2" name="rating">
-                  <input type="radio" class="rating_item" value="3" name="rating">
-                  <input type="radio" class="rating_item" value="4" name="rating">
-                  <input type="radio" class="rating_item" value="5" name="rating">
+                  <input type="radio" aria-label="1 stars" class="rating_item" value="1" name="rating">
+                  <input type="radio" aria-label="2 stars" class="rating_item" value="2" name="rating">
+                  <input type="radio" aria-label="3 stars" class="rating_item" value="3" name="rating">
+                  <input type="radio" aria-label="4 stars" class="rating_item" value="4" name="rating">
+                  <input type="radio" aria-label="5 stars" class="rating_item" value="5" name="rating">
                 </div>
               </div>
             </div>
