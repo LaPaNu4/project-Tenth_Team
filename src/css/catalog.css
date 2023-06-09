@@ -30,7 +30,6 @@ p {
 }
 
 .search-form input::placeholder {
-
   font-family: 'Roboto-500', sans-serif;
 
   font-weight: 500;
@@ -109,7 +108,8 @@ p {
 }
 
 .catalog-rating-body::before {
-  content: '★★★★★';
+  content: '\2606''\2606''\2606''\2606''\2606';
+  color: var(--orange);
   display: block;
 }
 
@@ -167,7 +167,6 @@ p {
   left: 12px;
   bottom: 12px;
 
-
   font-family: 'Roboto-500', sans-serif;
 
   font-weight: 500;
@@ -206,7 +205,6 @@ p {
 
   border: 1px solid #595959;
   border-radius: 50%;
-
 
   font-family: 'Roboto-400', sans-serif;
 

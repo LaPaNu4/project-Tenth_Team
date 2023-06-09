@@ -1,55 +1,55 @@
 .rating {
-    display: flex;
-    align-items: flex-end;
-    font-size: 25px;
-    line-height: 0.75;
+  display: flex;
+  align-items: flex-end;
+  font-size: 25px;
+  line-height: 0.75;
 }
 
 .rating_body {
-    position: relative;
+  position: relative;
 }
-.rating_body::before{
-    content: "✰✰✰✰✰";
-    display: block;
+.rating_body::before {
+  content: '\2606''\2606''\2606''\2606''\2606';
+  color: var(--orange);
+  display: block;
 }
-
 
 .rating_active {
-    position: absolute;
-    width:0;
-    height: 100%;
-    left: 0;
-    top: 0;
-    overflow: hidden;
+  position: absolute;
+  width: 0;
+  height: 100%;
+  left: 0;
+  top: 0;
+  overflow: hidden;
 }
 
-.rating_active::before{
-    content: "★★★★★";
-    position: absolute;
-    width:100%;
-    height: 100%;
-    left: 0;
-    top: 0;
-    color: #F89F19;
+.rating_active::before {
+  content: '★★★★★';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  color: #f89f19;
 }
 
 .rating_items {
-    display: flex;
-    position: absolute;
-    width:100%;
-    height: 100%;
-    top: 0;
-    left: 0;
+  display: flex;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
 }
 
 .rating_item {
-    flex: 0 0 20%;
-    height: 100%;
-    opacity: 0;
+  flex: 0 0 20%;
+  height: 100%;
+  opacity: 0;
 }
 
 .rating_value {
-    font-size: 80%;
-    line-height: 1;
-    padding: 0 0 0 10px;
+  font-size: 80%;
+  line-height: 1;
+  padding: 0 0 0 10px;
 }
