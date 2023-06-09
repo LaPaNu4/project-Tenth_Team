@@ -1,3 +1,4 @@
+import Notiflix from 'notiflix';
 const refs = {
   openFooterModalBtn: document.querySelector('[data-modal-open-contacts]'),
   footerBackdrop: document.querySelector('.footer-backdrop'),
@@ -56,5 +57,5 @@ function onPressESC(e) {
 //     refs.modalFooter.classList.toggle('is-hidden');
 //     refs.body.classList.toggle('no-scroll');
 //   }
-  
+
 // })();

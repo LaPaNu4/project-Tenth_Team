@@ -130,11 +130,11 @@ function createTopFilmsMarkup(response) {
             <div class="catalog-rating-body">
                     <div class="catalog-rating-active" style="width: ${filmrating};"></div>
                     <div class="catalog-rating-items">
-                        <input type="radio" class="catalog-rating-item" value="1" name="rating">
-                        <input type="radio" class="catalog-rating-item" value="2" name="rating">
-                        <input type="radio" class="catalog-rating-item" value="3" name="rating">
-                        <input type="radio" class="catalog-rating-item" value="4" name="rating">
-                        <input type="radio" class="catalog-rating-item" value="5" name="rating">
+                        <input type="radio" aria-label="1 stars" class="catalog-rating-item" value="1" name="rating">
+                        <input type="radio" aria-label="2 stars" class="catalog-rating-item" value="2" name="rating">
+                        <input type="radio" aria-label="3 stars" class="catalog-rating-item" value="3" name="rating">
+                        <input type="radio" aria-label="4 stars" class="catalog-rating-item" value="4" name="rating">
+                        <input type="radio" aria-label="5 stars" class="catalog-rating-item" value="5" name="rating">
                     </div>
                 </div>
         </li>`;
@@ -156,11 +156,11 @@ function createTopFilmsMarkup(response) {
             <div class="catalog-rating-body">
                     <div class="catalog-rating-active" style="width: ${filmrating};"></div>
                     <div class="catalog-rating-items">
-                        <input type="radio" class="catalog-rating-item" value="1" name="rating">
-                        <input type="radio" class="catalog-rating-item" value="2" name="rating">
-                        <input type="radio" class="catalog-rating-item" value="3" name="rating">
-                        <input type="radio" class="catalog-rating-item" value="4" name="rating">
-                        <input type="radio" class="catalog-rating-item" value="5" name="rating">
+                        <input type="radio" aria-label="1 stars" class="catalog-rating-item" value="1" name="rating">
+                        <input type="radio" aria-label="2 stars" class="catalog-rating-item" value="2" name="rating">
+                        <input type="radio" aria-label="3 stars" class="catalog-rating-item" value="3" name="rating">
+                        <input type="radio" aria-label="4 stars" class="catalog-rating-item" value="4" name="rating">
+                        <input type="radio" aria-label="5 stars" class="catalog-rating-item" value="5" name="rating">
                     </div>
                 </div>
         </li>`;
@@ -202,6 +202,7 @@ async function getRating() {
   });
 }
 
+
 async function bbb(filmID) {
   try {
     const filmData = await getFilmByID(filmID);
@@ -210,12 +211,14 @@ async function bbb(filmID) {
       return;
     } else {
       const jenresList = await renderJenresMarkup(filmData);
+
       addFirstTwoNames(jenresList, genres);
     }
     const jenresMarkupText = genres.join(', ');
     return jenresMarkupText;
   } catch (error) {
     console.log(error.message);
+    // Notiflix.Notify.warning('OOPS... SOMETHING WENT WRONG');
   }
 }
 

@@ -79,13 +79,12 @@ section.cards-library {
   color: var(--orange);
 }
 
-/*-----------------------------------Catalog-----------------*/
-/* .movies-gallery-catalog {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-} */
 
+.form_item_library{
+  position: absolute;
+margin-right: 10px;
+padding-bottom: 10px;
+}
 
 .movies-gallery {
   display: flex;
@@ -93,7 +92,6 @@ section.cards-library {
   color: #fff;
   flex-direction: column;
   width: 280px;
-  /* align-items: center; */
   margin-right: auto;
   margin-left: auto;
 }
@@ -103,6 +101,9 @@ section.cards-library {
   height: 406px;
   position: relative;
   margin-bottom: 16px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
 }
 
 .movie-info {
@@ -144,14 +145,6 @@ section.cards-library {
   line-height: 20px;
   margin-right: 10px;
 }
-
-/* .movie-year::before {
-  content: '';
-  display: block;
-  height: 10px;
-  width: 1px;
-  background-color: white;
-} */
 
 .movie-year {
   font-family: 'Roboto-500', sans-serif;
@@ -197,10 +190,6 @@ section.cards-library {
   border: 1px solid var(--orange);
 }
 
-/* .movies-gallery-catalog {
-  text-align: center;
-} */
-
 .notify-message {
   text-align: center;
   color: var(--white);
@@ -208,7 +197,6 @@ section.cards-library {
 
 .empty-gallery {
   text-align: center;
-  /* display: none; */
 }
 
 .hide {
@@ -252,7 +240,6 @@ section.cards-library {
     left: 114px;
   }
 
-  /*-----------------------------Catalog------------*/
   .movies-gallery {
     display: flex;
     flex-direction: row;
@@ -307,13 +294,6 @@ section.cards-library {
     margin-right: 10px;
   }
 
-  /* .movie-year::before {
-    content: '';
-    display: block;
-    height: 10px;
-    width: 1px;
-    background-color: white;
-  } */
   .movie-year {
     font-family: 'Roboto-500', sans-serif;
     font-style: normal;
@@ -328,7 +308,6 @@ section.cards-library {
     justify-content: flex-end;
   }
 
-  /*------------------Buttons------------------------*/
   .load,
   .search-more {
     font-size: 14px;
@@ -386,7 +365,6 @@ section.cards-library {
     width: 260px;
   }
 
-  /*-------------Catalog--------------*/
   .movies-gallery {
     display: flex;
     gap: 16px;
@@ -438,13 +416,6 @@ section.cards-library {
     line-height: 24px;
   }
 
-  /* .movie-year::before {
-    content: '';
-    display: block;
-    height: 10px;
-    width: 1px;
-    background-color: white;
-  } */
   .movie-rating {
     display: flex;
     align-items: baseline;

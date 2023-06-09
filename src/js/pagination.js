@@ -1,4 +1,5 @@
 import Pagination from 'tui-pagination';
+import Notiflix from 'notiflix';
 
 let totalEl = 0;
 let page = 1;

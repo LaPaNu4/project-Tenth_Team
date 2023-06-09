@@ -1,5 +1,6 @@
 import axios from 'axios';
-import {addRating} from './rating'
+import { addRating } from './rating';
+import Notiflix from 'notiflix';
 
 const sectionHero = document.querySelector('.hero-section');
 const containerDefault = document.querySelector('.hero-default');
@@ -18,6 +19,7 @@ let ID_T = null;
 document.addEventListener('DOMContentLoaded', renderFilmDay);
 watchBtn.addEventListener('click', onWatchBtnClick);
 closeBtn.addEventListener('click', onCloseBtnClick);
+popupContainer.addEventListener('click', onBackdropClick);
 
 async function renderFilmDay() {
   try {
@@ -48,9 +50,9 @@ async function renderTrailer(ID) {
     
     popupDefault.classList.add('hero-hidden');
 
-    console.log(trailer);//for info
-    console.log(key);//for info
-  } catch (err) {
+    window.addEventListener('keydown', onESCPress);
+
+    } catch (err) {
     onErrorTrailer(err);
   }
 }
@@ -71,7 +73,6 @@ async function getTrailer(idTrailer) {
 function randomFilmFind(arr) {
   const randomIndex = Math.floor(Math.random() * arr.length);
   const randomFilm = arr[randomIndex];
-  console.log(randomFilm); // for info
   return randomFilm;
 }
 
@@ -87,7 +88,6 @@ function createRandomFilm(filmObj) {
 
   const poster = `https://image.tmdb.org/t/p/original/${backdrop_path}`;
   rating = vote_average;
-  console.log(rating);//for info
   moreDetailsBtn.setAttribute('id', `${id}`);
   ID_T = id;
     
@@ -110,11 +110,11 @@ function createRandomFilm(filmObj) {
                 <div class="rating_body">
                     <div class="rating_active"></div>
                     <div class="rating_items">
-                        <input type="radio" class="rating_item" value="1" name="rating">
-                        <input type="radio" class="rating_item" value="2" name="rating">
-                        <input type="radio" class="rating_item" value="3" name="rating">
-                        <input type="radio" class="rating_item" value="4" name="rating">
-                        <input type="radio" class="rating_item" value="5" name="rating">
+                        <input type="radio" aria-label="1 stars" class="rating_item" value="1" name="rating">
+                        <input type="radio" aria-label="2 stars" class="rating_item" value="2" name="rating">
+                        <input type="radio" aria-label="3 stars" class="rating_item" value="3" name="rating">
+                        <input type="radio" aria-label="4 stars" class="rating_item" value="4" name="rating">
+                        <input type="radio" aria-label="5 stars" class="rating_item" value="5" name="rating">
                     </div>
                 </div>
             </div>
@@ -130,29 +130,44 @@ function createRandomFilm(filmObj) {
 function createTrailer(keyTrailer) {  
   popupContainer.classList.remove('popup-hidden');
   popupRender.classList.remove('hero-hidden');
-
+  
   const urlTrailer = `https://www.youtube.com/embed/${keyTrailer}`;
 
   popupRender.innerHTML = `<iframe class="popup-video" width="" height="" src="${urlTrailer}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>`;
 }
 
-
 function onCloseBtnClick(e) {
   e.preventDefault();
+  closePopup();
+}
+
+function onBackdropClick (e) {
+  e.preventDefault();
+    if (!e.target.classList.contains('popup-hidden')) {
+      closePopup();
+}}
+
+function onESCPress(e) {
+  e.preventDefault();
+  if (!e.target.classList.contains('popup-hidden')) {
+    closePopup();
+}}
+
+function closePopup() {
   popupContainer.classList.add('popup-hidden');
-  document.body.style.position = '';
   popupRender.innerHTML = "";
 }
 
 function onError(err) {
-  console.error(err);
+  // console.error(err);
+  Notiflix.Notify.warning('OOPS... SOMETHING WENT WRONG');
   containerDefault.classList.remove('hero-hidden');
 }
 
 function onErrorTrailer(err) {
-  console.error(err);
+  // console.error(err);
+  Notiflix.Notify.warning('OOPS... SOMETHING WENT WRONG');
   popupContainer.classList.remove('popup-hidden');
-  document.body.style.position = 'fixed';
 }
 
 

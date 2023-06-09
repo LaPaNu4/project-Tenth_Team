@@ -1,177 +1,187 @@
-.button-subject{
-    cursor: pointer;
-    background: var(--gradient-1);
-    width: 44px;
-    height: 18px;
-    display: flex;
-    border: 1px solid #000000;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 194px;
-    position: relative;
+.button-subject {
+  cursor: pointer;
+  background: var(--gradient-1);
+  width: 44px;
+  height: 18px;
+  display: flex;
+  border: 1px solid #000000;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 194px;
+  position: relative;
+}
+
+.button-moon {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  left: 3px;
+  fill: var(--white);
+  top: 3px;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.button-moonicon {
+  position: absolute;
+  width: 13px;
+  height: 13px;
+  right: 2px;
+  top: 1px;
+  align-items: center;
+  justify-content: center;
+  fill: var(--white);
+}
+
+.gallery-weekly {
+  color: white !important;
+}
+
+.hero-section {
+  color: white !important;
+
+}
+
+.hero-text {
+  color: #f8f8f8 !important;
+}
+
+.vote {
+  background-color: #ffffff !important;
+  color: #000000 !important;
+}
+
+.gallery-weekly__title {
+  color: white !important;
+}
+
+.cards-list__text {
+  color: #b7b7b7 !important;
+}
+
+.film-vote-text {
+  background-color: #ffffff !important;
+  color: #000000 !important;
+}
+
+.film-votes-text {
+  background-color: #ffffff !important;
+  color: #000000 !important;
+}
+
+.light {
+
+  --black: #ffffff;
+  --white: #111111;
+  --gray: #595959;
+  --gray-light: #111111;
+  --silver: #282828;
+  --bgmenu: #fff;
+  --dropdown: #f8f8f8;
+}
+
+.lightcolor {
+  color: var(--gray);
+}
+
+
+.lightwhite {
+  background: #ffffff;
+}
+
+
+.lightcolorgray {
+  color: var(--gray-light);
+}
+
+.lightcolordark {
+  color: var(--gray-dark);
+}
+
+.borderlight {
+  color: var(--black);
+  border: 1px solid #595959;
+}
+
+.button-subjectlight {
+  cursor: pointer;
+  background: var(--gradient-1);
+  display: none;
+  width: 44px;
+  height: 18px;
+  border: none;
+  border-radius: 194px;
+  position: relative;
+}
+
+.button-sun {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  right: 4px;
+  color: var(--white);
+  top: 4px;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.button-sunicon {
+  width: 13px;
+  height: 13px;
+  position: absolute;
+  left: 3px;
+  top: 2px;
+  align-items: center;
+  justify-content: center;
+  fill: #ffffff;
+}
+
+@media screen and (min-width: 768px) {
+  .button-subject {
+    width: 60px;
+    height: 24px;
   }
 
-  .button-moon{
-    position: absolute;
-    width: 10px;
-    height: 10px;
-    left: 3px;
-    fill: var(--white);
-    top: 3px;
-    align-items: center;
-    justify-content: center;
-  
-  }
-  .button-moonicon{
-    position: absolute;
+  .button-moon {
     width: 13px;
     height: 13px;
-    right: 2px;
-    top: 1px;
-    align-items: center;
-    justify-content: center; 
-    fill: var(--white);
+    left: 4px;
+    top: 5px;
   }
 
-  .gallery-weekly{
-    color: white !important;
-  }
-
-  .hero-section{
-    color: white !important;
-
-  }
-  .hero-text{
-    color:  #f8f8f8  !important;
-  }
-  .vote{
-    background-color: #ffffff !important;
-    color: #000000 !important;
-  }
-  .gallery-weekly__title{
-    color: white  !important;
-  }
-  .cards-list__text{
-    color:#b7b7b7  !important;
-  }
-  .film-vote-text{
-    background-color: #ffffff !important; 
-    color: #000000 !important;
-  }
-  .film-votes-text{
-    background-color: #ffffff !important; 
-    color: #000000 !important;
-  }
-   
-  .light{
-    
-      --black: #ffffff ;
-      --white:  #111111;
-      --gray: #595959;
-      --gray-light:  #111111;
-      --silver: #282828;
-      --bgmenu: #fff;
-      --dropdown:  #f8f8f8;
-   }
-
- .lightcolor{
-    color: var(--gray);
-  }
-  .lightblack{
-   color: transparent;
-    color: var(--black);
-  }
-  .lightwhite{
-    background: #ffffff;
-   }
- 
-
-  .lightcolorgray{
-    color: var(--gray-light);
-  }   
-
-  .lightcolordark{
-    color: var(--gray-dark);
-  }
-  .borderlight {
-    color: var(--black);
-    border: 1px solid #595959;
-  }
-
-  .button-subjectlight{
-    display: none;
-    cursor: pointer;
-    background: var(--gradient-1);
-    display: flex;
-    width: 44px;
+  .button-moonicon {
+    width: 18px;
     height: 18px;
-    border: none;
-    border-radius: 194px;
-    position: relative;
-  }
-  .button-sun{
-    position: absolute;
-    width: 10px;
-    height: 10px;
-    right: 4px;
-    color: var(--white);
-    top: 4px;
-    align-items: center;
-    justify-content: center;
-  
-  }
-  .button-sunicon{
-    width: 13px;
-    height: 13px;
-    position: absolute;
-    left: 3px;
+    right: 3px;
     top: 2px;
-    align-items: center;
-    justify-content: center;
-    fill: #ffffff;
   }
-  
-  @media screen and (min-width: 768px) {
-    .button-subject{
-      width: 60px;
-      height: 24px;
-       }
-  
-       .button-moon{
-        width: 13px;
-        height: 13px;
-        left: 4px;
-        top: 5px;
-      }
-  
-      .button-moonicon{
-        width: 18px;
-        height: 18px;
-        right: 3px;
-        top: 2px;
-      }
-      .button-subjectlight{
-        width: 60px;
-        height: 24px;
-      
-      }
-  
-      .button-sun{
-        width: 14px;
-        height: 14px;
-        right: 4px;
-        top: 5px;
-      
-      
-      }
-      .button-sunicon{
-        width: 18px;
-        height: 18px;
-        left: 3px;
-        top: 3px;
-      }
+
+  .button-subjectlight {
+    width: 60px;
+    height: 24px;
+
   }
-  @media (min-width: 768px) and (max-width: 1279px){
-    .themetoggle{
-        margin-left: auto;
-     }
+
+  .button-sun {
+    width: 14px;
+    height: 14px;
+    right: 4px;
+    top: 5px;
+
+
   }
+
+  .button-sunicon {
+    width: 18px;
+    height: 18px;
+    left: 3px;
+    top: 3px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1279px) {
+  .themetoggle {
+    margin-left: auto;
+  }
+}

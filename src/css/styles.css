@@ -49,7 +49,7 @@ body {
   flex-direction: column;
   font-family: 'Roboto-400', sans-serif;
   background: var(--black);
-  color: var(--white);  
+  color: var(--white);
 }
 
 .color-h{
@@ -109,24 +109,3 @@ a {
 main {
   flex: 1 1 auto;
 }
-
-/*
-.container {
-  width: 100%;
-  padding: 0 20px;
-  margin: auto;
-}
-
-
-@media screen and (min-width: 768px) {
-  .container {
-    width: 768px;
-    padding: 0 32px;
-  }
-}
-@media screen and (min-width: 1280px) {
-  .container {
-    width: 1280px;
-  }
-}
-*/
