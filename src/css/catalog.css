@@ -52,8 +52,8 @@ p {
   border: none;
 }
 
-.search-form-icon {
-  stroke: #f84119;
+#search-icon path {
+  stroke: var(--white);
 }
 
 .search-form-btn:hover {
@@ -197,6 +197,9 @@ p {
   width: 24px;
   height: 24px;
 
+  background-position: center;
+  background-repeat: no-repeat;
+
   border: 1px solid #595959;
   border-radius: 50%;
 
@@ -208,47 +211,67 @@ p {
   color: var(--white);
 }
 
+.tui-page-btn:hover {
+  transform: scale(1.1) translateZ(0);
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 0 20px var(--orange);
+  background: linear-gradient(141.22deg, #ffc226 9.4%, #f84119 91.91%);
+}
+
 .tui-is-selected {
   background: linear-gradient(141.22deg, #ffc226 9.4%, #f84119 91.91%);
 }
 
 .tui-page-btn.tui-prev {
   background-image: url(../images/pagination/pagination-left.svg);
-  background-position: 50%;
-  background-repeat: no-repeat;
   border: none;
-  margin-right: 0;
 }
 
 .tui-page-btn.tui-prev:hover {
-  stroke: #b7b7b7;
+  background-repeat: no-repeat;
+  background-position: center;
+  box-shadow: none;
+  transform: scale(1.3) translateZ(0);
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .tui-page-btn.tui-next {
   background-image: url(../images/pagination/pagination-right.svg);
-  background-position: center;
-  background-repeat: no-repeat;
   border: none;
-  fill: #b7b7b7;
-  margin-right: 0;
+}
+
+.tui-page-btn.tui-next:hover {
+  background-repeat: no-repeat;
+  background-position: center;
+  box-shadow: none;
+  transform: scale(1.3) translateZ(0);
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .tui-page-btn.tui-first {
-  background-image: url(../images/pagination/double-arrow-prev.png);
-  background-position: center;
-  background-repeat: no-repeat;
+  background-image: url(../images/pagination/double-arrow-prew.png);
   border: none;
-  margin: 0;
-  fill: #b7b7b7;
+}
+
+.tui-page-btn.tui-page-btn.tui-first:hover {
+  background-repeat: no-repeat;
+  background-position: center;
+  box-shadow: none;
+  transform: scale(1.3) translateZ(0);
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .tui-page-btn.tui-last {
   background-image: url(../images/pagination/double-arrow-next.png);
-  background-position: center;
-  background-repeat: no-repeat;
   border: none;
-  margin: 0;
-  fill: #b7b7b7;
+}
+
+.tui-page-btn.tui-page-btn.tui-last:hover {
+  background-repeat: no-repeat;
+  background-position: center;
+  box-shadow: none;
+  transform: scale(1.3) translateZ(0);
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .no-films-message {

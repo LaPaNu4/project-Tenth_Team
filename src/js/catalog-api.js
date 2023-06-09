@@ -51,7 +51,8 @@ export async function getGenres() {
     const response = await axios.get(
       `${API_URL}genre/movie/list?${API_KEY}&language=en-US`
     );
-    return response;
+    console.log(response.data.genres);
+    return response.data.genres;
   } catch (error) {
     console.log(error.message);
   }
