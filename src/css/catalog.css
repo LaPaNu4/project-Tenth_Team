@@ -83,6 +83,7 @@ p {
   transform: scale(1.02) translateZ(0);
   transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   box-shadow: 0 0 20px var(--orange);
+  cursor: pointer;
 }
 
 .image-wrap {
