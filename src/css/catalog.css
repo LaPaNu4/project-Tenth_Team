@@ -109,7 +109,8 @@ p {
 }
 
 .catalog-rating-body::before {
-  content: '★★★★★';
+   content: '\2606''\2606''\2606''\2606''\2606';
+  color: #F89F19;
   display: block;
 }
 
@@ -144,7 +145,7 @@ p {
   height: 100%;
   top: 0;
   left: 0;
-  color: var(--orange);
+  color: #F89F19;
 }
 
 .image-wrap:after {
